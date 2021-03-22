@@ -11,6 +11,7 @@ import WebKit
 
 //import BEMCheckBox
 
+
 class ALTPrivacyPoliciesViewController: ALTBaseViewController {
     private let _buttonClose = UIButton()
     
