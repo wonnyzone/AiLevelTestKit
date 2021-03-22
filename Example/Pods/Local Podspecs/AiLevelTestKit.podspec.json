@@ -1,0 +1,40 @@
+{
+  "name": "AiLevelTestKit",
+  "version": "0.9.10",
+  "summary": "A short description of AiLevelTestKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/jk-gna/AiLevelTestKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jk-gna": "junq.jeon@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/jk-gna/AiLevelTestKit.git",
+    "tag": "0.9.10"
+  },
+  "platforms": {
+    "ios": "12.1"
+  },
+  "source_files": "AiLevelTestKit/Classes/**/*",
+  "resources": "AiLevelTestKit/Assets/**/*.{png,storyboard}",
+  "resource_bundles": {
+    "AiLevelTestKit": [
+      "AiLevelTestKit/Assets/*.png"
+    ]
+  },
+  "static_framework": true,
+  "dependencies": {
+    "BEMCheckBox": [
+
+    ],
+    "OCWaveView": [
+
+    ],
+    "lame": [
+
+    ]
+  }
+}

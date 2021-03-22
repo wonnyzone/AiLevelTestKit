@@ -15,6 +15,8 @@ class TestListViewController: UIViewController {
         
         self.title = "테스트 리스트"
         
+        self.view.backgroundColor = ColourKit.Code.HexFFFFFF
+        
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .red
@@ -31,7 +33,7 @@ class TestListViewController: UIViewController {
     }
     
     @objc private func pressedButton(_ button: UIButton) {
-        AiLevelTestKit.shared.startTestWith(id: "examId", from: self)
+        AiLevelTestKit.shared.startTestWith(id: "lv_ko_en_a", from: self)
 //        AiLevelTestKit.shared.startTest(from: self, withId: "examId")
     }
 }

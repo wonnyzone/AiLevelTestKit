@@ -235,6 +235,8 @@ class LevelTestManager: NSObject {
                 return
             }
             
+            print(responseData)
+            
             let data = ALTLevelTest(with: responseData)
             guard let path = data.quiz?.category?.path  else {
                 completion(nil, errMessage)

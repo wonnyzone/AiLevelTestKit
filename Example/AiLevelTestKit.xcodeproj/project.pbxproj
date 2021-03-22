@@ -43,7 +43,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		640FB2097C611FAD677CE4E1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		726944EDC2AAE8E570BA6B29 /* AiLevelTestKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AiLevelTestKit.podspec; path = ../AiLevelTestKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		726944EDC2AAE8E570BA6B29 /* AiLevelTestKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AiLevelTestKit.podspec; path = ../AiLevelTestKit.podspec; sourceTree = "<group>"; };
 		8E87CBA0C2347A422604C4E4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9A4B509DE7128B6D82167120 /* Pods-AiLevelTestKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiLevelTestKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-AiLevelTestKit_Tests/Pods-AiLevelTestKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BE96DD56BC20370BF44CDE23 /* Pods-AiLevelTestKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AiLevelTestKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-AiLevelTestKit_Example/Pods-AiLevelTestKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +174,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				523CECB59B8DDAE8C09FDA06 /* [CP] Embed Pods Frameworks */,
+				C39B4B9D046F1C2589078777 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,10 +217,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = E59YUPDAN4;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = E59YUPDAN4;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -295,13 +298,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AiLevelTestKit_Example/Pods-AiLevelTestKit_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AiLevelTestKit/AiLevelTestKit.framework",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/OCWaveView/OCWaveView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AiLevelTestKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCWaveView.framework",
 			);
@@ -330,6 +331,330 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C39B4B9D046F1C2589078777 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AiLevelTestKit_Example/Pods-AiLevelTestKit_Example-resources.sh",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/AppIcon.appiconset/Icon-1024.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/AppIcon.appiconset/Icon-20@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/AppIcon.appiconset/Icon-20@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/AppIcon.appiconset/Icon-60@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/AppIcon.appiconset/Icon-60@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/AppIcon.appiconset/Icon-Small-40@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/AppIcon.appiconset/Icon-Small-40@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/AppIcon.appiconset/Icon-Small@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/AppIcon.appiconset/Icon-Small@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/img_appicon.imageset/img_appicon.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/img_appicon.imageset/img_appicon@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/img_appicon.imageset/img_appicon@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/img_archive.imageset/img_archive.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/img_archive.imageset/img_archive@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/Images.xcassets/img_archive.imageset/img_archive@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_appicon.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_appicon@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_appicon@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_archive.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_archive@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_archive@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele1.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele1@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele1@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele2.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele2@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele2@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele3.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele3@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele3@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele4.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele4@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele4@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele5.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele5@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele5@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele6.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele6@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_ele6@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_female.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_female@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_female@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_kinder.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_kinder@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_kinder@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_male.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_male@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_male@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_mid1.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_mid1@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_mid1@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_mid2.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_mid2@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_mid2@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_mid3.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_mid3@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_char_mid3@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_check.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_check@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_check@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_close.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_close@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_close@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_close_blk.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_close_blk@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_close_blk@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_cross.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_cross@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_cross@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial1.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial1@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial1@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial2.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial2@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial2@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial3.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial3@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial3@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad1.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad1@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad1@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad2.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad2@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad2@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad3.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad3@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad3@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad4.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad4@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_jtutorial_pad4@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_logo.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_logo@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_logo@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_nav_back.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_nav_back@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_nav_back@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_nav_logo.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_nav_logo@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_nav_logo@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_pencil.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_pencil@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_pencil@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_playOff.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_playOff@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_playOff@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_playOn.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_playOn@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_playOn@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_search.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_search@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_search@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_setting.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_setting@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_setting@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_time.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_time@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_time@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial1.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial1@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial1@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial2.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial2@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial2@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial3.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial3@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial3@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial4.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial4@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial4@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial5.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial5@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial5@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad1.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad1@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad1@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad2.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad2@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad2@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad3.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad3@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad3@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad4.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad4@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad4@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad5.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad5@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_tutorial_pad5@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_volume.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_volume@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_volume@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_wired_earphone.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_wired_earphone@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_wired_earphone@3x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_wireless_earphone.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_wireless_earphone@2x.png",
+				"${PODS_ROOT}/../../AiLevelTestKit/Assets/img_wireless_earphone@3x.png",
+				"${PODS_CONFIGURATION_BUILD_DIR}/AiLevelTestKit/AiLevelTestKit.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Icon-1024.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Icon-20@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Icon-20@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Icon-60@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Icon-60@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Icon-Small-40@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Icon-Small-40@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Icon-Small@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Icon-Small@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_appicon.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_appicon@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_appicon@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_archive.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_archive@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_archive@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele1@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele1@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele2@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele2@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele3.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele3@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele3@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele4.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele4@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele4@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele5.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele5@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele5@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele6.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele6@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_ele6@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_female.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_female@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_female@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_kinder.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_kinder@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_kinder@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_male.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_male@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_male@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_mid1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_mid1@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_mid1@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_mid2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_mid2@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_mid2@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_mid3.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_mid3@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_char_mid3@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_check.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_check@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_check@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_close.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_close@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_close@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_close_blk.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_close_blk@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_close_blk@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_cross.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_cross@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_cross@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial1@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial1@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial2@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial2@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial3.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial3@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial3@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad1@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad1@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad2@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad2@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad3.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad3@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad3@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad4.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad4@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_jtutorial_pad4@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_logo.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_logo@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_logo@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_nav_back.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_nav_back@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_nav_back@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_nav_logo.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_nav_logo@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_nav_logo@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_pencil.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_pencil@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_pencil@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_playOff.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_playOff@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_playOff@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_playOn.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_playOn@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_playOn@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_search.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_search@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_search@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_setting.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_setting@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_setting@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_time.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_time@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_time@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial1@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial1@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial2@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial2@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial3.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial3@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial3@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial4.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial4@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial4@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial5.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial5@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial5@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad1@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad1@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad2@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad2@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad3.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad3@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad3@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad4.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad4@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad4@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad5.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad5@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_tutorial_pad5@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_volume.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_volume@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_volume@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_wired_earphone.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_wired_earphone@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_wired_earphone@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_wireless_earphone.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_wireless_earphone@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/img_wireless_earphone@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AiLevelTestKit.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AiLevelTestKit_Example/Pods-AiLevelTestKit_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D73D7C16B01DD650C03DF31C /* [CP] Embed Pods Frameworks */ = {
@@ -512,10 +837,13 @@
 			baseConfigurationReference = BE96DD56BC20370BF44CDE23 /* Pods-AiLevelTestKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = "1 ";
+				DEVELOPMENT_TEAM = E59YUPDAN4;
 				INFOPLIST_FILE = AiLevelTestKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.allinoneedu.dev.AiLevelInternalTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -527,10 +855,13 @@
 			baseConfigurationReference = 43BBBB566F343B1220C14E3E /* Pods-AiLevelTestKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = "1 ";
+				DEVELOPMENT_TEAM = E59YUPDAN4;
 				INFOPLIST_FILE = AiLevelTestKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.1;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.allinoneedu.dev.AiLevelInternalTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -541,6 +872,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8E3B7FA0625B4B5718A92E9 /* Pods-AiLevelTestKit_Tests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				DEVELOPMENT_TEAM = E59YUPDAN4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -563,6 +896,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9A4B509DE7128B6D82167120 /* Pods-AiLevelTestKit_Tests.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				DEVELOPMENT_TEAM = E59YUPDAN4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

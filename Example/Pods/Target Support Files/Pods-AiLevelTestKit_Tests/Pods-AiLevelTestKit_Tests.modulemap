@@ -1,0 +1,6 @@
+framework module Pods_AiLevelTestKit_Tests {
+  umbrella header "Pods-AiLevelTestKit_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

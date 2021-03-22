@@ -1,0 +1,6 @@
+framework module AiLevelTestKit {
+  umbrella header "AiLevelTestKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

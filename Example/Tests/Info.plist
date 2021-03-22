@@ -20,5 +20,9 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Access to Mic for STT</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Access to Speech Recogniser</string>
 </dict>
 </plist>

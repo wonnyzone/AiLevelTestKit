@@ -159,6 +159,7 @@ class ALTTutorialViewController: ALTBaseViewController {
         self.view.layoutIfNeeded()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

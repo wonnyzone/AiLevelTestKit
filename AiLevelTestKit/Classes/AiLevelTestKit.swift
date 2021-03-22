@@ -36,6 +36,17 @@ public class AiLevelTestKit {
     
     public func initialize() {
         AVAudioSession.sharedInstance().requestRecordPermission { (succeed) in }
+        
+        var image: UIImage?
+        let bundle = Bundle(for: AiLevelTestKit.self)
+        if #available(iOS 13.0, *) {
+            image = UIImage(named: "img_close_blk", in: bundle, with: nil)
+        } else {
+            image = UIImage(named: "img_close_blk", in: bundle, compatibleWith: nil)
+        }
+        print(image)
+        
+        print(UIImage(named: "img_close_blk"))
     }
     
     public func activate(groupCode: String, email: String? = nil, themeColour: UIColor = #colorLiteral(red: 0.9294117647, green: 0.07843137255, blue: 0.3568627451, alpha: 1), completion: @escaping ((_ code: ALTResponseCode, _ errorMessage: String?) -> Void)) {
@@ -167,5 +178,11 @@ public class AiLevelTestKit {
             navController.modalPresentationStyle = .fullScreen
             viewController.present(navController, animated: true, completion: nil)
         }
+    }
+    
+    public func showResult(testSrl: Int, from viewController: UIViewController) {
+        let vc = ALTResultWebViewController(testSrl: testSrl)
+        vc.modalPresentationStyle = .overFullScreen
+        viewController.present(vc, animated: true, completion: nil)
     }
 }

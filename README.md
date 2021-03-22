@@ -51,11 +51,6 @@ info.plist에서 다음의 항목을 반드시 추가해주세요.
 
 다음의 순서대로 사용하여 주세요.
 
-프레임웍 초기화, 마이크 접근 권한 확인 
-```swift
-AiLevelTestKit.shared.initialize()
-```
-    
 그룹코드 및 이메일로 프레임웍 활성화 및 인증
 ```swift
 AiLevelTestKit.shared.activate(groupCode: "allinone07834", email: "evan", themeColour: #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)) { [weak self] (code, errMessage) in
@@ -73,21 +68,18 @@ AiLevelTestKit.shared.activate(groupCode: "allinone07834", email: "evan", themeC
         }
 ```
 
-테스트 목록 가져오기
-```swift
-AiLevelTestKit.shared.getExamList {[weak self] (code, errMessage, examList) in
-            guard code == .Succeed, examList != nil else {
-                // 리스트 가져오기 실패
-                return
-            }
-            // 성공
-        }
-```
 
 테스트 시작하기
 ```swift
-AiLevelTestKit.shared.startTest(from: self, with: data)
-// data = 테스트 목록 가져오기에서 examList 의 item 중 선택
+AiLevelTestKit.shared.startTest(id: "exam1", from: self)
+// data = 시험 아이디 (String)
 ```
+
+테스트 결과 보기
+```swift
+AiLevelTestKit.shared.showResult(testSrl: 1234, from: self)
+// testSrl = 시험 고유 번호 (Int)
+```
+
 
 Copyrights 2020 - present 올인원에듀테크, Co, Ltd. All rights reserved.
