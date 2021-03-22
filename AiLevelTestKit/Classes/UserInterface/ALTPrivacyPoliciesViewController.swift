@@ -22,7 +22,7 @@ class ALTPrivacyPoliciesViewController: ALTBaseViewController {
     
     private var _isAgreed = false {
         didSet {
-            _checkBoxAgree.setOn(_isAgreed, animated: true)
+//            _checkBoxAgree.setOn(_isAgreed, animated: true)
             _buttonNext.isEnabled = _isAgreed
         }
     }
