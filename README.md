@@ -1,5 +1,9 @@
 # AiLevelTestKitExample 
 
+[![CI Status](https://img.shields.io/travis/jk-gna/AiLevelTestSFKit.svg?style=flat)](https://travis-ci.org/jk-gna/AiLevelTestSFKit)
+[![Version](https://img.shields.io/cocoapods/v/AiLevelTestSFKit.svg?style=flat)](https://cocoapods.org/pods/AiLevelTestSFKit)
+[![Platform](https://img.shields.io/cocoapods/p/AiLevelTestSFKit.svg?style=flat)](https://cocoapods.org/pods/AiLevelTestSFKit)
+
 README
 This README would normally document whatever steps are necessary to get your application up and running.
 
@@ -17,7 +21,22 @@ iOS 12.1 or above
 3. Optimized for ARM64 Architecture.
 </details>
 
-## Framework Version 0.9.10
+## Framework Version 0.9.11
+
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+AiLevelTestSFKit is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'AiLevelTestKit'
+```
 
 ## Getting Started
 
