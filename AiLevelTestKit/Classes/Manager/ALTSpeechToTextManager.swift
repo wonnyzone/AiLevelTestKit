@@ -12,6 +12,8 @@ import Accelerate
 
 import Speech
 
+import lame
+
 @objc protocol ALTSpeechToTextManagerDelegate {
     func speechToTextManager(didStart manager: ALTSpeechToTextManager)
     func speechToTextManager(didStop manager: ALTSpeechToTextManager, withResult text: String?)
