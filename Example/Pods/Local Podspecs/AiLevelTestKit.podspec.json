@@ -1,6 +1,6 @@
 {
   "name": "AiLevelTestKit",
-  "version": "0.9.11",
+  "version": "0.9.14",
   "summary": "AiLevelTestKit iOS version.",
   "description": "AiLevelTestKit based on Swift5 for native iOS",
   "homepage": "http://aileveltest.co.kr",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/wonnyzone/AiLevelTestKit.git",
-    "tag": "0.9.11"
+    "tag": "0.9.14"
   },
   "platforms": {
     "ios": "12.1"
@@ -27,11 +27,20 @@
   },
   "static_framework": true,
   "dependencies": {
+    "BEMCheckBox": [
+
+    ],
     "OCWaveView": [
 
     ],
     "lame": [
 
     ]
+  },
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
   }
 }

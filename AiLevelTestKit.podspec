@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AiLevelTestKit'
-  s.version          = '0.9.13'
+  s.version          = '0.9.14'
   s.summary          = 'AiLevelTestKit iOS version.'
 
 # This description is used to generate tags and improve search results.
@@ -39,7 +39,12 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
   
     s.static_framework = true
-#   s.dependency 'BEMCheckBox'
+   s.dependency 'BEMCheckBox'
    s.dependency 'OCWaveView'
    s.dependency 'lame'
+   
+   s.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 end

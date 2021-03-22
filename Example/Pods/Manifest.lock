@@ -1,7 +1,9 @@
 PODS:
-  - AiLevelTestKit (0.9.11):
+  - AiLevelTestKit (0.9.14):
+    - BEMCheckBox
     - lame
     - OCWaveView
+  - BEMCheckBox (1.4.1)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
@@ -31,6 +33,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - BEMCheckBox
     - FBSnapshotTestCase
     - iOSSnapshotTestCase
     - lame
@@ -44,7 +47,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AiLevelTestKit: 8245e385ff0b5cfbfdc1670908dfcc67ee9bae6d
+  AiLevelTestKit: 67a56aacf0b12c74d9ac8fef9d29997825c5df4b
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
   lame: 1edb6e24a4e2056b9d1fd90c9fddc10c9aff875d
