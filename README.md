@@ -9,7 +9,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ## What is this repository for?
 An example app for AiLevelTestKit iOS framework. 
-Built based on Swift 5 with Xcode 12.3.
+Built based on Swift 4 with Xcode 12.3.
 
 ## System Requirements
 iOS 12.1 or above
@@ -21,7 +21,7 @@ iOS 12.1 or above
 3. Optimized for ARM64 Architecture.
 </details>
 
-## Framework Version 0.9.11
+## Framework Version 0.9.14
 
 ## Example
 
