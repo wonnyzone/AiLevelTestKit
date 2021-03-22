@@ -463,7 +463,7 @@ class ALTMicTestViewController: ALTBaseViewController {
         label.sizeToFit()
         self.navigationItem.titleView = label
         
-        self.view.bringSubviewToFront(_labelGuide.superview!)
+        self.view.bringSubview(toFront: _labelGuide.superview!)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -581,7 +581,7 @@ class ALTMicTestViewController: ALTBaseViewController {
         _buttonNext.isEnabled = false
         _isSkippable = false
         
-        _player?.seek(to: .zero)
+        _player?.seek(to: kCMTimeZero)
         _player?.play()
     }
     

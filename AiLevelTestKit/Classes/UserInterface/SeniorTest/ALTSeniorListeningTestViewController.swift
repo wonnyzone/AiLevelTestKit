@@ -282,7 +282,7 @@ class ALTSeniorListeningTestViewController: ALLTSeniorTestBaseViewController {
         _buttonNext.isEnabled = false
         _isSkippable = false
         
-        _player?.seek(to: .zero)
+        _player?.seek(to: kCMTimeZero)
         _player?.play()
         
         if _player != nil {

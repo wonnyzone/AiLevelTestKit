@@ -88,7 +88,7 @@ extension UIView {
 }
 
 extension UINavigationController {
-    open override var childForStatusBarStyle: UIViewController? {
+    open override var childViewControllerForStatusBarStyle: UIViewController? {
         return self.topViewController
     }
 }

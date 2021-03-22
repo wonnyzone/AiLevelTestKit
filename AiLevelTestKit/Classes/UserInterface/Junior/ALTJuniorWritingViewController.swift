@@ -29,7 +29,7 @@ class ALTJuniorWritingViewController: ALTJuniorTestBaseViewController {
         _collectionView.delegate = self
         _collectionView.dataSource = self
         _collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
-        _collectionView.register(ALTJuniorWritingFooterReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ALTJuniorWritingFooterReusableView")
+        _collectionView.register(ALTJuniorWritingFooterReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "ALTJuniorWritingFooterReusableView")
         _collectionView.register(ALTJuniorWritingHeaderCollectionViewCell.self, forCellWithReuseIdentifier: "ALTJuniorWritingHeaderCollectionViewCell")
         _collectionView.register(ALTSeniorWritingTestAnswerCollectionViewCell.self, forCellWithReuseIdentifier: "ALTSeniorWritingTestAnswerCollectionViewCell")
         _collectionView.register(ALTSeniorWritingTestSelectableCollectionViewCell.self, forCellWithReuseIdentifier: "ALTSeniorWritingTestSelectableCollectionViewCell")
@@ -120,7 +120,7 @@ extension ALTJuniorWritingViewController: UICollectionViewDelegate, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if indexPath.section == 3, kind == UICollectionView.elementKindSectionFooter, let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ALTJuniorWritingFooterReusableView", for: indexPath) as? ALTJuniorWritingFooterReusableView {
+        if indexPath.section == 3, kind == UICollectionElementKindSectionFooter, let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ALTJuniorWritingFooterReusableView", for: indexPath) as? ALTJuniorWritingFooterReusableView {
             for subview in reusableView.subviews {
                 subview.removeFromSuperview()
             }

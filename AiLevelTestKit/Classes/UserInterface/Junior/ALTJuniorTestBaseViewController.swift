@@ -25,7 +25,7 @@ class ALTJuniorTestBaseViewController: ALTBaseTestViewController {
         _footerView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
         var attributes = QTextAttributes(withForegroundColour: ColourKit.Code.Hex555555, font: UIFont.systemFont(ofSize: 15.optimizedWithHeight, weight: .medium)).attributes
         if UIScreen.main.bounds.size.width > 400 {
-            attributes[.underlineStyle] = NSUnderlineStyle.single.rawValue
+            attributes[.underlineStyle] = NSUnderlineStyle.styleSingle.rawValue
             attributes[.underlineColor] = ColourKit.Code.Hex555555.cgColor
         }
         

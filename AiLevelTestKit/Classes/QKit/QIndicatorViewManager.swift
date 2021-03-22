@@ -40,9 +40,9 @@ class QIndicatorViewManager: NSObject {
             guard let self = self else { return }
             
             if #available(iOS 13.0, *) {
-                self.indicatorView = UIActivityIndicatorView(style: .large)
+                self.indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .large)
             } else {
-                self.indicatorView = UIActivityIndicatorView(style: .whiteLarge)
+                self.indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
             }
             self.indicatorView?.color = AiLevelTestKit.shared.themeColour
             self.indicatorView?.translatesAutoresizingMaskIntoConstraints = false

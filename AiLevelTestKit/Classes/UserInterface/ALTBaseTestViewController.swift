@@ -63,7 +63,7 @@ class ALTBaseTestViewController: ALTBaseViewController {
         (self.navigationController as? ALTJuniorTestNavigationController)?.setStep(step)
         
         if let sview = _labelGuide.superview {
-            self.view.bringSubviewToFront(sview)
+            self.view.bringSubview(toFront: sview)
         }
     }
     

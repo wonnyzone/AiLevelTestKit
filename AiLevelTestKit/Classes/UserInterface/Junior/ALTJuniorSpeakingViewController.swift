@@ -238,7 +238,7 @@ class ALTJuniorSpeakingViewController: ALTJuniorTestBaseViewController {
         
         var attributes = QTextAttributes(withForegroundColour: ColourKit.Code.Hex555555, font: UIFont.systemFont(ofSize: 15.optimizedWithHeight, weight: .medium)).attributes
         if UIScreen.main.bounds.size.width > 400 {
-            attributes[.underlineStyle] = NSUnderlineStyle.single.rawValue
+            attributes[.underlineStyle] = NSUnderlineStyle.styleSingle.rawValue
             attributes[.underlineColor] = ColourKit.Code.Hex555555.cgColor
         }
         
@@ -411,7 +411,7 @@ class ALTJuniorSpeakingViewController: ALTJuniorTestBaseViewController {
         _buttonNext.isEnabled = false
         _isSkippable = false
         
-        _player?.seek(to: .zero)
+        _player?.seek(to: kCMTimeZero)
         _player?.play()
     }
     
