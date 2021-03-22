@@ -9,7 +9,7 @@ import UIKit
 
 import WebKit
 
-import BEMCheckBox
+//import BEMCheckBox
 
 class ALTPrivacyPoliciesViewController: ALTBaseViewController {
     private let _buttonClose = UIButton()
@@ -17,7 +17,7 @@ class ALTPrivacyPoliciesViewController: ALTBaseViewController {
     private let _htmlView = WKWebView()
     
     private let _buttonAgree = UIButton()
-    private let _checkBoxAgree = BEMCheckBox(frame: CGRect(x: 0, y: 0, width: 18, height: 18).optimized)
+//    private let _checkBoxAgree = BEMCheckBox(frame: CGRect(x: 0, y: 0, width: 18, height: 18).optimized)
     private let _buttonNext = UIButton()
     
     private var _isAgreed = false {
@@ -91,25 +91,25 @@ class ALTPrivacyPoliciesViewController: ALTBaseViewController {
         _buttonAgree.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         _buttonAgree.heightAnchor.constraint(equalToConstant: 38.optimized).isActive = true
         
-        _checkBoxAgree.translatesAutoresizingMaskIntoConstraints = false
-        _checkBoxAgree.boxType = .square
-        _checkBoxAgree.on = _isAgreed
-        _checkBoxAgree.isUserInteractionEnabled = false
-        _checkBoxAgree.tintColor = ColourKit.Code.Static.Hex2D78CD
-        _checkBoxAgree.offFillColor = .clear
-        _checkBoxAgree.onTintColor = ColourKit.Code.Static.Hex2D78CD
-        _checkBoxAgree.onFillColor = ColourKit.Code.Static.Hex2D78CD
-        _checkBoxAgree.onCheckColor = .white
-        _checkBoxAgree.lineWidth = 2.optimized
-        _checkBoxAgree.onAnimationType = .bounce
-        _checkBoxAgree.offAnimationType = .flat
-        _checkBoxAgree.animationDuration = 0.25
-        self.view.addSubview(_checkBoxAgree)
-        
-        _checkBoxAgree.widthAnchor.constraint(equalToConstant: 18.optimized).isActive = true
-        _checkBoxAgree.heightAnchor.constraint(equalToConstant: 18.optimized).isActive = true
-        _checkBoxAgree.leadingAnchor.constraint(equalTo: _buttonAgree.leadingAnchor, constant: 20.optimized).isActive = true
-        _checkBoxAgree.centerYAnchor.constraint(equalTo: _buttonAgree.centerYAnchor).isActive = true
+//        _checkBoxAgree.translatesAutoresizingMaskIntoConstraints = false
+//        _checkBoxAgree.boxType = .square
+//        _checkBoxAgree.on = _isAgreed
+//        _checkBoxAgree.isUserInteractionEnabled = false
+//        _checkBoxAgree.tintColor = ColourKit.Code.Static.Hex2D78CD
+//        _checkBoxAgree.offFillColor = .clear
+//        _checkBoxAgree.onTintColor = ColourKit.Code.Static.Hex2D78CD
+//        _checkBoxAgree.onFillColor = ColourKit.Code.Static.Hex2D78CD
+//        _checkBoxAgree.onCheckColor = .white
+//        _checkBoxAgree.lineWidth = 2.optimized
+//        _checkBoxAgree.onAnimationType = .bounce
+//        _checkBoxAgree.offAnimationType = .flat
+//        _checkBoxAgree.animationDuration = 0.25
+//        self.view.addSubview(_checkBoxAgree)
+//
+//        _checkBoxAgree.widthAnchor.constraint(equalToConstant: 18.optimized).isActive = true
+//        _checkBoxAgree.heightAnchor.constraint(equalToConstant: 18.optimized).isActive = true
+//        _checkBoxAgree.leadingAnchor.constraint(equalTo: _buttonAgree.leadingAnchor, constant: 20.optimized).isActive = true
+//        _checkBoxAgree.centerYAnchor.constraint(equalTo: _buttonAgree.centerYAnchor).isActive = true
         
         let bold = "(필수)"
         let string = String(format: "개인정보 제3자 활동 동의 %@", arguments: [bold])
@@ -129,7 +129,7 @@ class ALTPrivacyPoliciesViewController: ALTBaseViewController {
         _buttonAgree.addSubview(label)
         
         label.centerYAnchor.constraint(equalTo: _buttonAgree.centerYAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: _checkBoxAgree.trailingAnchor, constant: 8.optimized).isActive = true
+        label.leadingAnchor.constraint(equalTo: _buttonAgree.leadingAnchor, constant: 8.optimized).isActive = true
         label.trailingAnchor.constraint(equalTo: _buttonAgree.trailingAnchor, constant: -20.optimized).isActive = true
         
         label = UILabel()

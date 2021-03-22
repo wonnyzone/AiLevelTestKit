@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AiLevelTestKit'
-  s.version          = '0.9.12'
+  s.version          = '0.9.11'
   s.summary          = 'AiLevelTestKit iOS version.'
 
 # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.author           = { 'jk-gna' => 'junq.jeon@gmail.com' }
   s.source           = { :git => 'https://github.com/wonnyzone/AiLevelTestKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+    
   s.ios.deployment_target = '12.1'
 
   s.source_files = 'AiLevelTestKit/Classes/**/*'
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
   
     s.static_framework = true
-   s.dependency 'BEMCheckBox'
+#   s.dependency 'BEMCheckBox'
    s.dependency 'OCWaveView'
    s.dependency 'lame'
 end
