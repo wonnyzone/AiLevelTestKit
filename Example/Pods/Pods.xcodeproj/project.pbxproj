@@ -4529,7 +4529,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 0.9.18;
 				MODULEMAP_FILE = "Target Support Files/AiLevelTestKit/AiLevelTestKit.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = com.allinoneedu.AiLevelTestKit;
 				PRODUCT_MODULE_NAME = AiLevelTestKit;
 				PRODUCT_NAME = AiLevelTestKit;
 				SDKROOT = iphoneos;
@@ -4765,7 +4767,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 0.9.18;
 				MODULEMAP_FILE = "Target Support Files/AiLevelTestKit/AiLevelTestKit.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = com.allinoneedu.AiLevelTestKit;
 				PRODUCT_MODULE_NAME = AiLevelTestKit;
 				PRODUCT_NAME = AiLevelTestKit;
 				SDKROOT = iphoneos;
