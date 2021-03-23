@@ -21,38 +21,21 @@ iOS 12.1 or above
 3. Optimized for ARM64 Architecture.
 </details>
 
-## Framework Version 0.9.14
+## Framework Version 0.9.15
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
 
-## Installation
+## Getting Started
 
-AiLevelTestSFKit is available through [CocoaPods](https://cocoapods.org). To install
+AiLevelTestKit is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'AiLevelTestKit'
 ```
-
-## Getting Started
-
-Downloads에서 <b>framework.zip</b> 다운 받으시면 framework 폴더 안에 각각 device 용 simulator 용 AiLevelTestKit 이 있는지 확인하십시오.
-빌드하시는 타깃에 따라 각각의 프레임웍을 사용하셔야 합니다.
-기본으로 내장되어 있는 프레임웍은 시뮬레이터 용입니다.
-
-만약, 프레임웍을 교체하신 후 빌드시 "Library not loaded" 오류가 발생하실 때는 다음의 작업을 진행하세요:
-1. 프로젝트 파일 선택
-2. Build phases 탭 선택
-3. Copy Files 섹션 (없을 경우 +를 눌러 추가) 에서 
-    Destination : Framework 으로 설정
-    Subpath : 공란으로 남겨둠
-    Copy only when installing : 미선택
-    "AiLevelTestKit.framework" 파일을 추가한 후 Code sign on copy 를 체크
-4. 프로젝트 clean 후 빌드
 
 ### 프레임웍 사용시 필수 사항
 info.plist에서 다음의 항목을 반드시 추가해주세요.
@@ -90,14 +73,31 @@ AiLevelTestKit.shared.activate(groupCode: "allinone07834", email: "evan", themeC
 
 테스트 시작하기
 ```swift
-AiLevelTestKit.shared.startTest(id: "exam1", from: self)
+AiLevelTestKit.shared.startTestWith(id: "exam1", from: self)
 // data = 시험 아이디 (String)
 ```
 
-테스트 결과 보기
+테스트 결과 리스트 보기
+```swift
+AiLevelTestKit.shared.getResultList(for: 0) { (retData) in
+    // 현재 페이지
+    let currentPage = retData?["page"] as? Int
+    // 전체 결과 개수
+    let totalCount = retData?["total_count"] as? Int
+    // 다음 페이지에 데이터가 있는지 여부
+    let hasNextPage = retData?["has_next_page"] as? Bool
+    // 현재 페이지의 데이터
+    let results = retData?["results"] as? [ALTLevelTestResultData]
+}
+// data = 현재 페이지 (0부터 시작)
+// 
+// response: retData.results => ALTLevelTestResultData->testSrl :  시험 고유번호 (Int)
+```
+
+테스트 결과 상세 보기 
 ```swift
 AiLevelTestKit.shared.showResult(testSrl: 1234, from: self)
-// testSrl = 시험 고유 번호 (Int)
+// testSrl = 시험 고유 번호 (Int) (상기 테스트 결과 리스트 조회의 결과 값 참조)
 ```
 
 

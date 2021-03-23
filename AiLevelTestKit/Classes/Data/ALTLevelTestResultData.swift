@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ALTLevelTestResultData: ALTBaseData {
+public class ALTLevelTestResultData: ALTBaseData {
     class Info: ALTBaseData {
         var sectionNames: [String]? {
             return rawData["section_name"] as? [String]
@@ -54,7 +54,7 @@ class ALTLevelTestResultData: ALTBaseData {
         }
     }
     
-    var testSrl: Int? {
+    public var testSrl: Int? {
         return rawData["test_srl"] as? Int
     }
     

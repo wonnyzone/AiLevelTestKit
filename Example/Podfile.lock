@@ -1,5 +1,5 @@
 PODS:
-  - AiLevelTestKit (0.9.14):
+  - AiLevelTestKit (0.9.15):
     - BEMCheckBox
     - lame
     - OCWaveView
@@ -47,7 +47,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AiLevelTestKit: 67a56aacf0b12c74d9ac8fef9d29997825c5df4b
+  AiLevelTestKit: 77839d894b63dd3fb38188362181630046d9d2b3
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6

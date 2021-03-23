@@ -180,6 +180,63 @@ public class AiLevelTestKit {
         }
     }
     
+    private func getResultList(for page: Int, completion: @escaping ([String:Any]?) -> Void) {
+        let httpClient = QHttpClient()
+        
+        var params = [String:Any]()
+        params["group_code"] = UserDataManager.manager.groupCode
+        params["email"] = UserDataManager.manager.userId
+        params["page"] = page
+        httpClient.parameters = QHttpClient.Parameter(dict: params)
+        
+        httpClient.sendRequest(to: RequestUrl.Result.GetList) { (code, errMessage, response) in
+            guard code == .success, let responseData = response as? [String:Any] else {
+                completion(nil)
+                return
+            }
+            
+            var retData = [String:Any]()
+            retData["page"] = page
+            retData["total_count"] = responseData["total_count"] as? Int ?? 0
+            
+//            if var ad_image = responseData["ad_image"] as? String, ad_image.count > 0 {
+//                if ad_image.hasPrefix("./") {
+//                    ad_image = "\(ad_image.dropFirst(2))"
+//                } else if ad_image.hasPrefix("/") {
+//                    ad_image = "\(ad_image.dropFirst(1))"
+//                }
+//
+//                PINRemoteImageManager().downloadImage(with: URL(string: RequestUrl.Image + ad_image)!, options: .downloadOptionsSkipEarlyCheck) {[weak self] (result) in
+//                    self?.showTableHeaderView(with: result.image)
+//                } completion: {[weak self] (result) in
+//                    self?.showTableHeaderView(with: result.image)
+//                }
+//
+//            } else {
+//                self?._theTableView.tableHeaderView = nil
+//                self?._imageViewAds = nil
+//            }
+            
+            var array = [ALTLevelTestResultData]()
+            if let list = responseData["list"] as? [[String:Any]] {
+                array.append(contentsOf: list.map({ (item) -> ALTLevelTestResultData in
+                    return ALTLevelTestResultData(with: item)
+                }))
+            }
+            retData["has_next_page"] = array.count > 0
+            retData["results"] = array
+            
+            completion(retData)
+        }
+    }
+    
+    public func showResultList(from viewController: UIViewController) {
+        let vc = ALTMyPageViewController()
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .overFullScreen
+        navController.present(vc, animated: true, completion: nil)
+    }
+    
     public func showResult(testSrl: Int, from viewController: UIViewController) {
         let vc = ALTResultWebViewController(testSrl: testSrl)
         vc.modalPresentationStyle = .overFullScreen
