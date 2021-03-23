@@ -154,9 +154,9 @@ public class AiLevelTestKit {
                                 
                                 var navController: ALTNavigationController!
                                 if LevelTestManager.manager.isJunior {
-                                    navController = ALTJuniorTestNavigationController(rootViewController: viewController)
+                                    navController = ALTJuniorTestNavigationController(rootViewController: nextVC!)
                                 } else {
-                                    navController = ALLTSeniorTestNavigationController(rootViewController: viewController)
+                                    navController = ALLTSeniorTestNavigationController(rootViewController: nextVC!)
                                 }
                                 navController.modalPresentationStyle = .overFullScreen
                                 viewController.present(navController, animated: true, completion: nil)
