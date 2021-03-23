@@ -121,7 +121,12 @@ public class AiLevelTestKit {
                                 return
                             }
                             
-                            let navController = ALLTSeniorTestNavigationController(rootViewController: nextVC!)
+                            var navController: ALTNavigationController!
+                            if LevelTestManager.manager.isJunior {
+                                navController = ALTJuniorTestNavigationController(rootViewController: nextVC!)
+                            } else {
+                                navController = ALLTSeniorTestNavigationController(rootViewController: nextVC!)
+                            }
                             navController.modalPresentationStyle = .overFullScreen
                             viewController.present(navController, animated: true, completion: nil)
                         }
@@ -147,7 +152,12 @@ public class AiLevelTestKit {
                                     return
                                 }
                                 
-                                let navController = ALLTSeniorTestNavigationController(rootViewController: nextVC!)
+                                var navController: ALTNavigationController!
+                                if LevelTestManager.manager.isJunior {
+                                    navController = ALTJuniorTestNavigationController(rootViewController: viewController)
+                                } else {
+                                    navController = ALLTSeniorTestNavigationController(rootViewController: viewController)
+                                }
                                 navController.modalPresentationStyle = .overFullScreen
                                 viewController.present(navController, animated: true, completion: nil)
                             }
@@ -164,7 +174,12 @@ public class AiLevelTestKit {
         
         if LevelTestManager.manager.needAgreement {
             let childViewController = ALTPrivacyPoliciesViewController()
-            let navController = ALTNavigationController(rootViewController: childViewController)
+            var navController: ALTNavigationController!
+            if LevelTestManager.manager.isJunior {
+                navController = ALTJuniorTestNavigationController(rootViewController: childViewController)
+            } else {
+                navController = ALLTSeniorTestNavigationController(rootViewController: childViewController)
+            }
             navController.modalPresentationStyle = .fullScreen
             viewController.present(navController, animated: true, completion: nil)
 //        } else if (LevelTestManager.manager.examInfo?.isCouponActivated ?? false) == true {
@@ -174,7 +189,12 @@ public class AiLevelTestKit {
 //            viewController.present(navController, animated: true, completion: nil)
         } else {
             let childViewController = ALTTutorialViewController()
-            let navController = ALTNavigationController(rootViewController: childViewController)
+            var navController: ALTNavigationController!
+            if LevelTestManager.manager.isJunior {
+                navController = ALTJuniorTestNavigationController(rootViewController: childViewController)
+            } else {
+                navController = ALLTSeniorTestNavigationController(rootViewController: childViewController)
+            }
             navController.modalPresentationStyle = .fullScreen
             viewController.present(navController, animated: true, completion: nil)
         }
