@@ -62,7 +62,6 @@ class TestListViewController: UIViewController {
     
     @objc private func pressedButton(_ button: UIButton) {
 //        AiLevelTestKit.shared.startTestWith(id: "lv_ko_en_a", from: self)
-//        AiLevelTestKit.shared.startTest(from: self, withId: "examId")
-        
+        AiLevelTestKit.shared.showResultList(from: self)
     }
 }

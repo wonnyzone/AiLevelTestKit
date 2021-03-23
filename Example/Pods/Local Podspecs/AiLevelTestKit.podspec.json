@@ -1,6 +1,6 @@
 {
   "name": "AiLevelTestKit",
-  "version": "0.9.15",
+  "version": "0.9.14",
   "summary": "AiLevelTestKit iOS version.",
   "description": "AiLevelTestKit based on Swift5 for native iOS",
   "homepage": "http://aileveltest.co.kr",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/wonnyzone/AiLevelTestKit.git",
-    "tag": "0.9.15"
+    "tag": "0.9.14"
   },
   "platforms": {
     "ios": "12.1"
@@ -34,6 +34,9 @@
 
     ],
     "lame": [
+
+    ],
+    "PINRemoteImage": [
 
     ]
   },

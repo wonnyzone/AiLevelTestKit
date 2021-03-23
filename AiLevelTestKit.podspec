@@ -42,6 +42,7 @@ Pod::Spec.new do |s|
    s.dependency 'BEMCheckBox'
    s.dependency 'OCWaveView'
    s.dependency 'lame'
+   s.dependency 'PINRemoteImage'
    
    s.pod_target_xcconfig = {
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
