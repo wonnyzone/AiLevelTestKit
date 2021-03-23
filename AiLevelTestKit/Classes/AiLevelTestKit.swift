@@ -230,12 +230,12 @@ public class AiLevelTestKit {
         }
     }
     
-    public func showResultList(from viewController: UIViewController) {
-        let vc = ALTMyPageViewController()
-        let navController = UINavigationController(rootViewController: vc)
-        navController.modalPresentationStyle = .overFullScreen
-        navController.present(vc, animated: true, completion: nil)
-    }
+//    public func showResultList(from viewController: UIViewController) {
+//        let vc = ALTMyPageViewController()
+//        let navController = UINavigationController(rootViewController: vc)
+//        navController.modalPresentationStyle = .overFullScreen
+//        viewController.present(navController, animated: true, completion: nil)
+//    }
     
     public func showResult(testSrl: Int, from viewController: UIViewController) {
         let vc = ALTResultWebViewController(testSrl: testSrl)

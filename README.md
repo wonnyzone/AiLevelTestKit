@@ -21,7 +21,7 @@ iOS 12.1 or above
 3. Optimized for ARM64 Architecture.
 </details>
 
-## Framework Version 0.9.15
+## Framework Version 0.9.16
 
 ## Example
 
@@ -77,22 +77,6 @@ AiLevelTestKit.shared.startTestWith(id: "exam1", from: self)
 // data = 시험 아이디 (String)
 ```
 
-테스트 결과 리스트 보기
-```swift
-AiLevelTestKit.shared.getResultList(for: 0) { (retData) in
-    // 현재 페이지
-    let currentPage = retData?["page"] as? Int
-    // 전체 결과 개수
-    let totalCount = retData?["total_count"] as? Int
-    // 다음 페이지에 데이터가 있는지 여부
-    let hasNextPage = retData?["has_next_page"] as? Bool
-    // 현재 페이지의 데이터
-    let results = retData?["results"] as? [ALTLevelTestResultData]
-}
-// data = 현재 페이지 (0부터 시작)
-// 
-// response: retData.results => ALTLevelTestResultData->testSrl :  시험 고유번호 (Int)
-```
 
 테스트 결과 상세 보기 
 ```swift

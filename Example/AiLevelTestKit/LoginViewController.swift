@@ -23,6 +23,8 @@ class LoginViewController: UIViewController {
         
         self.title = "로그인"
         
+        self.view.backgroundColor = ColourKit.Code.HexF0F0F0
+        
         _buttonStart.backgroundColor = .red
         _buttonStart.clipsToBounds = true
         _buttonStart.layer.cornerRadius = 8

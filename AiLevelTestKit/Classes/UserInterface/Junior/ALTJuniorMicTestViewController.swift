@@ -360,7 +360,7 @@ class ALTJuniorMicTestViewController: ALTBaseViewController {
         self.navigationItem.rightBarButtonItems = []
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.barTintColor = self.view.backgroundColor
         

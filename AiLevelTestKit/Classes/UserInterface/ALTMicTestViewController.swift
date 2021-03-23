@@ -452,7 +452,7 @@ class ALTMicTestViewController: ALTBaseViewController {
         self.navigationItem.rightBarButtonItems = [_barButtonItemClose]
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage.withSolid(colour: ColourKit.Code.Hex3E3A39), for: .default)
-        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.barTintColor = ColourKit.Code.Hex3E3A39
         
