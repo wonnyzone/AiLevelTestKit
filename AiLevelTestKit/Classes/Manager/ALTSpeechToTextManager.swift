@@ -49,6 +49,11 @@ class ALTSpeechToTextManager: NSObject {
     internal var _audioFile: AVAudioFile?
     
     func start(languageCode code: String) {
+        if _recogTask != nil {
+            _recogTask?.cancel()
+            _recogTask = nil
+        }
+        
         guard _audioEngine.isRunning == false, _speechRecognizer == nil else { return }
         
         _resultString = nil
@@ -70,11 +75,6 @@ class ALTSpeechToTextManager: NSObject {
         _recogRequest?.shouldReportPartialResults = true
         if #available(iOS 13.0, *) {
             _recogRequest?.requiresOnDeviceRecognition = true
-        }
-        
-        if _recogTask != nil {
-            _recogTask?.cancel()
-            _recogTask = nil
         }
         
         _recogTask = _speechRecognizer?.recognitionTask(with: _recogRequest!, resultHandler: {[weak self] (result, error) in
@@ -145,7 +145,13 @@ class ALTSpeechToTextManager: NSObject {
     }
     
     func stop() {
-        guard _audioEngine.isRunning else { return }
+        guard _audioEngine.isRunning else {
+            DispatchQueue.main.async { [weak self] in
+                self?._recogTask?.cancel()
+                self?._recogTask = nil
+            }
+            return
+        }
         
         DispatchQueue.main.async { [weak self] in
             self?._timerThreshold?.invalidate()

@@ -221,7 +221,7 @@ class ALTTutorialViewController: ALTBaseViewController {
                     break
                 }
                 
-                QIndicatorViewManager.shared.showIndicatorView {(complete) in
+//                QIndicatorViewManager.shared.showIndicatorView {(complete) in
                     LevelTestManager.manager.startTest {[weak self] (testSrl, errMessage) in
                         QIndicatorViewManager.shared.hideIndicatorView()
                         
@@ -243,7 +243,7 @@ class ALTTutorialViewController: ALTBaseViewController {
                             
                             self?.navigationController?.setViewControllers([viewController!], animated: true)
                         }
-                    }
+//                    }
                 }
                 break
             }
