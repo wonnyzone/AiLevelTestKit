@@ -37,19 +37,21 @@ it, simply add the following line to your Podfile:
 pod 'AiLevelTestKit'
 ```
 
-### 프레임웍 사용시 필수 사항
+
+## Basic Implementation
+
 info.plist에서 다음의 항목을 반드시 추가해주세요.
 ```
     <key>NSMicrophoneUsageDescription</key>
-    <string>음성 인식을 위해 마이크를 사용합니다.</string>
+    <string>Access to Mic for STT</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Access to Speech Recogniser</string>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>
         <true/>
     </dict>    
 ```
-
-## Basic Implementation
 
 다음의 순서대로 사용하여 주세요.
 
