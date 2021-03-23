@@ -75,11 +75,14 @@ class ALTResultWebViewController: ALTBaseViewController {
 extension ALTResultWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         guard let groupCode = UserDataManager.manager.groupCode, let userId = UserDataManager.manager.userId else { return }
-        var javascript = "leveltestResult()"
-        if self.testSrl != nil {
-            javascript = "leveldirectResult(\"\(groupCode)\",\"\(userId)\",\(testSrl!))"
-        }
-        webView.evaluateJavaScript(javascript, completionHandler: nil)
+        
+        _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: {[weak self] (timer) in
+            var javascript = "leveltestResult()"
+            if let testSrl = self?.testSrl {
+                javascript = "leveldirectResult(\"\(groupCode)\",\"\(userId)\",\(testSrl))"
+            }
+            webView.evaluateJavaScript(javascript, completionHandler: nil)
+        })
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {

@@ -26,6 +26,7 @@ class TestListViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "테스트"
+        label.textAlignment = .right
         label.textColor = UIColor.darkText
         label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         self.view.addSubview(label)
@@ -38,8 +39,6 @@ class TestListViewController: UIViewController {
         _textFieldTestSrl.translatesAutoresizingMaskIntoConstraints = false
         _textFieldTestSrl.backgroundColor = .white
         _textFieldTestSrl.borderStyle = .roundedRect
-        _textFieldTestSrl.layer.borderWidth = 1
-        _textFieldTestSrl.layer.borderColor = ColourKit.Code.Hex000000.cgColor
         _textFieldTestSrl.text = "lv_ko_en_a"
         _textFieldTestSrl.textColor = .darkText
         _textFieldTestSrl.font = UIFont.systemFont(ofSize: 13, weight: .regular)
@@ -48,8 +47,6 @@ class TestListViewController: UIViewController {
         _textFieldTestSrl.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
         _textFieldTestSrl.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 17).isActive = true
         _textFieldTestSrl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
-        
-        self.view.backgroundColor = ColourKit.Code.HexFFFFFF
         
         _buttonTest.translatesAutoresizingMaskIntoConstraints = false
         _buttonTest.backgroundColor = .red
