@@ -38,6 +38,8 @@ class TestListViewController: UIViewController {
         _textFieldTestSrl.translatesAutoresizingMaskIntoConstraints = false
         _textFieldTestSrl.backgroundColor = .white
         _textFieldTestSrl.borderStyle = .roundedRect
+        _textFieldTestSrl.layer.borderWidth = 1
+        _textFieldTestSrl.layer.borderColor = ColourKit.Code.Hex000000.cgColor
         _textFieldTestSrl.text = "lv_ko_en_a"
         _textFieldTestSrl.textColor = .darkText
         _textFieldTestSrl.font = UIFont.systemFont(ofSize: 13, weight: .regular)
@@ -85,7 +87,7 @@ class TestListViewController: UIViewController {
             break
             
         case _buttonResult:
-//            AiLevelTestKit.shared.showResultList(from: self)
+            AiLevelTestKit.shared.showResult(from: self)
             break
             
         default:

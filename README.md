@@ -21,7 +21,7 @@ iOS 12.1 or above
 3. Optimized for ARM64 Architecture.
 </details>
 
-## Framework Version 0.9.16
+## Framework Version 0.9.17
 
 ## Example
 
@@ -78,10 +78,9 @@ AiLevelTestKit.shared.startTestWith(id: "exam1", from: self)
 ```
 
 
-테스트 결과 상세 보기 
+테스트 결과 보기 
 ```swift
-AiLevelTestKit.shared.showResult(testSrl: 1234, from: self)
-// testSrl = 시험 고유 번호 (Int) (상기 테스트 결과 리스트 조회의 결과 값 참조)
+AiLevelTestKit.shared.showResult(from: self)
 ```
 
 

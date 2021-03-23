@@ -237,8 +237,8 @@ public class AiLevelTestKit {
 //        viewController.present(navController, animated: true, completion: nil)
 //    }
     
-    public func showResult(testSrl: Int, from viewController: UIViewController) {
-        let vc = ALTResultWebViewController(testSrl: testSrl)
+    public func showResult(from viewController: UIViewController) {
+        let vc = ALTResultWebViewController(testSrl: nil)
         vc.modalPresentationStyle = .overFullScreen
         viewController.present(vc, animated: true, completion: nil)
     }

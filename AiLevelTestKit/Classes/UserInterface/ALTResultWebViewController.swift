@@ -23,9 +23,9 @@ class ALTResultWebViewController: ALTBaseViewController {
         return WKWebView(frame: .zero, configuration: config)
     }()
     
-    let testSrl: Int
+    let testSrl: Int?
     
-    init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil, testSrl: Int) {
+    init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil, testSrl: Int?) {
         self.testSrl = testSrl
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -59,9 +59,9 @@ class ALTResultWebViewController: ALTBaseViewController {
         
         UIPasteboard.general.string = url.absoluteString
         
-        print(url.absoluteString)
-        let javascript = "leveldirectResult(\"\(UserDataManager.manager.groupCode!)\",\"\(UserDataManager.manager.userId!)\",\(testSrl))"
-        print(javascript)
+//        print(url.absoluteString)
+//        let javascript = "leveldirectResult(\"\(UserDataManager.manager.groupCode!)\",\"\(UserDataManager.manager.userId!)\",\(testSrl))"
+//        print(javascript)
         
         let request = URLRequest(url: url)
         _webView.load(request)
@@ -75,7 +75,10 @@ class ALTResultWebViewController: ALTBaseViewController {
 extension ALTResultWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         guard let groupCode = UserDataManager.manager.groupCode, let userId = UserDataManager.manager.userId else { return }
-        let javascript = "leveldirectResult(\"\(groupCode)\",\"\(userId)\",\(testSrl))"
+        var javascript = "leveltestResult()"
+        if self.testSrl != nil {
+            javascript = "leveldirectResult(\"\(groupCode)\",\"\(userId)\",\(testSrl!))"
+        }
         webView.evaluateJavaScript(javascript, completionHandler: nil)
     }
     
@@ -100,10 +103,10 @@ extension ALTResultWebViewController: WKNavigationDelegate {
 extension ALTResultWebViewController: WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: ALTAppString.General.Cancel, style: .cancel, handler: { (action) in
+        alertController.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { (action) in
             completionHandler(false)
         }))
-        alertController.addAction(UIAlertAction(title: ALTAppString.General.Yes, style: .default, handler: { (action) in
+        alertController.addAction(UIAlertAction(title: "예", style: .default, handler: { (action) in
             completionHandler(true)
         }))
         self.present(alertController, animated: true, completion: nil)

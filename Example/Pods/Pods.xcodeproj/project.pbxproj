@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = lame;
+			productName = lame;
 		};
 /* End PBXAggregateTarget section */
 
@@ -730,14 +731,14 @@
 		073E4E5ECBDBEB7E9B3009A7E149BC15 /* BeNil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeNil.swift; path = Sources/Nimble/Matchers/BeNil.swift; sourceTree = "<group>"; };
 		076CBDC754D01C9ADED010D0A7ED8BF4 /* img_tutorial_pad4@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_tutorial_pad4@3x.png"; path = "AiLevelTestKit/Assets/img_tutorial_pad4@3x.png"; sourceTree = "<group>"; };
 		0807D8DA1B27861FA3E99686E7AE9960 /* ALTJuniorWordViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTJuniorWordViewController.swift; sourceTree = "<group>"; };
-		0848260771B3D50B01AB41E1CADC3D32 /* AiLevelTestKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AiLevelTestKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0848260771B3D50B01AB41E1CADC3D32 /* AiLevelTestKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = AiLevelTestKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		08836042CEB0C4841E3ACEFEC1AE5557 /* BeEmpty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeEmpty.swift; path = Sources/Nimble/Matchers/BeEmpty.swift; sourceTree = "<group>"; };
 		0904F95714A5A4A7655922D546691C21 /* ALLTProgressBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALLTProgressBarView.swift; sourceTree = "<group>"; };
 		09BFCB60BC027526F28AAECB519C03F1 /* img_tutorial3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img_tutorial3.png; path = AiLevelTestKit/Assets/img_tutorial3.png; sourceTree = "<group>"; };
 		0C64526DE1A62B4E67F5911FBC7E09C5 /* Expression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expression.swift; path = Sources/Nimble/Expression.swift; sourceTree = "<group>"; };
 		0C702F88DC09535F5C336CF69F7E9E6B /* PINImageView+PINRemoteImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PINImageView+PINRemoteImage.h"; path = "Source/Classes/include/PINImageView+PINRemoteImage.h"; sourceTree = "<group>"; };
 		0C802200C9AF2B933989E915EF309A04 /* PINWebPAnimatedImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PINWebPAnimatedImage.m; path = Source/Classes/AnimatedImages/PINWebPAnimatedImage.m; sourceTree = "<group>"; };
-		0D631E9908483F9525A6B3F36F16CC61 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Quick.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D631E9908483F9525A6B3F36F16CC61 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D736E9136453DD7A0F7EB689BEA6C23 /* img_char_female.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img_char_female.png; path = AiLevelTestKit/Assets/img_char_female.png; sourceTree = "<group>"; };
 		0D814E0061ACA1148EBA28EEFA82A7ED /* ALTLoadMoreTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTLoadMoreTableViewCell.swift; sourceTree = "<group>"; };
 		0E055A27BC8F4484AA945F92B13B04EF /* FBSnapshotTestCasePlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCasePlatform.h; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.h; sourceTree = "<group>"; };
@@ -752,7 +753,7 @@
 		10C362EB997804541AACCB036EDE6C8E /* PINRemoteLock.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PINRemoteLock.m; path = Source/Classes/PINRemoteLock.m; sourceTree = "<group>"; };
 		10E6D2D675080FE77657A0912A7B3365 /* SwiftSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSupport.swift; path = FBSnapshotTestCase/SwiftSupport.swift; sourceTree = "<group>"; };
 		1106B8F9BF28D876184C10FF459E3022 /* PINOperationQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PINOperationQueue.h; path = Source/PINOperationQueue.h; sourceTree = "<group>"; };
-		115A4FCB2A03922EC10B633F15359653 /* PINRemoteImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PINRemoteImage.framework; path = PINRemoteImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		115A4FCB2A03922EC10B633F15359653 /* PINRemoteImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PINRemoteImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C203EC624AB2CF4EBA793FCDD55F24 /* img_char_mid2.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img_char_mid2.png; path = AiLevelTestKit/Assets/img_char_mid2.png; sourceTree = "<group>"; };
 		11E1B94084337D3FE8F6120AB667EC24 /* lame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = lame.release.xcconfig; sourceTree = "<group>"; };
 		1241B9C75A8E481D3F68C533ABB7C16A /* ALTLevelTestResultData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTLevelTestResultData.swift; sourceTree = "<group>"; };
@@ -787,12 +788,12 @@
 		2053F757DB65C5ED3DE6D9E18D6BC8DA /* img_jtutorial_pad2@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_jtutorial_pad2@3x.png"; path = "AiLevelTestKit/Assets/img_jtutorial_pad2@3x.png"; sourceTree = "<group>"; };
 		21A4DAB6970E6495F243A8D9E74973C5 /* ALTBaseData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTBaseData.swift; sourceTree = "<group>"; };
 		221D077530BF046FFF7E7054B594A0F2 /* UIImage+Diff.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Diff.h"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.h"; sourceTree = "<group>"; };
-		22C347595B1851A1E5B0A3762BB18EC9 /* PINOperation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PINOperation.framework; path = PINOperation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		22C347595B1851A1E5B0A3762BB18EC9 /* PINOperation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PINOperation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2316D71517A8BA568254FD4A8FD9C7C1 /* NMBObjCMatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NMBObjCMatcher.swift; path = Sources/Nimble/Adapters/NMBObjCMatcher.swift; sourceTree = "<group>"; };
 		237484B08782330495CC83B720B8AF86 /* String+C99ExtendedIdentifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+C99ExtendedIdentifier.swift"; path = "Sources/Quick/String+C99ExtendedIdentifier.swift"; sourceTree = "<group>"; };
 		249C4C85C0E5A4BBD964C935F013B840 /* CwlPreconditionTesting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CwlPreconditionTesting.h; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/include/CwlPreconditionTesting.h; sourceTree = "<group>"; };
 		24A11EF12B55D6BF7C2D800AB420AB6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		25175469BF94A1725DEFD0DEEFED7A64 /* Pods_AiLevelTestKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AiLevelTestKit_Tests.framework; path = "Pods-AiLevelTestKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		25175469BF94A1725DEFD0DEEFED7A64 /* Pods_AiLevelTestKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AiLevelTestKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		253118DE94B9FCD888101A893D9374A7 /* SatisfyAllOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SatisfyAllOf.swift; path = Sources/Nimble/Matchers/SatisfyAllOf.swift; sourceTree = "<group>"; };
 		264B0A8BA8D0925D3584CDF3E1490E16 /* PINCache-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PINCache-Info.plist"; sourceTree = "<group>"; };
 		268EDA4BDC38EE4ECB8B0D8F022B343A /* ALTSeniorWritingTestHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTSeniorWritingTestHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -820,7 +821,7 @@
 		32D968D0CCE58292A2D62503FDE9FFEC /* QCKDSL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QCKDSL.m; path = Sources/QuickObjectiveC/DSL/QCKDSL.m; sourceTree = "<group>"; };
 		3301746AB8CC97F9BC8D8B140C53372B /* PINRemoteImageCallbacks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PINRemoteImageCallbacks.m; path = Source/Classes/PINRemoteImageCallbacks.m; sourceTree = "<group>"; };
 		332EF25C802E907CC117BAE74A27148A /* FBSnapshotTestController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestController.m; path = FBSnapshotTestCase/FBSnapshotTestController.m; sourceTree = "<group>"; };
-		335522F7BB6BD17C08D9090EE52F78E7 /* AiLevelTestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AiLevelTestKit.framework; path = AiLevelTestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		335522F7BB6BD17C08D9090EE52F78E7 /* AiLevelTestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AiLevelTestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3477A94045B4135E627E3AEFD8A2F77F /* ALTSeniorReadingTestViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTSeniorReadingTestViewController.swift; sourceTree = "<group>"; };
 		34E04EB0014E264EF3073971F6848C09 /* FBSnapshotTestCase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FBSnapshotTestCase.modulemap; sourceTree = "<group>"; };
 		3530107ADC7D7B08E46215D63725097C /* PINRemoteImageCategoryManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PINRemoteImageCategoryManager.h; path = Source/Classes/include/PINRemoteImageCategoryManager.h; sourceTree = "<group>"; };
@@ -845,7 +846,7 @@
 		3C2A8238B7920B4605F2A81625DFA89B /* img_close.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img_close.png; path = AiLevelTestKit/Assets/img_close.png; sourceTree = "<group>"; };
 		3E0A8BC48196E4DD06D449153DBF3D6E /* DSL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DSL.m; path = Sources/NimbleObjectiveC/DSL.m; sourceTree = "<group>"; };
 		3E49229321E26C1F3307F6CD330414C5 /* img_nav_logo.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img_nav_logo.png; path = AiLevelTestKit/Assets/img_nav_logo.png; sourceTree = "<group>"; };
-		3F282D213AB9D1ECA1228C986CC9D2BA /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BEMCheckBox.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F282D213AB9D1ECA1228C986CC9D2BA /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFBBFCCE9D09B4F5AA2A4458FBAC5CC /* WaveView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaveView.swift; path = Sources/OCWaveView/WaveView.swift; sourceTree = "<group>"; };
 		405D3A65B64C38F869CC8444B3830A1F /* ALTBaseTransparentViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTBaseTransparentViewController.swift; sourceTree = "<group>"; };
 		4136D813113C9D991FD722265B08E243 /* PINAnimatedImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PINAnimatedImage.h; path = Source/Classes/include/PINAnimatedImage.h; sourceTree = "<group>"; };
@@ -893,7 +894,7 @@
 		51DCC3EE089E45787D88B96D72744A9A /* Expectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expectation.swift; path = Sources/Nimble/Expectation.swift; sourceTree = "<group>"; };
 		52048D02A3314C3E68EC013EF814F14C /* img_appicon@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_appicon@3x.png"; path = "AiLevelTestKit/Assets/img_appicon@3x.png"; sourceTree = "<group>"; };
 		5229D54D5D343757308DEFCE9B1A65A6 /* QuickConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuickConfiguration.swift; path = Sources/Quick/Configuration/QuickConfiguration.swift; sourceTree = "<group>"; };
-		52C1B30CC4697E1933141720223103BC /* Nimble_Snapshots.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Nimble_Snapshots.framework; path = "Nimble-Snapshots.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52C1B30CC4697E1933141720223103BC /* Nimble_Snapshots.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nimble_Snapshots.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C255C83E0537387C651E9E5E16A717 /* ALLTSeniorTestProgressBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALLTSeniorTestProgressBarView.swift; sourceTree = "<group>"; };
 		53250494D23FF47EFD142AB64F99733A /* QuickTestObservation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuickTestObservation.swift; path = Sources/Quick/QuickTestObservation.swift; sourceTree = "<group>"; };
 		532CD2833B389E75F8EDB5B22EBE2B7C /* Nimble.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Nimble.h; path = Sources/Nimble/Nimble.h; sourceTree = "<group>"; };
@@ -919,7 +920,7 @@
 		5AB329115C50CB8136DF60387993E3E7 /* NSData+ImageDetectors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageDetectors.m"; path = "Source/Classes/Categories/NSData+ImageDetectors.m"; sourceTree = "<group>"; };
 		5B0F326914ED4B49CE2C26BF75CFB29C /* ALTSeniorWritingTestViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTSeniorWritingTestViewController.swift; sourceTree = "<group>"; };
 		5C393547A2B977171BD41AEBA48667AF /* Equal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Equal.swift; path = Sources/Nimble/Matchers/Equal.swift; sourceTree = "<group>"; };
-		5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FBSnapshotTestCase.framework; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3F3A93D82351B0106ACDE326FE55DF /* Nimble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Nimble.debug.xcconfig; sourceTree = "<group>"; };
 		5EEDCBA549E17CF6D3B29BF954427C88 /* PINCache.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PINCache.modulemap; sourceTree = "<group>"; };
 		5FA742D597AB51CF2D8C7CE2530C6DE7 /* ALTLevelTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTLevelTest.swift; sourceTree = "<group>"; };
@@ -934,7 +935,7 @@
 		62323923A78B69F0664E11A8671FC679 /* QTextAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QTextAttributes.swift; sourceTree = "<group>"; };
 		6234EF0D2F0D3335B7003A4E33F4B76C /* ALTResultWebViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTResultWebViewController.swift; sourceTree = "<group>"; };
 		6287355156B8B29BC55F4050FEEB1AC5 /* Pods-AiLevelTestKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AiLevelTestKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		6320170E5A5A268B11CAE15D4EF6A9E3 /* PINCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PINCache.framework; path = PINCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6320170E5A5A268B11CAE15D4EF6A9E3 /* PINCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PINCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6388B822EE89AAE263940F5FC7906423 /* Pods-AiLevelTestKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AiLevelTestKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		6392ED93720CE5F8C6EDE7F9A5E7D811 /* ALLTBaseViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALLTBaseViewController.swift; sourceTree = "<group>"; };
 		64030891D809348EF52AF2A89F230051 /* AdapterProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdapterProtocols.swift; path = Sources/Nimble/Adapters/AdapterProtocols.swift; sourceTree = "<group>"; };
@@ -1002,7 +1003,7 @@
 		7C1A685CC68E70A76668F068331CFEF1 /* img_char_kinder@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_char_kinder@2x.png"; path = "AiLevelTestKit/Assets/img_char_kinder@2x.png"; sourceTree = "<group>"; };
 		7C22761AC1C021114C589F328F925BD7 /* Quick-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Quick-umbrella.h"; sourceTree = "<group>"; };
 		7CF55255C8E857CB097B09147C46948C /* OCWaveView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OCWaveView-dummy.m"; sourceTree = "<group>"; };
-		7D4FCD0449219D643C3392E133CB6AE2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		7D4FCD0449219D643C3392E133CB6AE2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7D9CDA3C9990198A3FA254FC8A6958E0 /* HaveValidSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HaveValidSnapshot.swift; path = Nimble_Snapshots/HaveValidSnapshot.swift; sourceTree = "<group>"; };
 		7DDE67B02F0772F37A169F845445057F /* img_char_mid3@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_char_mid3@3x.png"; path = "AiLevelTestKit/Assets/img_char_mid3@3x.png"; sourceTree = "<group>"; };
 		7E59D80034552E4F4BF46B688553C394 /* QuickConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickConfiguration.m; path = Sources/QuickObjectiveC/Configuration/QuickConfiguration.m; sourceTree = "<group>"; };
@@ -1015,7 +1016,7 @@
 		8116FFA02F143377530B955E4582D4F8 /* img_tutorial1.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img_tutorial1.png; path = AiLevelTestKit/Assets/img_tutorial1.png; sourceTree = "<group>"; };
 		811A610B139FE1B95C9C16117F0CFDB5 /* Pods-AiLevelTestKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AiLevelTestKit_Example-dummy.m"; sourceTree = "<group>"; };
 		813B9203896D29FA81CECF2869AAA717 /* BeAnInstanceOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeAnInstanceOf.swift; path = Sources/Nimble/Matchers/BeAnInstanceOf.swift; sourceTree = "<group>"; };
-		8157FF5368C377B9CD2B5DD7C8139269 /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mach_excServer.c; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlMachBadInstructionHandler/mach_excServer.c; sourceTree = "<group>"; };
+		8157FF5368C377B9CD2B5DD7C8139269 /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mach_excServer.c; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlMachBadInstructionHandler/mach_excServer.c; sourceTree = "<group>"; };
 		819F9A782AFF5A958B5744BDF9D5DC2D /* img_tutorial1@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_tutorial1@3x.png"; path = "AiLevelTestKit/Assets/img_tutorial1@3x.png"; sourceTree = "<group>"; };
 		82FFDEE593BC84CE630D9361E7D12C18 /* FBSnapshotTestCasePlatform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCasePlatform.m; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.m; sourceTree = "<group>"; };
 		830A4274EA019B68A8CF8E5248FA0EC1 /* PINOperation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PINOperation.modulemap; sourceTree = "<group>"; };
@@ -1040,7 +1041,7 @@
 		8AB92CFBF6D122D0B0FF3EC4D1C1EADC /* img_char_ele5@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_char_ele5@3x.png"; path = "AiLevelTestKit/Assets/img_char_ele5@3x.png"; sourceTree = "<group>"; };
 		8BFBCB5D7512DDE4A0BC067F7D5F71DC /* PINAnimatedImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PINAnimatedImage.m; path = Source/Classes/AnimatedImages/PINAnimatedImage.m; sourceTree = "<group>"; };
 		8C1E79FBC9E454AC079617F26FCF1597 /* img_search.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img_search.png; path = AiLevelTestKit/Assets/img_search.png; sourceTree = "<group>"; };
-		8D6CF6C8813C2372D2FB6D4010905B7E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		8D6CF6C8813C2372D2FB6D4010905B7E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8DC30B7BAAE8470155361C883DC8E271 /* img_cross.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img_cross.png; path = AiLevelTestKit/Assets/img_cross.png; sourceTree = "<group>"; };
 		8E29C02341D60FAFC543CF54512029B8 /* img_wireless_earphone.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img_wireless_earphone.png; path = AiLevelTestKit/Assets/img_wireless_earphone.png; sourceTree = "<group>"; };
 		8EB74A89C03116039A42D94ED463D65D /* PINGIFAnimatedImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PINGIFAnimatedImage.h; path = Source/Classes/include/PINGIFAnimatedImage.h; sourceTree = "<group>"; };
@@ -1068,7 +1069,7 @@
 		986BD2010090FA32AA83A096A44CA5B7 /* img_char_female@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_char_female@2x.png"; path = "AiLevelTestKit/Assets/img_char_female@2x.png"; sourceTree = "<group>"; };
 		98D88D3C5F450D96B9732F8B18F48DF9 /* PINProgressiveImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PINProgressiveImage.m; path = Source/Classes/PINProgressiveImage.m; sourceTree = "<group>"; };
 		98F2FA37732478774B3C652CA5FCC4C3 /* Await.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Await.swift; path = Sources/Nimble/Utils/Await.swift; sourceTree = "<group>"; };
-		98FA113B25DEC694A0763C0EAD995B0A /* OCWaveView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OCWaveView.framework; path = OCWaveView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98FA113B25DEC694A0763C0EAD995B0A /* OCWaveView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCWaveView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		993587A1ADEA1D923B0D5DE174AE166F /* PINOperation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PINOperation.release.xcconfig; sourceTree = "<group>"; };
 		9946598B3E5F18C2DB5896FC31CF0E3A /* PINDiskCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PINDiskCache.h; path = Source/PINDiskCache.h; sourceTree = "<group>"; };
 		995DCE82F9C97A62A6718B9EEACA82D8 /* img_tutorial_pad2@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_tutorial_pad2@2x.png"; path = "AiLevelTestKit/Assets/img_tutorial_pad2@2x.png"; sourceTree = "<group>"; };
@@ -1079,7 +1080,7 @@
 		9CC55156F2DF273E546DDB37893AF0AF /* PINRemoteImageCaching.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PINRemoteImageCaching.h; path = Source/Classes/include/PINRemoteImageCaching.h; sourceTree = "<group>"; };
 		9D396FF1CE8AD5B25C91931FA8A2AF56 /* BeLessThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLessThan.swift; path = Sources/Nimble/Matchers/BeLessThan.swift; sourceTree = "<group>"; };
 		9D67E5015D72FF8156EFCDD8A8870B0D /* ALTSeniorTestWordViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTSeniorTestWordViewController.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9ECF18232A7BC5074EDB8FF998741485 /* BEMCheckBox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMCheckBox.h; path = Classes/BEMCheckBox.h; sourceTree = "<group>"; };
 		9EEB568322018DFC50E7BADBA2F1C24F /* ToSucceed.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToSucceed.swift; path = Sources/Nimble/Matchers/ToSucceed.swift; sourceTree = "<group>"; };
 		9F4A6ACD130A5F4541DF71BAFEC11B87 /* ALLTSelectableCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALLTSelectableCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1139,7 +1140,7 @@
 		B679EEEBE3010146BB03134DFD219679 /* QUrlReachablility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QUrlReachablility.swift; sourceTree = "<group>"; };
 		B6F3E8BBEA28CB106B350F0ADB4CB60B /* img_jtutorial1@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_jtutorial1@2x.png"; path = "AiLevelTestKit/Assets/img_jtutorial1@2x.png"; sourceTree = "<group>"; };
 		B6FDE919A5A2D219A2322ABCB39B93F6 /* AssertionRecorder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssertionRecorder.swift; path = Sources/Nimble/Adapters/AssertionRecorder.swift; sourceTree = "<group>"; };
-		B701873AA09781FF6AA127721FF069A7 /* AiLevelTestKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AiLevelTestKit.bundle; path = "AiLevelTestKit-AiLevelTestKit.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B701873AA09781FF6AA127721FF069A7 /* AiLevelTestKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AiLevelTestKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B744A5A02D7B7DDE0FA8A5584AB5D279 /* PINRemoteImageManagerConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PINRemoteImageManagerConfiguration.h; path = Source/Classes/PINRemoteImageManagerConfiguration.h; sourceTree = "<group>"; };
 		B75FFFDDB5E8E49D33ABDB3F9624EF9F /* Nimble-Snapshots.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Nimble-Snapshots.debug.xcconfig"; sourceTree = "<group>"; };
 		B786C8220B96E695603BDBD6F017D699 /* QuickTestSuite.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuickTestSuite.swift; path = Sources/Quick/QuickTestSuite.swift; sourceTree = "<group>"; };
@@ -1148,10 +1149,10 @@
 		B8233766D60E98F221AAD86278CDB6E1 /* XCTestObservationCenter+CurrentTestCaseTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XCTestObservationCenter+CurrentTestCaseTracker.h"; path = "Nimble_Snapshots/XCTestObservationCenter+CurrentTestCaseTracker.h"; sourceTree = "<group>"; };
 		B8B6D0CA40780530E21DD4A05A8E79A3 /* img_char_ele3@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_char_ele3@3x.png"; path = "AiLevelTestKit/Assets/img_char_ele3@3x.png"; sourceTree = "<group>"; };
 		B8F40902E0F230A78E4E8DD2059A3E0C /* QDataManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QDataManager.swift; sourceTree = "<group>"; };
-		B91B00F8BE943329D633234BD67AE0AC /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FBSnapshotTestCase.framework; path = iOSSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B91B00F8BE943329D633234BD67AE0AC /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92F03FEDD0B98BA82E4C0D4FA30AD0F /* BEMCheckBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BEMCheckBox.release.xcconfig; sourceTree = "<group>"; };
 		B9618D35F32438737C939E740C81F1D1 /* img_wireless_earphone@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_wireless_earphone@2x.png"; path = "AiLevelTestKit/Assets/img_wireless_earphone@2x.png"; sourceTree = "<group>"; };
-		BAE263041362D074978BB3B577DF0A05 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Nimble.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE263041362D074978BB3B577DF0A05 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6933D9F1DFEE29DEA9762E8D2FD08D /* img_char_mid1@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_char_mid1@2x.png"; path = "AiLevelTestKit/Assets/img_char_mid1@2x.png"; sourceTree = "<group>"; };
 		BC217D5747625074CB4B073F2A80EEE6 /* Pods-AiLevelTestKit_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AiLevelTestKit_Example-resources.sh"; sourceTree = "<group>"; };
 		BC3359A67455E2796F8676A7F4C917C9 /* ALTSeniorListeningTestAnswerCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTSeniorListeningTestAnswerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1184,7 +1185,7 @@
 		C79750F3AE1E2ED71E883B18AAE49AF8 /* ALTBaseTestViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ALTBaseTestViewController.swift; sourceTree = "<group>"; };
 		C7C51AB26AD22D2ED690BE047D9AEED0 /* NimbleXCTestHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NimbleXCTestHandler.swift; path = Sources/Nimble/Adapters/NimbleXCTestHandler.swift; sourceTree = "<group>"; };
 		C81F9AD1E7A58432BD682065B498006E /* img_char_female@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img_char_female@3x.png"; path = "AiLevelTestKit/Assets/img_char_female@3x.png"; sourceTree = "<group>"; };
-		C8530F983A2F9F40757F0BB1671F3E64 /* Pods_AiLevelTestKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AiLevelTestKit_Example.framework; path = "Pods-AiLevelTestKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8530F983A2F9F40757F0BB1671F3E64 /* Pods_AiLevelTestKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AiLevelTestKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8689B1DC96F6702AEC6C2D8D8908F45 /* Quick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Quick.release.xcconfig; sourceTree = "<group>"; };
 		C8FCF44106F385F598B14DD63360E82B /* img_wired_earphone.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img_wired_earphone.png; path = AiLevelTestKit/Assets/img_wired_earphone.png; sourceTree = "<group>"; };
 		CA03BEDC3C8FD44250EFCD18CBDA8F5C /* AiLevelTestKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AiLevelTestKit-umbrella.h"; sourceTree = "<group>"; };
@@ -1454,7 +1455,6 @@
 				3FFBBFCCE9D09B4F5AA2A4458FBAC5CC /* WaveView.swift */,
 				B84B5B5A4AA90311E22890557F5EDC39 /* Support Files */,
 			);
-			name = OCWaveView;
 			path = OCWaveView;
 			sourceTree = "<group>";
 		};
@@ -1464,7 +1464,6 @@
 				7C3DE28AD550E79D2DCE5DBDF1B887D2 /* Core */,
 				65DF1DB08462239E0827A15D3A1B7E56 /* Support Files */,
 			);
-			name = "Nimble-Snapshots";
 			path = "Nimble-Snapshots";
 			sourceTree = "<group>";
 		};
@@ -1480,7 +1479,6 @@
 				ABD3B59D477D43A287B7823D04C347D7 /* PINOperationTypes.h */,
 				EFCCFD7416649AD4FD4EB46BA789ACBE /* Support Files */,
 			);
-			name = PINOperation;
 			path = PINOperation;
 			sourceTree = "<group>";
 		};
@@ -1570,7 +1568,6 @@
 				0807D8DA1B27861FA3E99686E7AE9960 /* ALTJuniorWordViewController.swift */,
 				C5B318D7FCFABA9229E30963225AF033 /* ALTJuniorWritingViewController.swift */,
 			);
-			name = Junior;
 			path = Junior;
 			sourceTree = "<group>";
 		};
@@ -1600,7 +1597,6 @@
 				E132404FC6609E90976BE926256AF2A0 /* Core */,
 				BE78B5F5A4379C1A11F940EDA5A29E38 /* Support Files */,
 			);
-			name = PINCache;
 			path = PINCache;
 			sourceTree = "<group>";
 		};
@@ -1737,7 +1733,6 @@
 				C79398580F5EEBBC399AD72019490D6F /* ALTCouponListViewController.swift */,
 				E1C3BCDBF8129064B8B39D0C03B8F83F /* ALTCouponTableViewCell.swift */,
 			);
-			name = Coupons;
 			path = Coupons;
 			sourceTree = "<group>";
 		};
@@ -1778,7 +1773,6 @@
 				AC6CCC1418CE308A41813654C1333A7B /* XCTestSuite+QuickTestSuiteBuilder.m */,
 				F171F925C1F6DC64476D2508AD033B21 /* Support Files */,
 			);
-			name = Quick;
 			path = Quick;
 			sourceTree = "<group>";
 		};
@@ -2036,7 +2030,6 @@
 				C57FC801A569134EFB6A11755FB99D15 /* ALTMyPageTestTableViewCell.swift */,
 				97F36323C31423A6B103F76AB350C36A /* ALTMyPageViewController.swift */,
 			);
-			name = MyPage;
 			path = MyPage;
 			sourceTree = "<group>";
 		};
@@ -2082,7 +2075,6 @@
 				1A202BA8A8A72B3C52431C538695BD51 /* Support Files */,
 				72D854650B23F37820346FB26C7EC932 /* SwiftSupport */,
 			);
-			name = iOSSnapshotTestCase;
 			path = iOSSnapshotTestCase;
 			sourceTree = "<group>";
 		};
@@ -2137,7 +2129,6 @@
 				94216F3F54A6F58EFF9C45AD927CABC6 /* PINCache */,
 				24FE222D14EC285CC3DA5BF2F97EB061 /* Support Files */,
 			);
-			name = PINRemoteImage;
 			path = PINRemoteImage;
 			sourceTree = "<group>";
 		};
@@ -2158,7 +2149,6 @@
 				F188B743F8AD94E6B2E710A1F3B7AC03 /* Support Files */,
 				730F8DED0B2B641C42A18C3FDC835FE6 /* SwiftSupport */,
 			);
-			name = FBSnapshotTestCase;
 			path = FBSnapshotTestCase;
 			sourceTree = "<group>";
 		};
@@ -2254,7 +2244,6 @@
 				5B0F326914ED4B49CE2C26BF75CFB29C /* ALTSeniorWritingTestViewController.swift */,
 				B36218DCCDD1847E22F3BF9E9570E878 /* ALTSTTResultView.swift */,
 			);
-			name = SeniorTest;
 			path = SeniorTest;
 			sourceTree = "<group>";
 		};
@@ -2307,7 +2296,6 @@
 				F705D005CB221C1AEB8520B6A443E0C4 /* BEMPathManager.m */,
 				B61923FBC69EDA0C60FA06E9B6504AFC /* Support Files */,
 			);
-			name = BEMCheckBox;
 			path = BEMCheckBox;
 			sourceTree = "<group>";
 		};
@@ -2417,7 +2405,6 @@
 				CD65E1B3DA10E4E529F2005B755196DC /* XCTestObservationCenter+Register.m */,
 				BC1A7CFB24FBE3CFD255AD9E7B7BC55C /* Support Files */,
 			);
-			name = Nimble;
 			path = Nimble;
 			sourceTree = "<group>";
 		};
@@ -2425,10 +2412,10 @@
 			isa = PBXGroup;
 			children = (
 				44FBA074EEED247BD2FA2192747B346B /* ALLTAnswerTableViewCell.swift */,
+				69C4C353B9CFF566AF2A3DF570C12CA0 /* ALTBaseTableVIewCell.swift */,
 				6392ED93720CE5F8C6EDE7F9A5E7D811 /* ALLTBaseViewController.swift */,
 				547AB58EDF0CF71E0704A02B4272AB2D /* ALLTNavigationViewController.swift */,
 				0904F95714A5A4A7655922D546691C21 /* ALLTProgressBarView.swift */,
-				69C4C353B9CFF566AF2A3DF570C12CA0 /* ALTBaseTableVIewCell.swift */,
 				C79750F3AE1E2ED71E883B18AAE49AF8 /* ALTBaseTestViewController.swift */,
 				405D3A65B64C38F869CC8444B3830A1F /* ALTBaseTransparentViewController.swift */,
 				0F7101BA6631F3A8095C2ABCDFA73FB7 /* ALTBaseViewController.swift */,
@@ -2469,7 +2456,6 @@
 				2F387EB0F540917782BB139C5471546E /* Frameworks */,
 				B21D47DC05CCA04A13043DADFC905717 /* Support Files */,
 			);
-			name = lame;
 			path = lame;
 			sourceTree = "<group>";
 		};
@@ -4738,8 +4724,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
