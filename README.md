@@ -40,12 +40,10 @@ pod 'AiLevelTestKit'
 
 ### Swift 5 issue
 
-최신 Xcode 를 사용하여 프로젝트를 생성시 기본 Swift 버전이 5로 설정됩니다.
-Cocoapods 가 Swift 4를 공식 지원하는 관계로 이로 인하여 pod install 이후에 일부 소스코드 상에서 오류가 발생할 수 있습니다.
-이 경우 다음의 조치를 통해 오류 없이 빌드할 수 있습니다:
+만약 Pod 설치 후 앱 빌드시 Swift version 이슈로  오류가 발생되어 빌드가 되지 않는다면
+AiLevelTestKit 프레임웍의 Swift version을 4로 변경하여 주십시오.
 
-    1. 프로젝트 Build Settings - Swift Language Version 을 Swift 4 로 선택
-    2. Pods 프로젝트 Build Settings - Swift Language Version 을 Swift 4 로 선택
+    1. Pods 프로젝트 Build Settings - Swift Language Version 을 Swift 4 로 선택
      
 
 ## Basic Implementation
