@@ -45,8 +45,8 @@ public class ALTExamData: ALTBaseData {
     
     // 쿠폰 페이지 활성화 여부
     public var isCouponActivated: Bool {
-//        return (rawData["exam_view2"] as? String ?? "N") == "Y"
-        return false
+        return (rawData["exam_view2"] as? String ?? "N") == "Y"
+//        return false
     }
     
     // 튜토리얼 페이지 활성화 여부

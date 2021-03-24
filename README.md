@@ -21,7 +21,7 @@ iOS 12.1 or above
 3. Optimized for ARM64 Architecture.
 </details>
 
-## Framework Version 0.9.26
+## Framework Version 0.9.27
 
 ## Example
 
