@@ -78,8 +78,8 @@ class ALTJuniorListeningViewController: ALTJuniorTestBaseViewController {
         _collectionView.delegate = self
         _collectionView.dataSource = self
         _collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "defaultCell")
-        _collectionView.register(ALTJuniorListeningHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ALTJuniorListeningHeaderReusableView")
-        _collectionView.register(ALTJuniorListeningFooterReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "ALTJuniorListeningFooterReusableView")
+        _collectionView.register(ALTJuniorListeningHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ALTJuniorListeningHeaderReusableView")
+        _collectionView.register(ALTJuniorListeningFooterReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ALTJuniorListeningFooterReusableView")
         _collectionView.register(ALTJuniorListeningImageCollectionViewCell.self, forCellWithReuseIdentifier: "ALTJuniorListeningImageCollectionViewCell")
         _collectionView.register(ALTJuniorListeningTextCollectionViewCell.self, forCellWithReuseIdentifier: "ALTJuniorListeningTextCollectionViewCell")
         self.view.addSubview(_collectionView)
@@ -156,7 +156,7 @@ class ALTJuniorListeningViewController: ALTJuniorTestBaseViewController {
         _buttonNext.isEnabled = false
         _isSkippable = false
 
-        _player?.seek(to: kCMTimeZero)
+        _player?.seek(to: CMTime.zero)
         _player?.play()
 
         if _player != nil {
@@ -209,13 +209,13 @@ extension ALTJuniorListeningViewController: UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionElementKindSectionHeader, let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ALTJuniorListeningHeaderReusableView", for: indexPath) as? ALTJuniorListeningHeaderReusableView {
+        if kind == UICollectionView.elementKindSectionHeader, let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ALTJuniorListeningHeaderReusableView", for: indexPath) as? ALTJuniorListeningHeaderReusableView {
             reusableView.question = testData.quiz?.quizDesc
             reusableView.isPlayable = _isPlayable
             reusableView.remainingCount = _remainingPlay
             reusableView.addTarget(self, action: #selector(self.play(_:)), for: .touchUpInside)
             return reusableView
-        } else if kind == UICollectionElementKindSectionFooter, let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ALTJuniorListeningFooterReusableView", for: indexPath) as? ALTJuniorListeningFooterReusableView {
+        } else if kind == UICollectionView.elementKindSectionFooter, let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ALTJuniorListeningFooterReusableView", for: indexPath) as? ALTJuniorListeningFooterReusableView {
             for subview in reusableView.subviews {
                 subview.removeFromSuperview()
             }

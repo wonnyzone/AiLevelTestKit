@@ -61,9 +61,9 @@ class ALTSpeechToTextManager: NSObject {
         let audioSession = AVAudioSession.sharedInstance()
                 
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryRecord)
-            try audioSession.setMode(AVAudioSessionModeMeasurement)
-            try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+            try audioSession.setCategory(.record)
+            try audioSession.setMode(.measurement)
+            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             print("audioSession properties weren't set because of an error.")
         }
@@ -175,9 +175,9 @@ class ALTSpeechToTextManager: NSObject {
             let audioSession = AVAudioSession.sharedInstance()
                     
             do {
-                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
-                try audioSession.setMode(AVAudioSessionModeDefault)
-                try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+                try audioSession.setCategory(.playback)
+                try audioSession.setMode(.default)
+                try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
             } catch {
                 print("audioSession properties weren't set because of an error.")
             }
@@ -399,7 +399,7 @@ class ALTSpeechToTextManager: NSObject {
                 completion?(nil)
                 return
             }
-            completion?(responseData?["response"] as? [String:Any])
+            completion?(responseData["response"] as? [String:Any])
         }
 
         task.resume()

@@ -81,7 +81,7 @@ class ALTJuniorTutorialViewController: ALTBaseViewController {
             var boldAttr = QTextAttributes(withForegroundColour: ColourKit.Code.Hex222222, font: UIFont.systemFont(ofSize: 24 * heightRatio, weight: .bold)).attributes
             
             if underlined {
-                boldAttr[.underlineStyle] = NSUnderlineStyle.styleSingle.rawValue
+                boldAttr[.underlineStyle] = NSUnderlineStyle.single.rawValue
                 boldAttr[.underlineColor] = ColourKit.Code.Hex222222.cgColor
             }
             

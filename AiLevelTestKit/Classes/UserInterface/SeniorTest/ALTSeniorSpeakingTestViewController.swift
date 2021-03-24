@@ -463,7 +463,7 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
         _buttonNext.isEnabled = false
         _isSkippable = false
         
-        _player?.seek(to: kCMTimeZero)
+        _player?.seek(to: .zero)
         _player?.play()
         
         _guideString = "음성을 잘 들어주세요.\n음성이 들리지 않을 경우 미디어 음량을 확인해주세요."

@@ -9,7 +9,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ## What is this repository for?
 An example app for AiLevelTestKit iOS framework. 
-Built based on Swift 4 with Xcode 12.3.
+Built based on Swift 5 with Xcode 12.3.
 
 ## System Requirements
 iOS 12.1 or above
@@ -21,11 +21,12 @@ iOS 12.1 or above
 3. Optimized for ARM64 Architecture.
 </details>
 
-## Framework Version 0.9.27
+## Framework Version 0.9.28
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+Please make sure that your Cocoapods is up to version of 1.7.0
 
 
 ## Getting Started
@@ -38,12 +39,12 @@ pod 'AiLevelTestKit'
 ```
 
 
-### Swift 5 issue
+### Swift Version issue
 
 만약 Pod 설치 후 앱 빌드시 Swift version 이슈로  오류가 발생되어 빌드가 되지 않는다면
-AiLevelTestKit 프레임웍의 Swift version을 4로 변경하여 주십시오.
+AiLevelTestKit 프레임웍의 Swift version을 5로 변경하여 주십시오.
 
-    1. Pods 프로젝트 Build Settings - Swift Language Version 을 Swift 4 로 선택
+    1. Pods 프로젝트 Build Settings - Swift Language Version 을 Swift 5 로 선택
      
 
 ## Basic Implementation

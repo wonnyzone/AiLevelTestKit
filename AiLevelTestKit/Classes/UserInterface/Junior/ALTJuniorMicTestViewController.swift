@@ -466,7 +466,7 @@ class ALTJuniorMicTestViewController: ALTBaseViewController {
         _buttonNext.isEnabled = false
         _isSkippable = false
         
-        _player?.seek(to: kCMTimeZero)
+        _player?.seek(to: CMTime.zero)
         _player?.play()
     }
     

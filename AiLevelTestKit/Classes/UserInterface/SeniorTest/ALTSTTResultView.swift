@@ -95,7 +95,7 @@ class ALTSTTResultView: UIView {
         backView.clipsToBounds = true
         self.addSubview(backView)
         
-        self.sendSubview(toBack: backView)
+        self.sendSubviewToBack(backView)
         
         backView.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
         backView.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
@@ -124,7 +124,7 @@ class ALTSTTResultView: UIView {
         roundView.bottomAnchor.constraint(equalTo: _viewBarPronunciation.bottomAnchor).isActive = true
         roundView.widthAnchor.constraint(equalTo: roundView.heightAnchor).isActive = true
         
-        self.sendSubview(toBack: roundView)
+        self.sendSubviewToBack(roundView)
         
         _labelPronunciationIn.translatesAutoresizingMaskIntoConstraints = false
         _labelPronunciationIn.textColor = .white
@@ -192,7 +192,7 @@ class ALTSTTResultView: UIView {
         roundView.bottomAnchor.constraint(equalTo: _viewBarIntonation.bottomAnchor).isActive = true
         roundView.widthAnchor.constraint(equalTo: roundView.heightAnchor).isActive = true
         
-        self.sendSubview(toBack: roundView)
+        self.sendSubviewToBack(roundView)
         
         _labelIntonationIn.translatesAutoresizingMaskIntoConstraints = false
         _labelIntonationIn.textColor = .white
@@ -234,7 +234,7 @@ class ALTSTTResultView: UIView {
         backView.clipsToBounds = true
         self.addSubview(backView)
         
-        self.sendSubview(toBack: backView)
+        self.sendSubviewToBack(backView)
         
         backView.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
         backView.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
@@ -263,7 +263,7 @@ class ALTSTTResultView: UIView {
         roundView.bottomAnchor.constraint(equalTo: _viewBarAccuracy.bottomAnchor).isActive = true
         roundView.widthAnchor.constraint(equalTo: roundView.heightAnchor).isActive = true
         
-        self.sendSubview(toBack: roundView)
+        self.sendSubviewToBack(roundView)
         
         _labelAccuracyIn.translatesAutoresizingMaskIntoConstraints = false
         _labelAccuracyIn.textColor = .white

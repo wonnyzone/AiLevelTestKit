@@ -65,7 +65,7 @@ class ALLTBaseViewController: ALTBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.view.bringSubview(toFront: _labelRemainingCount.superview!)
+        self.view.bringSubviewToFront(_labelRemainingCount.superview!)
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
