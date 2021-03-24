@@ -15,7 +15,7 @@ class ALTPDFViewController: ALTBaseViewController {
     private let _url: URL
     
     lazy private var _barButtonItemSave: UIBarButtonItem = {
-        let item = UIBarButtonItem(title: ALTAppString.General.Save, style: .plain, target: self, action: #selector(self.pressedNavigationItem(_:)))
+        let item = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(self.pressedNavigationItem(_:)))
         
         let attributes = QTextAttributes(withForegroundColour: ColourKit.Code.Static.Hex3296D7, font: UIFont.systemFont(ofSize: 14.optimized, weight: .regular))
         item.setTitleTextAttributes(attributes.attributes, for: .normal)

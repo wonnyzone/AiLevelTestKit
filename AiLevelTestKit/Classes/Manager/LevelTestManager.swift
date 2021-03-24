@@ -141,6 +141,7 @@ class LevelTestManager: NSObject {
         httpClient.sendRequest(to: RequestUrl.Test.Initialize) { [weak self] (code, errMessage, response) in
             if let responseData = response as? [String:Any] {
                 self?._rawData = responseData
+                
                 self?._examId = examId
                 
                 self?.testSrl = responseData["testing_test_srl"] as? Int
@@ -234,8 +235,6 @@ class LevelTestManager: NSObject {
                 completion(nil, errMessage)
                 return
             }
-            
-            print(responseData)
             
             let data = ALTLevelTest(with: responseData)
             guard let path = data.quiz?.category?.path  else {

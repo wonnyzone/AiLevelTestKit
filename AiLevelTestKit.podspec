@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AiLevelTestKit'
-  s.version          = '0.9.25'
+  s.version          = '0.9.26'
   s.summary          = 'AiLevelTestKit iOS version.'
 
 # This description is used to generate tags and improve search results.

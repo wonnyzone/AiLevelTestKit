@@ -86,6 +86,7 @@ class ALTCouponListHeaderView: UIView {
         textfieldCoupon.font = UIFont.systemFont(ofSize: 16.optimized, weight: .regular)
         textfieldCoupon.clearButtonMode = .always
         textfieldCoupon.borderStyle = .none
+        textfieldCoupon.delegate = self
         contentView.addSubview(textfieldCoupon)
 
         textfieldCoupon.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -188,5 +189,17 @@ class ALTCouponListHeaderView: UIView {
         default:
             break
         }
+    }
+}
+
+extension ALTCouponListHeaderView: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard var _string = textField.text else { return true }
+        _string = (_string as NSString).replacingCharacters(in: range, with: string)
+        
+        if textField == textfieldCoupon, _string.count > 9, string != "" {
+            return false
+        }
+        return true
     }
 }

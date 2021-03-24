@@ -31,8 +31,8 @@ internal class ALTAppStringManager: NSObject {
     
     var localizedBundle: Bundle {
         get {
-            let path = Bundle.main.path(forResource: code.rawValue, ofType: "lproj")
-            return Bundle(path: path!) ?? Bundle.main
+            guard let path = Bundle.main.path(forResource: code.rawValue, ofType: "lproj") else { return Bundle.main }
+            return Bundle(path: path) ?? Bundle.main
         }
     }
 }

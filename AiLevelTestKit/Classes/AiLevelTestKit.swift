@@ -36,17 +36,6 @@ public class AiLevelTestKit {
     
     public func initialize() {
         AVAudioSession.sharedInstance().requestRecordPermission { (succeed) in }
-        
-        var image: UIImage?
-        let bundle = Bundle(for: AiLevelTestKit.self)
-        if #available(iOS 13.0, *) {
-            image = UIImage(named: "img_close_blk", in: bundle, with: nil)
-        } else {
-            image = UIImage(named: "img_close_blk", in: bundle, compatibleWith: nil)
-        }
-        print(image)
-        
-        print(UIImage(named: "img_close_blk"))
     }
     
     public func activate(groupCode: String, email: String? = nil, themeColour: UIColor = #colorLiteral(red: 0.9294117647, green: 0.07843137255, blue: 0.3568627451, alpha: 1), completion: @escaping ((_ code: ALTResponseCode, _ errorMessage: String?) -> Void)) {
@@ -172,7 +161,7 @@ public class AiLevelTestKit {
     private func startIntitializedTest(from viewController: UIViewController) {
         LevelTestManager.manager.delegate = viewController
         
-        if LevelTestManager.manager.needAgreement {
+        if LevelTestManager.manager.needAgreement, (LevelTestManager.manager.examInfo?.isPrivacyActivated ?? true) {
             let childViewController = ALTPrivacyPoliciesViewController()
             var navController: ALTNavigationController!
             if LevelTestManager.manager.isJunior {
@@ -182,11 +171,16 @@ public class AiLevelTestKit {
             }
             navController.modalPresentationStyle = .fullScreen
             viewController.present(navController, animated: true, completion: nil)
-//        } else if (LevelTestManager.manager.examInfo?.isCouponActivated ?? false) == true {
-//            let viewController = ALTCouponListViewController()
-//            let navController = ALTNavigationController(rootViewController: viewController)
-//            navController.modalPresentationStyle = .fullScreen
-//            viewController.present(navController, animated: true, completion: nil)
+        } else if (LevelTestManager.manager.examInfo?.isCouponActivated ?? false) == true {
+            let childViewController = ALTCouponListViewController()
+            var navController: ALTNavigationController!
+            if LevelTestManager.manager.isJunior {
+                navController = ALTJuniorTestNavigationController(rootViewController: childViewController)
+            } else {
+                navController = ALLTSeniorTestNavigationController(rootViewController: childViewController)
+            }
+            navController.modalPresentationStyle = .fullScreen
+            viewController.present(navController, animated: true, completion: nil)
         } else {
             let childViewController = ALTTutorialViewController()
             var navController: ALTNavigationController!

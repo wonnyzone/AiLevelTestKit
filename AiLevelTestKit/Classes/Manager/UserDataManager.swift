@@ -89,7 +89,8 @@ class UserDataManager: NSObject {
             }
             
             let data = ALTClientData(with: rawData)
-            
+            self?._groupInfo = data
+                    
             let groupTitle = data.title
             
             self?._groupCode = groupCode
@@ -208,8 +209,6 @@ class UserDataManager: NSObject {
             if isSucceed {
                 if let data = responseData["group_info"] as? [String:Any] {
                     self?._groupInfo = ALTClientData(with: data)
-                    
-                    print("succeed")
                 }
             }
             

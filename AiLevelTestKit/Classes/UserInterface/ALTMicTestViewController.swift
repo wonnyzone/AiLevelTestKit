@@ -122,7 +122,10 @@ class ALTMicTestViewController: ALTBaseViewController {
         
         self.title = "마이크테스트"
         
-        let item = AVPlayerItem(url: URL(string: "http://aileveltest.com/plugin/data/voice/ko_en_mictest.mp3")!)
+        let testLan = LevelTestManager.manager.examInfo?.testLanguage ?? "en"
+        let userLan = LevelTestManager.manager.examInfo?.userLanguage ?? "ko"
+        
+        let item = AVPlayerItem(url: URL(string: "http://aileveltest.com/plugin/data/voice/\(userLan)_\(testLan)_mictest.mp3")!)
         _player = AVPlayer(playerItem: item)
         
         var insets = ALLTSeniorTestNavigationController.additionalSafeAreaInsets
@@ -224,8 +227,26 @@ class ALTMicTestViewController: ALTBaseViewController {
             _waveView.trailingAnchor.constraint(equalTo: leftView.trailingAnchor).isActive = true
             _waveView.heightAnchor.constraint(equalToConstant: 260.optimized).isActive = true
             
+            var hello = "Hello"
+            switch testLan {
+            case "es":
+                hello = "Hola"
+                break
+                
+            case "ja":
+                hello = "もしもし"
+                break
+                
+            case "zh":
+                hello = "你好"
+                break
+                
+            default:
+                break
+            }
+            
             _labelResult.translatesAutoresizingMaskIntoConstraints = false
-            _labelResult.text = "'녹음' 버튼을 누른 후\n\"Hello\"라고 말해주세요."
+            _labelResult.text = "'녹음' 버튼을 누른 후\n\"\(hello)\"라고 말해주세요."
             _labelResult.textAlignment = .center
             _labelResult.textColor = ColourKit.Code.HexAAAAAA
             _labelResult.font = UIFont.systemFont(ofSize: 24.optimized, weight: .regular)
@@ -258,7 +279,7 @@ class ALTMicTestViewController: ALTBaseViewController {
             _buttonPlay.widthAnchor.constraint(equalToConstant: 68).isActive = true
             _buttonPlay.heightAnchor.constraint(equalToConstant: 68).isActive = true
             
-            let bundle = Bundle(for: AiLevelTestKit.self)
+//            let bundle = Bundle(for: AiLevelTestKit.self)
             
             _imageViewPlay.translatesAutoresizingMaskIntoConstraints = false
             _imageViewPlay.isUserInteractionEnabled = false
@@ -405,8 +426,26 @@ class ALTMicTestViewController: ALTBaseViewController {
             _waveView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
             _waveView.heightAnchor.constraint(equalToConstant: 260.optimized).isActive = true
             
+            var hello = "Hello"
+            switch testLan {
+            case "es":
+                hello = "Hola"
+                break
+                
+            case "ja":
+                hello = "もしもし"
+                break
+                
+            case "zh":
+                hello = "你好"
+                break
+                
+            default:
+                break
+            }
+            
             _labelResult.translatesAutoresizingMaskIntoConstraints = false
-            _labelResult.text = "‘녹음’ 버튼을 누른 후\n“Hello”라고 말해주세요."
+            _labelResult.text = "‘녹음’ 버튼을 누른 후\n“\(hello)”라고 말해주세요."
             _labelResult.textColor = ColourKit.Code.Hex8A8A8A
             _labelResult.font = UIFont.systemFont(ofSize: 24.optimized, weight: .regular)
             _labelResult.numberOfLines = 0

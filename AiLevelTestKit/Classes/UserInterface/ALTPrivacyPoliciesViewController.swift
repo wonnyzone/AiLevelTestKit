@@ -182,18 +182,38 @@ class ALTPrivacyPoliciesViewController: ALTBaseViewController {
             break
             
         case _buttonNext:
-            if LevelTestManager.manager.examInfo?.isCouponActivated ?? false == true {
-                let viewController = ALTCouponListViewController()
-                self.navigationController?.pushViewController(viewController, animated: true)
-                break
+            guard _isAgreed else {
+                let alertController = UIAlertController(title: "개인정보 동의를 눌러야 테스트가 가능합니다.", message: nil, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                return 
             }
             
-            QDataManager.shared.isSkipTerms = true
-            QDataManager.shared.commit()
-            
-            let viewController = ALTTutorialViewController()
-            self.navigationController?.setViewControllers([viewController], animated: true)
-            break
+            QIndicatorViewManager.shared.showIndicatorView {[weak self] (complete) in
+                let httpClient = QHttpClient()
+                
+                var params = [String:Any]()
+                params["customer_srl"] = LevelTestManager.manager.customerSrl
+                params["agreement"] = (self?._isAgreed ?? false) ? "Y" : "N"
+                httpClient.parameters = QHttpClient.Parameter(dict: params)
+                
+                httpClient.sendRequest(to: RequestUrl.Terms.Agree) {[weak self] (code, errMessage, response) in
+                    QIndicatorViewManager.shared.hideIndicatorView()
+                    
+                    if LevelTestManager.manager.examInfo?.isCouponActivated ?? false == true {
+                        let viewController = ALTCouponListViewController()
+                        self?.navigationController?.pushViewController(viewController, animated: true)
+                        return
+                    }
+                    
+                    QDataManager.shared.isSkipTerms = true
+                    QDataManager.shared.commit()
+                    
+                    let viewController = ALTTutorialViewController()
+                    self?.navigationController?.setViewControllers([viewController], animated: true)
+                    return
+                }
+            }
             
         default:
             break

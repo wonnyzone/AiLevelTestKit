@@ -14,6 +14,10 @@ internal struct RequestUrl {
     
     static let AWS = "https://leveltest-data.s3.ap-northeast-2.amazonaws.com"
     
+    struct Terms {
+        static let Agree = RequestUrl.Base + "index.php?module=y1member&act=apiAgreementCheck"
+    }
+    
     struct User {
         static let ClientList = RequestUrl.Base + "plugin/api/group.php"
         static let Validate = RequestUrl.Base + "index.php?module=y1member&act=apiClientCheck"
