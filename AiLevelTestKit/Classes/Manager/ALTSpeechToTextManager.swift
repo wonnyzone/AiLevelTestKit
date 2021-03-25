@@ -68,7 +68,16 @@ class ALTSpeechToTextManager: NSObject {
             print("audioSession properties weren't set because of an error.")
         }
         
-        _speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: code))
+        var codeString = "en-US"
+        if code == "ja" {
+            codeString = "ja-JP"
+        } else if code == "zh" {
+            codeString = "zh-CN"
+        } else if code == "es" {
+            codeString = "es-ES"
+        }
+        
+        _speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: codeString))
         _speechRecognizer?.delegate = self
         
         _recogRequest = SFSpeechAudioBufferRecognitionRequest()
@@ -81,7 +90,10 @@ class ALTSpeechToTextManager: NSObject {
             #if DEBUG_ENABLED
             print("********* STT - RECOG \(result?.bestTranscription.formattedString)")
             #endif
-            guard result != nil || self?._resultString != nil else { return }
+            guard result != nil || self?._resultString != nil else {
+                print(error?.localizedDescription)
+                return
+            }
             
             if let resultString = result?.bestTranscription.formattedString {
                 self?._resultString = resultString
@@ -101,11 +113,11 @@ class ALTSpeechToTextManager: NSObject {
                 })
             }
             
-            guard result?.isFinal == true else { return }
-            #if DEBUG_ENABLED
-            print("********* STT - IS FINAL")
-            #endif
-            self?.stop()
+//            guard result?.isFinal == true else { return }
+//            #if DEBUG_ENABLED
+//            print("********* STT - IS FINAL")
+//            #endif
+//            self?.stop()
         })
         
         let inputNode = _audioEngine.inputNode
@@ -149,43 +161,52 @@ class ALTSpeechToTextManager: NSObject {
             DispatchQueue.main.async { [weak self] in
                 self?._recogTask?.cancel()
                 self?._recogTask = nil
+                
+                guard let self = self else { return }
+                self.delegate?.speechToTextManager(didStop: self, withResult: self._resultString)
             }
             return
         }
         
-        DispatchQueue.main.async { [weak self] in
-            self?._timerThreshold?.invalidate()
-            self?._timerThreshold = nil
-            
-            self?._timerDuration?.invalidate()
-            self?._timerDuration = nil
-            
-            self?._audioEngine.inputNode.removeTap(onBus: 0)
-            self?._audioEngine.stop()
-            
-            self?._recogTask?.cancel()
-            self?._recogTask = nil
-            
-            self?._recogRequest = nil
-            
-            self?._speechRecognizer = nil
-            
-            self?._audioFile = nil
-            
-            let audioSession = AVAudioSession.sharedInstance()
-                    
-            do {
-                try audioSession.setCategory(.playback)
-                try audioSession.setMode(.default)
-                try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-            } catch {
-                print("audioSession properties weren't set because of an error.")
+        _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { (timer) in
+            DispatchQueue.main.async { [weak self] in
+                self?._timerThreshold?.invalidate()
+                self?._timerThreshold = nil
+                
+                self?._timerDuration?.invalidate()
+                self?._timerDuration = nil
+                
+                self?._audioEngine.inputNode.removeTap(onBus: 0)
+                self?._audioEngine.stop()
+                
+                self?._recogTask?.cancel()
+                self?._recogTask = nil
+                
+                self?._recogRequest = nil
+                
+                self?._speechRecognizer = nil
+                
+                self?._audioFile = nil
+                
+                let audioSession = AVAudioSession.sharedInstance()
+                        
+                do {
+                    try audioSession.setCategory(.playback)
+                    try audioSession.setMode(.default)
+                    try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+                } catch {
+                    print("audioSession properties weren't set because of an error.")
+                    if let self = self {
+                        self.delegate?.speechToTextManager(didStop: self, withResult: self._resultString)
+                    }
+                    return
+                }
+                
+                if let self = self {
+                    self.delegate?.speechToTextManager(didStop: self, withResult: self._resultString)
+                }
             }
-            
-            if let self = self {
-                self.delegate?.speechToTextManager(didStop: self, withResult: self._resultString)
-            }
-        }
+        })
     }
     
     

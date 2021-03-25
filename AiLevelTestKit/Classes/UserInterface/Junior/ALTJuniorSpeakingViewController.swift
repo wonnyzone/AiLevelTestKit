@@ -375,10 +375,8 @@ class ALTJuniorSpeakingViewController: ALTJuniorTestBaseViewController {
             _player?.pause()
             
             if ALTSpeechToTextManager.manager.isRecording {
+                _isRecordable = false
                 ALTSpeechToTextManager.manager.stop()
-                _isPlayable = _remainingPlay > 0
-                _buttonNext.isEnabled = (_answer ?? "").count > 0 || _remainingRecord == 0
-                _isSkippable = _answer != nil || _remainingRecord == 0
             } else {
                 ALTSpeechToTextManager.manager.start(languageCode: LevelTestManager.manager.examInfo?.testLanguage ?? "en")
                 _isPlayable = false
@@ -464,6 +462,7 @@ extension ALTJuniorSpeakingViewController: ALTSpeechToTextManagerDelegate {
         
         guard text != nil else {
             _remainingRecord = remainingRecord             // 텍스트 변경
+            _isRecordable = true
             return
         }
         

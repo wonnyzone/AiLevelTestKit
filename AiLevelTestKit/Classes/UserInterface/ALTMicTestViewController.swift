@@ -561,10 +561,8 @@ class ALTMicTestViewController: ALTBaseViewController {
             _player?.pause()
             
             if ALTSpeechToTextManager.manager.isRecording {
+                _buttonRecord.isEnabled = false
                 ALTSpeechToTextManager.manager.stop()
-                _isButtonEnabled = _remainingPlay > 0
-                _buttonNext.isEnabled = (_answer ?? "").count > 0 || _remainingRecord == 0
-                _isSkippable = _answer != nil || _remainingRecord == 0
             } else {
                 ALTSpeechToTextManager.manager.start(languageCode: LevelTestManager.manager.examInfo?.testLanguage ?? "en")
                 _isButtonEnabled = false

@@ -430,10 +430,8 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
             _player?.pause()
             
             if ALTSpeechToTextManager.manager.isRecording {
+                _buttonRecord.isEnabled = false
                 ALTSpeechToTextManager.manager.stop()
-                _isPlayable = _remainingPlay > 0
-                _buttonNext.isEnabled = (_answer ?? "").count > 0 || _remainingRecord == 0
-                _isSkippable = true
             } else {
                 _answer = nil
                 
@@ -519,6 +517,7 @@ extension ALTSeniorSpeakingTestViewController: ALTSpeechToTextManagerDelegate {
                 _guideString = "\(_remainingRecord)회의 녹음 기회가 남았습니다.\n정확한 정답을 모를 경우 'SKIP' 버튼을 눌러주세요."
             }
             
+            _buttonRecord.isEnabled = true
             _isPlayable = _remainingPlay > 0
             _buttonNext.isEnabled = text != nil || _remainingRecord == 0
             _isSkippable = true
