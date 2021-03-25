@@ -17,14 +17,14 @@ class ALTSeniorTestWordViewController: ALLTSeniorTestBaseViewController {
             _buttonNext.isEnabled = _selectedIndex != nil
             _isSkippable = true
             
-            _guideString = _selectedIndex != nil ? "‘NEXT’ 버튼을 누르면 다음 문제로 넘어갑니다." : "한글 뜻에 맞는 영어 단어를 선택하세요.\n정확한 정답을 모를 경우 'SKIP' 버튼을 눌러주세요."
+            _guideString = _selectedIndex != nil ? "‘NEXT’ 버튼을 누르면 다음 문제로 넘어갑니다." : "한글 뜻에 맞는 \(LevelTestManager.manager.examInfo?.testLanguageString ?? "영어") 단어를 선택하세요.\n정확한 정답을 모를 경우 'SKIP' 버튼을 눌러주세요."
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _guideString = "한글 뜻에 맞는 영어 단어를 선택하세요.\n정확한 정답을 모를 경우 'SKIP' 버튼을 눌러주세요."
+        _guideString = "한글 뜻에 맞는 \(LevelTestManager.manager.examInfo?.testLanguageString ?? "영어") 단어를 선택하세요.\n정확한 정답을 모를 경우 'SKIP' 버튼을 눌러주세요."
         
         _tableView.translatesAutoresizingMaskIntoConstraints = false
         _tableView.backgroundColor = .clear

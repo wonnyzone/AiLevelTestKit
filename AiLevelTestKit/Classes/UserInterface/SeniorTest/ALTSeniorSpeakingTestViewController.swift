@@ -152,7 +152,7 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
             _labelResult.trailingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: -20).isActive = true
             
             _labelNotice.translatesAutoresizingMaskIntoConstraints = false
-            _labelNotice.text = "들린 한글 문장을 ‘녹음’ 버튼을\n누른 후 영어로 말하세요."
+            _labelNotice.text = "들린 한글 문장을 ‘녹음’ 버튼을\n누른 후 \(LevelTestManager.manager.examInfo?.testLanguageString ?? "영어")로 말하세요."
             _labelNotice.textAlignment = .center
             _labelNotice.textColor = ColourKit.Code.HexAAAAAA
             _labelNotice.font = UIFont.systemFont(ofSize: 24.optimized, weight: .regular)
@@ -340,7 +340,7 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
             _labelResult.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.optimized).isActive = true
             
             _labelNotice.translatesAutoresizingMaskIntoConstraints = false
-            _labelNotice.text = "들린 한글 문장을 ‘녹음’ 버튼을\n누른 후 영어로 말하세요."
+            _labelNotice.text = "들린 한글 문장을 ‘녹음’ 버튼을\n누른 후 \(LevelTestManager.manager.examInfo?.testLanguageString ?? "영어")로 말하세요."
             _labelNotice.textColor = ColourKit.Code.Hex8A8A8A
             _labelNotice.font = UIFont.systemFont(ofSize: 24.optimized, weight: .regular)
             _labelNotice.numberOfLines = 0

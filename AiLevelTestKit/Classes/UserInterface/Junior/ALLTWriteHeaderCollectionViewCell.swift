@@ -37,7 +37,7 @@ class ALLTWriteHeaderCollectionViewCell: UICollectionViewCell {
         
         let labelTitle = UILabel()
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
-        labelTitle.text = "주어진 문장을 빈 칸에 맞게\n영어로 완성하세요."
+        labelTitle.text = "주어진 문장을 빈 칸에 맞게\n\(LevelTestManager.manager.examInfo?.testLanguageString ?? "영어")로 완성하세요."
         labelTitle.textAlignment = .center
         labelTitle.textColor = ColourKit.Code.Hex222222
         labelTitle.font = UIFont.systemFont(ofSize: 22.optimized, weight: .heavy)

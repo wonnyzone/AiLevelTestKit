@@ -119,6 +119,31 @@ public class ALTExamData: ALTBaseData {
         return rawData["problem_lang"] as? String
     }
     
+    public var testLanguageString: String! {
+        get {
+            let testLan = LevelTestManager.manager.examInfo?.testLanguage ?? "en"
+            var lanStr = "영어"
+            switch testLan {
+            case "es":
+                lanStr = "스페인어"
+                break
+                
+            case "ja":
+                lanStr = "일본어"
+                break
+                
+            case "zh":
+                lanStr = "중국어"
+                break
+                
+            default:
+                break
+            }
+            
+            return lanStr
+        }
+    }
+    
     //          "mypage_theme": "default",
     //          "exam_type": "2",
     //          "exam_status": "2",
