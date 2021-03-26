@@ -185,7 +185,7 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
             _buttonPlay.widthAnchor.constraint(equalToConstant: 68).isActive = true
             _buttonPlay.heightAnchor.constraint(equalToConstant: 68).isActive = true
             
-            let bundle = Bundle(for: AiLevelTestKit.self)
+//            let bundle = Bundle(for: AiLevelTestKit.self)
             
             _imageViewPlay.translatesAutoresizingMaskIntoConstraints = false
             _imageViewPlay.isUserInteractionEnabled = false

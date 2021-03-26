@@ -193,9 +193,6 @@ class ALTSpeechToTextManager: NSObject {
                     try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
                 } catch {
                     print("audioSession properties weren't set because of an error.")
-                    if let self = self {
-                        self.delegate?.speechToTextManager(didStop: self, withResult: self._resultString)
-                    }
                     return
                 }
                 

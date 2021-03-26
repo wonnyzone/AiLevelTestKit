@@ -58,7 +58,7 @@ class ALTCouponTableViewCell: ALTBaseTableViewCell {
     
     var data: ALTCouponData? {
         didSet {
-            _labelHeading.text = "\(data?.perCount ?? 0) / \(data?.perCount ?? 0)"
+            _labelHeading.text = "\(data?.count ?? 0) / \(data?.perCount ?? 0)"
             
             _labelTitle.text = data?.title
             _labelTitle2.text = data?.title

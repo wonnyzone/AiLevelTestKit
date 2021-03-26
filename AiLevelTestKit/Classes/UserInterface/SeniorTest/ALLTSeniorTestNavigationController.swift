@@ -77,13 +77,14 @@ class ALLTSeniorTestNavigationController: ALTNavigationController {
         _labelTime.translatesAutoresizingMaskIntoConstraints = false
         _labelTime.text = String(format: "%02d:%02d", arguments: [mins, secs])
         _labelTime.textColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
+        _labelTime.textAlignment = .center
         _labelTime.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         _labelTime.sizeToFit()
         backView.addSubview(_labelTime)
         
         _labelTime.topAnchor.constraint(equalTo: backView.topAnchor).isActive = true
         _labelTime.bottomAnchor.constraint(equalTo: backView.bottomAnchor).isActive = true
-        _labelTime.widthAnchor.constraint(equalToConstant: _labelTime.bounds.size.width + 3).isActive = true
+        _labelTime.widthAnchor.constraint(equalToConstant: _labelTime.bounds.size.width + 5).isActive = true
         _labelTime.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 4).isActive = true
         _labelTime.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -11).isActive = true
         
