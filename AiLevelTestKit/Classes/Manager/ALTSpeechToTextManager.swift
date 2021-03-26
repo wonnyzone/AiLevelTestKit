@@ -113,11 +113,11 @@ class ALTSpeechToTextManager: NSObject {
                 })
             }
             
-//            guard result?.isFinal == true else { return }
-//            #if DEBUG_ENABLED
-//            print("********* STT - IS FINAL")
-//            #endif
-//            self?.stop()
+            guard result?.isFinal == true else { return }
+            #if DEBUG_ENABLED
+            print("********* STT - IS FINAL")
+            #endif
+            self?.stop()
         })
         
         let inputNode = _audioEngine.inputNode
@@ -161,9 +161,6 @@ class ALTSpeechToTextManager: NSObject {
             DispatchQueue.main.async { [weak self] in
                 self?._recogTask?.cancel()
                 self?._recogTask = nil
-                
-                guard let self = self else { return }
-                self.delegate?.speechToTextManager(didStop: self, withResult: self._resultString)
             }
             return
         }

@@ -205,8 +205,48 @@ class ALTCouponListViewController: ALTBaseViewController {
                     guard message != nil else { return }
                     
                     let alertController = UIAlertController(title: message!, message: nil, preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: ALTAppString.General.Confirm, style: .cancel, handler: nil))
+                    alertController.addAction(UIAlertAction(title: ALTAppString.General.Confirm, style: .cancel, handler: {[weak self] (action) in
+                        self?.startTest()
+                    }))
                     self?.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    private func startTest() {
+        if (LevelTestManager.manager.examInfo?.isTutorialActivated ?? false) == true {
+            let viewController = ALTTutorialViewController()
+            self.navigationController?.setViewControllers([viewController], animated: true)
+            return
+        }
+        if (LevelTestManager.manager.examInfo?.isMicTestActivated ?? false) == true {
+            let viewController = ALTMicTestViewController()
+            self.navigationController?.setViewControllers([viewController], animated: true)
+            return
+        }
+        
+        QIndicatorViewManager.shared.showIndicatorView {(complete) in
+            LevelTestManager.manager.startTest {[weak self] (testSrl, errMessage) in
+                QIndicatorViewManager.shared.hideIndicatorView()
+                
+                guard testSrl != nil, errMessage == nil else {
+                    QIndicatorViewManager.shared.hideIndicatorView()
+                    let alertController = UIAlertController(title: errMessage, message: nil, preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+                    self?.present(alertController, animated: true, completion: nil)
+                    return
+                }
+                LevelTestManager.manager.getQuizViewController(isContinue: false) { (viewController, errMessage) in
+                    guard viewController != nil else {
+                        QIndicatorViewManager.shared.hideIndicatorView()
+                        let alertController = UIAlertController(title: errMessage ?? "알 수 없는 오류입니다.", message: nil, preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+                        self?.present(alertController, animated: true, completion: nil)
+                        return
+                    }
+                    
+                    self?.navigationController?.setViewControllers([viewController!], animated: true)
                 }
             }
         }

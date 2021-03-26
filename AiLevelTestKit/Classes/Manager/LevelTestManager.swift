@@ -101,6 +101,8 @@ class LevelTestManager: NSObject {
 //        return 2
     }
     
+    private var _couponCode: String?
+    
     override init() {
         super.init()
         
@@ -126,6 +128,8 @@ class LevelTestManager: NSObject {
     
     func initialize(examId: String, juniorConnId: String? = nil, completion: (() -> Void)? = nil) {
         clear()
+        
+        _couponCode = nil
         
         _connId = juniorConnId
         
@@ -167,6 +171,7 @@ class LevelTestManager: NSObject {
         params["setup_srl"] = examInfo?.setupSrl
         params["group_code"] = AiLevelTestKit.shared.groupCode
         params["customer_srl"] = customerSrl
+        params["coupon_code"] = _couponCode
         httpClient.parameters = QHttpClient.Parameter(dict: params)
         
         httpClient.sendRequest(to: RequestUrl.Test.Start) { [weak self] (code, errMessage, response) in
@@ -360,10 +365,14 @@ class LevelTestManager: NSObject {
         params["coupon_code"] =  data.code
         httpClient.parameters = QHttpClient.Parameter(dict: params)
         
-        httpClient.sendRequest(to: RequestUrl.Coupon.Use) { (code, errMessage, response) in
+        httpClient.sendRequest(to: RequestUrl.Coupon.Use) {[weak self] (code, errMessage, response) in
             guard code == .success, let responseData = response as? [String:Any] else {
                 completion(false, errMessage)
                 return
+            }
+            
+            if responseData["result"] as? Bool == true {
+                self?._couponCode = data.code
             }
             
             completion(responseData["result"] as? Bool ?? false, responseData["msg"] as? String)

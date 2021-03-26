@@ -181,12 +181,25 @@ public class AiLevelTestKit {
             }
             navController.modalPresentationStyle = .fullScreen
             viewController.present(navController, animated: true, completion: nil)
-        } else {
-            let childViewController = ALTTutorialViewController()
+        } else if (LevelTestManager.manager.examInfo?.isTutorialActivated ?? true) == true {
+            
             var navController: ALTNavigationController!
             if LevelTestManager.manager.isJunior {
+                let childViewController = ALTJuniorTutorialViewController()
                 navController = ALTJuniorTestNavigationController(rootViewController: childViewController)
             } else {
+                let childViewController = ALTTutorialViewController()
+                navController = ALLTSeniorTestNavigationController(rootViewController: childViewController)
+            }
+            navController.modalPresentationStyle = .fullScreen
+            viewController.present(navController, animated: true, completion: nil)
+        } else if (LevelTestManager.manager.examInfo?.isMicTestActivated ?? true) == true {
+            var navController: ALTNavigationController!
+            if LevelTestManager.manager.isJunior {
+                let childViewController = ALTJuniorMicTestViewController()
+                navController = ALTJuniorTestNavigationController(rootViewController: childViewController)
+            } else {
+                let childViewController = ALTMicTestViewController()
                 navController = ALLTSeniorTestNavigationController(rootViewController: childViewController)
             }
             navController.modalPresentationStyle = .fullScreen

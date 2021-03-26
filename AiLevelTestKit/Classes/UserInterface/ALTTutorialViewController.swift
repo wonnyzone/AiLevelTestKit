@@ -216,7 +216,7 @@ class ALTTutorialViewController: ALTBaseViewController {
                 let isMicTestActivated = LevelTestManager.manager.examInfo?.isMicTestActivated ?? false
                 
                 if isMicTestActivated {
-                    let viewController = ALTMicTestViewController()
+                    var viewController = ALTMicTestViewController()
                     self.navigationController?.setViewControllers([viewController], animated: true)
                     break
                 }
