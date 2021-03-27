@@ -54,7 +54,27 @@ class ALTSpeechToTextManager: NSObject {
             _recogTask = nil
         }
         
-        guard _audioEngine.isRunning == false, _speechRecognizer == nil else { return }
+        if _audioEngine.isRunning || _speechRecognizer != nil {
+            DispatchQueue.main.async { [weak self] in
+                self?._timerThreshold?.invalidate()
+                self?._timerThreshold = nil
+                
+                self?._timerDuration?.invalidate()
+                self?._timerDuration = nil
+                
+                self?._audioEngine.inputNode.removeTap(onBus: 0)
+                self?._audioEngine.stop()
+                
+                self?._recogTask?.cancel()
+                self?._recogTask = nil
+                
+                self?._recogRequest = nil
+                
+                self?._speechRecognizer = nil
+                
+                self?._audioFile = nil
+            }
+        }
         
         _resultString = nil
         
@@ -121,7 +141,7 @@ class ALTSpeechToTextManager: NSObject {
         })
         
         let inputNode = _audioEngine.inputNode
-        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        let recordingFormat = inputNode.inputFormat(forBus: 0)
 
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) {[weak self] (buffer, when) in
             self?.audioMetering(with: buffer)

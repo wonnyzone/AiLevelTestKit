@@ -106,7 +106,7 @@ extension ALTResultWebViewController: WKNavigationDelegate {
 extension ALTResultWebViewController: WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { (action) in
+        alertController.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: { (action) in
             completionHandler(false)
         }))
         alertController.addAction(UIAlertAction(title: "예", style: .default, handler: { (action) in

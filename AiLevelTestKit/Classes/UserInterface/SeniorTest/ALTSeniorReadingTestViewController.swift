@@ -18,7 +18,7 @@ class ALTSeniorReadingTestViewController: ALLTSeniorTestBaseViewController {
     internal let _imageViewPlay = UIImageView()
     
     internal let _labelNotice = UILabel()
-    internal let _labelResult = UILabel()
+    internal let _labelResult = UITextView()
     
     internal let _buttonRecord = UIButton()
     internal var _labelRecordCount: UILabel?            // iPad
@@ -136,7 +136,7 @@ class ALTSeniorReadingTestViewController: ALLTSeniorTestBaseViewController {
             _labelResult.textAlignment = .center
             _labelResult.textColor = ColourKit.Code.HexAAAAAA
             _labelResult.font = UIFont.systemFont(ofSize: 24.optimized, weight: .medium)
-            _labelResult.numberOfLines = 0
+//            _labelResult.numberOfLines = 0
             _labelResult.isHidden = true
             leftView.addSubview(_labelResult)
             
@@ -324,9 +324,10 @@ class ALTSeniorReadingTestViewController: ALLTSeniorTestBaseViewController {
             _resultView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16.optimized).isActive = true
             
             _labelResult.translatesAutoresizingMaskIntoConstraints = false
+            _labelResult.backgroundColor = .red
             _labelResult.textColor = ColourKit.Code.HexAAAAAA
             _labelResult.font = UIFont.systemFont(ofSize: 24.optimized, weight: .medium)
-            _labelResult.numberOfLines = 0
+//            _labelResult.numberOfLines = 0
             _labelResult.isHidden = true
             self.view.addSubview(_labelResult)
             
@@ -335,6 +336,7 @@ class ALTSeniorReadingTestViewController: ALLTSeniorTestBaseViewController {
             } else if LevelTestManager.manager.recogResultType == 3 {
                 _labelResult.topAnchor.constraint(equalTo: _resultView.bottomAnchor,constant: 40.optimized).isActive = true
             }
+            _labelResult.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -70).isActive = true
             _labelResult.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.optimized).isActive = true
             _labelResult.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.optimized).isActive = true
             

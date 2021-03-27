@@ -81,8 +81,8 @@ class ALTBaseTestViewController: ALTBaseViewController {
             guard _isSkippable else { break }
             
             let alertController = UIAlertController(title: "다음 문제로 넘어가겠습니까?", message: nil, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "계속하기", style: .cancel, handler: nil))
-            alertController.addAction(UIAlertAction(title: "넘어가기", style: .default, handler: {[weak self] (action) in
+            alertController.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: nil))
+            alertController.addAction(UIAlertAction(title: "예", style: .default, handler: {[weak self] (action) in
                 guard let self = self else { return }
                 self._answer = "SKIP!"
                 self.pressedButton(self._buttonNext)

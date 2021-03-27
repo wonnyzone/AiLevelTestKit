@@ -541,7 +541,7 @@ class ALTMicTestViewController: ALTBaseViewController {
         switch item {
         case _barButtonItemClose:
             let alertController = UIAlertController(title: "정말 종료하시겠습니까?", message: nil, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+            alertController.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: nil))
             alertController.addAction(UIAlertAction(title: "예", style: .default, handler: {[weak self] (action) in
                 self?.dismiss(animated: true)
             }))
