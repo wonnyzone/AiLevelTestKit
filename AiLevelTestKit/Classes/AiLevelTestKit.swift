@@ -88,6 +88,8 @@ public class AiLevelTestKit {
 //            return
 //        }
         
+        ALTSpeechToTextManager.manager.deinitialize()
+        
         QIndicatorViewManager.shared.showIndicatorView { (complete) in
             LevelTestManager.manager.initialize(examId: examId) { [weak self] in
                 QIndicatorViewManager.shared.hideIndicatorView()

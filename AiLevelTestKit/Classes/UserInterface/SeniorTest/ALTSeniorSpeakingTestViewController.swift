@@ -85,6 +85,8 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ALTSpeechToTextManager.manager.initialize(languageCode: LevelTestManager.manager.examInfo?.testLanguage ?? "en")
+        
         let examSrl = testData.testInfo?.examSrl ?? 0
         let level = testData.quiz?.level ?? 0
         let folder = testData.quiz?.folder ?? 0
@@ -135,6 +137,7 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
             _resultView.trailingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: -30).isActive = true
             
             _labelResult.translatesAutoresizingMaskIntoConstraints = false
+            _labelResult.backgroundColor = .clear
             _labelResult.textAlignment = .center
             _labelResult.textColor = ColourKit.Code.HexAAAAAA
             _labelResult.font = UIFont.systemFont(ofSize: 24.optimized, weight: .medium)
@@ -325,6 +328,7 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
             _resultView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16.optimized).isActive = true
             
             _labelResult.translatesAutoresizingMaskIntoConstraints = false
+            _labelResult.backgroundColor = .clear
             _labelResult.textColor = ColourKit.Code.HexAAAAAA
             _labelResult.font = UIFont.systemFont(ofSize: 24.optimized, weight: .medium)
 //            _labelResult.numberOfLines = 0
@@ -387,6 +391,8 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
         
         _guideString = "음성을 잘 들어주세요."
         
+        _buttonRecord.isEnabled = false
+        
         _remainingRecord = 3
         _remainingPlay = 2
     }
@@ -416,7 +422,7 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        ALTSpeechToTextManager.manager.stop()
+        ALTSpeechToTextManager.manager.stop(immdiately: true)
         
         _player?.pause()
         

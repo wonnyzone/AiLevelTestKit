@@ -46,7 +46,38 @@ class ALTSpeechToTextManager: NSObject {
         return _audioEngine.isRunning
     }
     
+    private var _isListening = false
+    
     internal var _audioFile: AVAudioFile?
+    private var _filterError = false
+    
+    func initialize(languageCode code: String, forcing: Bool = false) {
+        guard _speechRecognizer == nil || forcing else { return }
+        
+        var codeString = "en-US"
+        if code == "ja" {
+            codeString = "ja-JP"
+        } else if code == "zh" {
+            codeString = "zh-CN"
+        } else if code == "es" {
+            codeString = "es-ES"
+        }
+        
+        _speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: codeString))
+        
+        _speechRecognizer?.delegate = self
+        
+        _recogRequest = SFSpeechAudioBufferRecognitionRequest()
+        _recogRequest?.shouldReportPartialResults = true
+        if #available(iOS 13.0, *) {
+            _recogRequest?.requiresOnDeviceRecognition = true
+        }
+    }
+    
+    func deinitialize() {
+        _speechRecognizer = nil
+        _recogRequest =  nil
+    }
     
     func start(languageCode code: String) {
         if _recogTask != nil {
@@ -54,26 +85,27 @@ class ALTSpeechToTextManager: NSObject {
             _recogTask = nil
         }
         
-        if _audioEngine.isRunning || _speechRecognizer != nil {
-            DispatchQueue.main.async { [weak self] in
-                self?._timerThreshold?.invalidate()
-                self?._timerThreshold = nil
+        _recogRequest = nil
+        
+        if _audioEngine.isRunning {
+//            DispatchQueue.main.async { [weak self] in
+                _timerThreshold?.invalidate()
+                _timerThreshold = nil
+
+                _timerDuration?.invalidate()
+                _timerDuration = nil
+
+                _audioEngine.inputNode.removeTap(onBus: 0)
+                _audioEngine.stop()
+
+                _recogTask?.cancel()
+                _recogTask = nil
+
                 
-                self?._timerDuration?.invalidate()
-                self?._timerDuration = nil
-                
-                self?._audioEngine.inputNode.removeTap(onBus: 0)
-                self?._audioEngine.stop()
-                
-                self?._recogTask?.cancel()
-                self?._recogTask = nil
-                
-                self?._recogRequest = nil
-                
-                self?._speechRecognizer = nil
-                
-                self?._audioFile = nil
-            }
+//                _speechRecognizer = nil
+
+                _audioFile = nil
+//            }
         }
         
         _resultString = nil
@@ -97,8 +129,13 @@ class ALTSpeechToTextManager: NSObject {
             codeString = "es-ES"
         }
         
-        _speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: codeString))
-        _speechRecognizer?.delegate = self
+        if _speechRecognizer == nil {
+            print("SF: Initialize")
+            print("SF: \(_speechRecognizer?.locale.identifier ?? "") - \(codeString)")
+            _speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: codeString))
+            
+            _speechRecognizer?.delegate = self
+        }
         
         _recogRequest = SFSpeechAudioBufferRecognitionRequest()
         _recogRequest?.shouldReportPartialResults = true
@@ -110,8 +147,13 @@ class ALTSpeechToTextManager: NSObject {
             #if DEBUG_ENABLED
             print("********* STT - RECOG \(result?.bestTranscription.formattedString)")
             #endif
-            guard result != nil || self?._resultString != nil else {
+            print("********* STT - RECOG \(result?.bestTranscription.formattedString)")
+            guard error == nil else {
+                print("!!!!!ERROR!!!!!")
                 print(error?.localizedDescription)
+                return
+            }
+            guard result != nil || self?._resultString != nil else {
                 return
             }
             
@@ -137,31 +179,26 @@ class ALTSpeechToTextManager: NSObject {
             #if DEBUG_ENABLED
             print("********* STT - IS FINAL")
             #endif
-            self?.stop()
+//            self?.stop()
         })
         
         let inputNode = _audioEngine.inputNode
         let recordingFormat = inputNode.inputFormat(forBus: 0)
-
+        
+        inputNode.removeTap(onBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) {[weak self] (buffer, when) in
             self?.audioMetering(with: buffer)
             self?._recogRequest?.append(buffer)
             try? self?._audioFile?.write(from: buffer)
         }
         
-//        _timerThreshold = Timer.scheduledTimer(withTimeInterval: thresholdTime, repeats: false, block: {[weak self] (timer) in
-//            #if DEBUG_ENABLED
-//            print("********* STT - THRESHHOLD")
-//            #endif
-//            self?.stop()
-//        })
         
         _timerDuration?.invalidate()
         _timerDuration = Timer.scheduledTimer(withTimeInterval: duration, repeats: false, block: { [weak self] (timer) in
             #if DEBUG_ENABLED
             print("********* STT - DURATION")
             #endif
-            self?.stop()
+            self?.stop(immdiately: true)
         })
         
         
@@ -171,21 +208,50 @@ class ALTSpeechToTextManager: NSObject {
             _audioFile = nil
         }
         
-        try? _audioEngine.start()
+        _audioEngine.prepare()
         
-        delegate?.speechToTextManager(didStart: self)
+        _filterError = true
+        
+        self.delegate?.speechToTextManager(didStart: self)
+        
+        _ = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: false, block: {[weak self] (timer) in
+            let reset = {[weak self] in
+                self?._audioEngine.inputNode.removeTap(onBus: 0)
+                self?._timerDuration?.invalidate()
+                self?._audioFile = nil
+                
+                self?.start(languageCode: code)
+            }
+            
+            let isRecognizable = self?._speechRecognizer?.isAvailable ?? false
+            if isRecognizable == false {
+                reset()
+                return
+            }
+            
+            print("SF: \(self?._speechRecognizer?.isAvailable ?? false)")
+            
+            do {
+                try self?._audioEngine.start()
+            } catch {
+                print("************************** audio engine failed *********************")
+                
+                reset()
+                return
+            }
+            
+            self?._isListening = true
+        })
     }
     
-    func stop() {
-        guard _audioEngine.isRunning else {
-            DispatchQueue.main.async { [weak self] in
-                self?._recogTask?.cancel()
-                self?._recogTask = nil
-            }
-            return
-        }
+    func stop(immdiately: Bool = false) {
+        _filterError = false
         
-        _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { (timer) in
+        guard _isListening else { return }
+        
+        _isListening = false
+        
+        _ = Timer.scheduledTimer(withTimeInterval: immdiately ? 0.0 : 1.0, repeats: false, block: { (timer) in
             DispatchQueue.main.async { [weak self] in
                 self?._timerThreshold?.invalidate()
                 self?._timerThreshold = nil
@@ -193,17 +259,16 @@ class ALTSpeechToTextManager: NSObject {
                 self?._timerDuration?.invalidate()
                 self?._timerDuration = nil
                 
-                self?._audioEngine.inputNode.removeTap(onBus: 0)
-                self?._audioEngine.stop()
-                
-                self?._recogTask?.cancel()
+                self?._recogRequest?.endAudio()
+                self?._recogTask?.finish()
                 self?._recogTask = nil
                 
-                self?._recogRequest = nil
-                
-                self?._speechRecognizer = nil
+                self?._audioEngine.stop()
+                self?._audioEngine.inputNode.removeTap(onBus: 0)
                 
                 self?._audioFile = nil
+                
+                self?._recogRequest = nil
                 
                 let audioSession = AVAudioSession.sharedInstance()
                         

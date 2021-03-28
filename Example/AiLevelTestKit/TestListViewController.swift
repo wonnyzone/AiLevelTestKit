@@ -39,7 +39,7 @@ class TestListViewController: UIViewController {
         _textFieldTestSrl.translatesAutoresizingMaskIntoConstraints = false
         _textFieldTestSrl.backgroundColor = .white
         _textFieldTestSrl.borderStyle = .roundedRect
-        _textFieldTestSrl.text = "lv_ko_en_a"
+        _textFieldTestSrl.text = "lv_ko_ja_a"
         _textFieldTestSrl.textColor = .darkText
         _textFieldTestSrl.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         self.view.addSubview(_textFieldTestSrl)
