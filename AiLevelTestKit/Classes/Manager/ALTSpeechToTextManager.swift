@@ -229,7 +229,10 @@ class ALTSpeechToTextManager: NSObject {
                 return
             }
             
-            print("SF: \(self?._speechRecognizer?.isAvailable ?? false)")
+            guard (self?._speechRecognizer?.isAvailable ?? false) == true else {
+                self?.start(languageCode: code)
+                return
+            }
             
             do {
                 try self?._audioEngine.start()

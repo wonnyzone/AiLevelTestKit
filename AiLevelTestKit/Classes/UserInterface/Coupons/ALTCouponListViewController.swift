@@ -193,7 +193,7 @@ class ALTCouponListViewController: ALTBaseViewController {
     }
     
     @objc private func pressedCellButton(_ button: UIButton) {
-        guard let cell = button.superview?.superview?.superview?.superview as? ALTCouponTableViewCell, let data = cell.data else { return }
+        guard _tableHeaderView.selectedCategory == .available, let cell = button.superview?.superview?.superview?.superview as? ALTCouponTableViewCell, let data = cell.data else { return }
         
         QIndicatorViewManager.shared.showIndicatorView { (complete) in
             LevelTestManager.manager.useCoupon(with: data) { (isSucceed, message) in
