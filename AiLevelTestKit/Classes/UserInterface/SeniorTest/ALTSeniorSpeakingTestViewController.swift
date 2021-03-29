@@ -138,6 +138,8 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
             
             _labelResult.translatesAutoresizingMaskIntoConstraints = false
             _labelResult.backgroundColor = .clear
+            _labelResult.isEditable = false
+            _labelResult.isUserInteractionEnabled = false
             _labelResult.textAlignment = .center
             _labelResult.textColor = ColourKit.Code.HexAAAAAA
             _labelResult.font = UIFont.systemFont(ofSize: 24.optimized, weight: .medium)
@@ -329,6 +331,8 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
             
             _labelResult.translatesAutoresizingMaskIntoConstraints = false
             _labelResult.backgroundColor = .clear
+            _labelResult.isEditable = false
+            _labelResult.isUserInteractionEnabled = false
             _labelResult.textColor = ColourKit.Code.HexAAAAAA
             _labelResult.font = UIFont.systemFont(ofSize: 24.optimized, weight: .medium)
 //            _labelResult.numberOfLines = 0

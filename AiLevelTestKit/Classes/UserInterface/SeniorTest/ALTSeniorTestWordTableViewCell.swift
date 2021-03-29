@@ -30,11 +30,12 @@ class ALTSeniorTestWordTableViewCell: ALTBaseTableViewCell {
         
         let isiPad = UIDevice.current.userInterfaceIdiom == .pad
         
+        self.backgroundColor = .clear
+        
         let backView = UIView()
         backView.translatesAutoresizingMaskIntoConstraints = false
         backView.backgroundColor = ColourKit.Code.HexFFFFFF
-//        backView.layer.borderWidth = 1
-//        backView.layer.borderColor = ColourKit.Code.Hex888888.cgColor
+        backView.layer.borderWidth = 0
         self.contentView.addSubview(backView)
         
         backView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: isiPad ? 5.optimized : 3.optimized).isActive = true

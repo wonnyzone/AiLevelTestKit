@@ -564,12 +564,13 @@ class ALTMicTestViewController: ALTBaseViewController {
                 _buttonRecord.isEnabled = false
                 ALTSpeechToTextManager.manager.stop()
             } else {
-                ALTSpeechToTextManager.manager.start(languageCode: LevelTestManager.manager.examInfo?.testLanguage ?? "en")
                 _isButtonEnabled = false
                 _buttonNext.isEnabled = false
                 _isSkippable = false
-                
                 _buttonRecord.isEnabled = false
+                
+                ALTSpeechToTextManager.manager.start(languageCode: LevelTestManager.manager.examInfo?.testLanguage ?? "en")
+                
                 _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: {[weak self] (timer) in
                     self?._buttonRecord.isEnabled = true
                 })

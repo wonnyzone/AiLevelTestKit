@@ -179,15 +179,13 @@ extension ALTSeniorTestWordViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var indexPaths = [indexPath]
         
-        if _selectedIndex != nil {
-            indexPaths.append(IndexPath(row: _selectedIndex!, section: 0))
-        }
+        guard _selectedIndex != indexPath.row else { return }
         
         _selectedIndex = indexPath.row
         
         _answer = _tableData[_selectedIndex!].answer
         
-        _tableView.reloadRows(at: indexPaths, with: .none)
+        _tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

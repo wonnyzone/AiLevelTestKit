@@ -147,10 +147,9 @@ class ALTSpeechToTextManager: NSObject {
             #if DEBUG_ENABLED
             print("********* STT - RECOG \(result?.bestTranscription.formattedString)")
             #endif
-            print("********* STT - RECOG \(result?.bestTranscription.formattedString)")
             guard error == nil else {
                 print("!!!!!ERROR!!!!!")
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "")
                 return
             }
             guard result != nil || self?._resultString != nil else {
