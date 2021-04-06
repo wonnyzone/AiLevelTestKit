@@ -24,9 +24,11 @@ class ALTResultWebViewController: ALTBaseViewController {
     }()
     
     let testSrl: Int?
+    let examId: String?
     
-    init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil, testSrl: Int?) {
+    init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil, examId: String?, testSrl: Int?) {
         self.testSrl = testSrl
+        self.examId = examId
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -55,7 +57,17 @@ class ALTResultWebViewController: ALTBaseViewController {
         let stdView = UIView(frame: .zero)
         _webView.scrollView.addSubview(stdView)
         
-        guard let url = URL(string: RequestUrl.Result.GetDetails + "?email=\(UserDataManager.manager.userId ?? "")&code=\(UserDataManager.manager.groupCode ?? "")&api_type=ios") else { return }
+        var urlString = RequestUrl.Result.GetDetails + "?email=\(UserDataManager.manager.userId ?? "")&code=\(UserDataManager.manager.groupCode ?? "")"
+        
+        if examId != nil {
+            urlString += "&exam_id=\(examId!)"
+        }
+        
+        urlString += "&api_type=ios"
+        
+        print(urlString)
+        
+        guard let url = URL(string: urlString) else { return }
         
         UIPasteboard.general.string = url.absoluteString
         
@@ -110,6 +122,7 @@ extension ALTResultWebViewController: WKUIDelegate {
             completionHandler(false)
         }))
         alertController.addAction(UIAlertAction(title: "예", style: .default, handler: { (action) in
+            self.dismiss()
             completionHandler(true)
         }))
         self.present(alertController, animated: true, completion: nil)

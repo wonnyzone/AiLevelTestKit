@@ -266,8 +266,13 @@ public class AiLevelTestKit {
 //        viewController.present(navController, animated: true, completion: nil)
 //    }
     
-    public func showResult(from viewController: UIViewController) {
-        let vc = ALTResultWebViewController(testSrl: nil)
+    public func showResult(examId: String?, from viewController: UIViewController) {
+        var id = examId
+        if (examId ?? "").count == 0 {
+            id = nil
+        }
+        
+        let vc = ALTResultWebViewController(examId: id, testSrl: nil)
         vc.modalPresentationStyle = .overFullScreen
         viewController.present(vc, animated: true, completion: nil)
     }

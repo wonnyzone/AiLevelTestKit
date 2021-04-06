@@ -135,7 +135,7 @@ class ALTBaseTestViewController: ALTBaseViewController {
                     guard isCompleted == false else {
                         if LevelTestManager.manager.examInfo?.examSetup2 == 1 {
                             self?.dismiss(animated: true, completion: {
-                                let viewController = ALTResultWebViewController(testSrl: testSrl)
+                                let viewController = ALTResultWebViewController(examId: LevelTestManager.manager.examId, testSrl: testSrl)
                                 viewController.modalPresentationStyle = .overFullScreen
                                 UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: {
                                     QIndicatorViewManager.shared.hideIndicatorView()
@@ -146,7 +146,7 @@ class ALTBaseTestViewController: ALTBaseViewController {
                             alertController.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: nil))
                             alertController.addAction(UIAlertAction(title: "결과 확인", style: .default, handler: {[weak self] (action) in
                                 self?.dismiss(animated: true, completion: {
-                                    let viewController = ALTResultWebViewController(testSrl: testSrl)
+                                    let viewController = ALTResultWebViewController(examId: LevelTestManager.manager.examId, testSrl: testSrl)
                                     viewController.modalPresentationStyle = .overFullScreen
                                     UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: {
                                         QIndicatorViewManager.shared.hideIndicatorView()

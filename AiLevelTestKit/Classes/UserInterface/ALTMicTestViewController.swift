@@ -677,6 +677,7 @@ extension ALTMicTestViewController: ALTSpeechToTextManagerDelegate {
         
         guard text != nil else {
             _remainingRecord = remainingRecord             // 텍스트 변경
+            _buttonRecord.isEnabled = true
             return
         }
         
