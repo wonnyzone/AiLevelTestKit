@@ -21,7 +21,7 @@ iOS 12.1 or above
 3. Optimized for ARM64 Architecture.
 </details>
 
-## Framework Version 0.9.36
+## Framework Version 0.9.37
 
 ## Example
 
@@ -85,13 +85,14 @@ AiLevelTestKit.shared.activate(groupCode: "allinone07834", email: "evan", themeC
 테스트 시작하기
 ```swift
 AiLevelTestKit.shared.startTestWith(id: "exam1", from: self)
-// data = 시험 아이디 (String)
+// id = 시험 아이디 (String)
 ```
 
 
 테스트 결과 보기 
 ```swift
-AiLevelTestKit.shared.showResult(from: self)
+AiLevelTestKit.shared.showResult(examId: "exam1", from: self)
+// examId = 시험 아이디 (String)
 ```
 
 
