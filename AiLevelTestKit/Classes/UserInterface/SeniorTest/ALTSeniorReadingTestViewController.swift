@@ -85,8 +85,6 @@ class ALTSeniorReadingTestViewController: ALLTSeniorTestBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ALTSpeechToTextManager.manager.initialize(languageCode: LevelTestManager.manager.examInfo?.testLanguage ?? "en")
-        
         let examSrl = testData.testInfo?.examSrl ?? 0
         let level = testData.quiz?.level ?? 0
         let folder = testData.quiz?.folder ?? 0
@@ -454,6 +452,10 @@ class ALTSeniorReadingTestViewController: ALLTSeniorTestBaseViewController {
                 _buttonRecord.isEnabled = false
                 
                 _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: {[weak self] (timer) in
+                    if ALTSpeechToTextManager.manager.isRecording == false {
+                        ALTSpeechToTextManager.manager.start(languageCode: LevelTestManager.manager.examInfo?.testLanguage ?? "en")
+                    }
+                    
                     self?._buttonRecord.isEnabled = true
                 })
             }

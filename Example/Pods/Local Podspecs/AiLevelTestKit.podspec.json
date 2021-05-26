@@ -1,7 +1,8 @@
 {
   "name": "AiLevelTestKit",
-  "version": "0.9.14",
+  "version": "0.9.45",
   "summary": "AiLevelTestKit iOS version.",
+  "swift_versions": "5.0",
   "description": "AiLevelTestKit based on Swift5 for native iOS",
   "homepage": "http://aileveltest.co.kr",
   "license": {
@@ -9,11 +10,11 @@
     "file": "LICENSE"
   },
   "authors": {
-    "jk-gna": "junq.jeon@gmail.com"
+    "jk.jeon": "junq.jeon@gmail.com"
   },
   "source": {
     "git": "https://github.com/wonnyzone/AiLevelTestKit.git",
-    "tag": "0.9.14"
+    "tag": "0.9.45"
   },
   "platforms": {
     "ios": "12.1"
@@ -33,10 +34,10 @@
     "OCWaveView": [
 
     ],
-    "lame": [
+    "PINRemoteImage": [
 
     ],
-    "PINRemoteImage": [
+    "ExtAudioConverter-Wrapper": [
 
     ]
   },
@@ -45,5 +46,6 @@
   },
   "user_target_xcconfig": {
     "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
-  }
+  },
+  "swift_version": "5.0"
 }

@@ -238,7 +238,7 @@ class ALTMicTestViewController: ALTBaseViewController {
                 break
                 
             case "zh":
-                hello = "你好"
+                hello = "谢谢"
                 break
                 
             default:
@@ -437,7 +437,7 @@ class ALTMicTestViewController: ALTBaseViewController {
                 break
                 
             case "zh":
-                hello = "你好"
+                hello = "谢谢"
                 break
                 
             default:

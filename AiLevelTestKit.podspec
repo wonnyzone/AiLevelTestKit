@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AiLevelTestKit'
-  s.version          = '0.9.37'
+  s.version          = '0.9.45'
   s.summary          = 'AiLevelTestKit iOS version.'
   s.swift_version    = '5.0'
 
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'http://aileveltest.co.kr'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'jk-gna' => 'junq.jeon@gmail.com' }
+  s.author           = { 'jk.jeon' => 'junq.jeon@gmail.com' }
   s.source           = { :git => 'https://github.com/wonnyzone/AiLevelTestKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
     
@@ -42,8 +42,8 @@ Pod::Spec.new do |s|
     s.static_framework = true
    s.dependency 'BEMCheckBox'
    s.dependency 'OCWaveView'
-   s.dependency 'lame'
    s.dependency 'PINRemoteImage'
+   s.dependency 'ExtAudioConverter-Wrapper'
    
    s.pod_target_xcconfig = {
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'

@@ -103,6 +103,14 @@ class TestListViewController: UIViewController {
         _buttonResult.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        _ = _textFieldResultCode.resignFirstResponder()
+        _ = _textFieldExamId.resignFirstResponder()
+        _ = _textFieldResultExamId.resignFirstResponder()
+    }
+    
     @objc private func pressedButton(_ button: UIButton) {
         switch button {
         case _buttonTest:

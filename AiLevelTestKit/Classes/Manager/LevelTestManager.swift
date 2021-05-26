@@ -78,7 +78,8 @@ class LevelTestManager: NSObject {
     private var _connId: String?
     
     var isJunior: Bool {
-        return _connId != nil
+//        return _connId != nil
+        return examInfo?.examSrl == 4
     }
     
     var examId: String? {

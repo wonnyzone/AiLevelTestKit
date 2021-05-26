@@ -1,10 +1,12 @@
 PODS:
-  - AiLevelTestKit (0.9.14):
+  - AiLevelTestKit (0.9.45):
     - BEMCheckBox
-    - lame
+    - ExtAudioConverter-Wrapper
     - OCWaveView
     - PINRemoteImage
   - BEMCheckBox (1.4.1)
+  - ExtAudioConverter-Wrapper (1.0.3):
+    - lame
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
@@ -16,12 +18,12 @@ PODS:
   - iOSSnapshotTestCase/SwiftSupport (6.2.0):
     - iOSSnapshotTestCase/Core
   - lame (1.0.0)
-  - Nimble (8.0.9)
-  - Nimble-Snapshots (8.0.0):
-    - Nimble-Snapshots/Core (= 8.0.0)
-  - Nimble-Snapshots/Core (8.0.0):
+  - Nimble (9.2.0)
+  - Nimble-Snapshots (9.1.0):
+    - Nimble-Snapshots/Core (= 9.1.0)
+  - Nimble-Snapshots/Core (9.1.0):
     - iOSSnapshotTestCase (~> 6.0)
-    - Nimble (~> 8.0)
+    - Nimble
   - OCWaveView (0.2.1)
   - PINCache (3.0.3):
     - PINCache/Arc-exception-safe (= 3.0.3)
@@ -38,18 +40,19 @@ PODS:
   - PINRemoteImage/PINCache (3.0.3):
     - PINCache (~> 3.0.3)
     - PINRemoteImage/Core
-  - Quick (2.2.1)
+  - Quick (4.0.0)
 
 DEPENDENCIES:
   - AiLevelTestKit (from `../`)
-  - FBSnapshotTestCase (~> 2.1.4)
-  - Nimble (~> 8.0.7)
-  - Nimble-Snapshots (~> 8.0.0)
-  - Quick (~> 2.2.0)
+  - FBSnapshotTestCase
+  - Nimble
+  - Nimble-Snapshots
+  - Quick
 
 SPEC REPOS:
   trunk:
     - BEMCheckBox
+    - ExtAudioConverter-Wrapper
     - FBSnapshotTestCase
     - iOSSnapshotTestCase
     - lame
@@ -66,19 +69,20 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AiLevelTestKit: 45f8906a4a585356a8c93b9a8f23fd5a96172463
+  AiLevelTestKit: 944ebcdf1761b1a7500df17f5a5edbd9a782060b
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
+  ExtAudioConverter-Wrapper: ea055f59e8740cd1f8036c55eb7e1907c097e7f8
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
   lame: 1edb6e24a4e2056b9d1fd90c9fddc10c9aff875d
-  Nimble: 98b888285a615fd34f20e61753cf58ea1402bde4
-  Nimble-Snapshots: 8ec63f41ce6c7229a17be9a64edbc123b181f75b
+  Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
+  Nimble-Snapshots: 6605431525245f967ca9d558bb12a49da3d040e3
   OCWaveView: ac1dee6d0e980d0df6b291e38abf1aba191f1af9
   PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
   PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
   PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
-  Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
+  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
 
-PODFILE CHECKSUM: 8c8c1a651df6fd242edca0a48356212bec04da06
+PODFILE CHECKSUM: 8a852e781d0915d5b5c1c7fd0a46c3707634f66c
 
 COCOAPODS: 1.10.1

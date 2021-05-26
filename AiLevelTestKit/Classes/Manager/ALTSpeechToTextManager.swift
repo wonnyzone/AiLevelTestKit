@@ -12,6 +12,8 @@ import Accelerate
 
 import Speech
 
+import ExtAudioConverter_Wrapper
+
 @objc protocol ALTSpeechToTextManagerDelegate {
     func speechToTextManager(didStart manager: ALTSpeechToTextManager)
     func speechToTextManager(didStop manager: ALTSpeechToTextManager, withResult text: String?)
@@ -69,9 +71,6 @@ class ALTSpeechToTextManager: NSObject {
         
         _recogRequest = SFSpeechAudioBufferRecognitionRequest()
         _recogRequest?.shouldReportPartialResults = true
-        if #available(iOS 13.0, *) {
-            _recogRequest?.requiresOnDeviceRecognition = true
-        }
     }
     
     func deinitialize() {
@@ -80,11 +79,18 @@ class ALTSpeechToTextManager: NSObject {
     }
     
     func start(languageCode code: String) {
+        DispatchQueue.main.async { [weak self] in
+            self?.internalStart(languageCode: code)
+        }
+    }
+    
+    private func internalStart(languageCode code: String) {
         if _recogTask != nil {
             _recogTask?.cancel()
             _recogTask = nil
         }
         
+        _recogRequest?.endAudio()
         _recogRequest = nil
         
         if _audioEngine.isRunning {
@@ -140,10 +146,12 @@ class ALTSpeechToTextManager: NSObject {
         _recogRequest = SFSpeechAudioBufferRecognitionRequest()
         _recogRequest?.shouldReportPartialResults = true
         if #available(iOS 13.0, *) {
-            _recogRequest?.requiresOnDeviceRecognition = true
+//            _recogRequest?.requiresOnDeviceRecognition = true
         }
         
         _recogTask = _speechRecognizer?.recognitionTask(with: _recogRequest!, resultHandler: {[weak self] (result, error) in
+            guard result != nil else { return }
+            
             #if DEBUG_ENABLED
             print("********* STT - RECOG \(result?.bestTranscription.formattedString)")
             #endif
@@ -184,6 +192,20 @@ class ALTSpeechToTextManager: NSObject {
         let inputNode = _audioEngine.inputNode
         let recordingFormat = inputNode.inputFormat(forBus: 0)
         
+        let settings = _audioEngine.inputNode.outputFormat(forBus: 0).settings
+        
+        
+        if let fileUrl = getFileUrl() {
+            _audioFile = try? AVAudioFile(forWriting: fileUrl, settings: settings)
+        } else {
+            _audioFile = nil
+        }
+        
+        _audioEngine.prepare()
+        
+        _filterError = true
+        
+        
         inputNode.removeTap(onBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) {[weak self] (buffer, when) in
             self?.audioMetering(with: buffer)
@@ -199,17 +221,6 @@ class ALTSpeechToTextManager: NSObject {
             #endif
             self?.stop(immdiately: true)
         })
-        
-        
-        if let fileUrl = getFileUrl() {
-            _audioFile = try? AVAudioFile(forWriting: fileUrl, settings: _audioEngine.inputNode.outputFormat(forBus: 0).settings)
-        } else {
-            _audioFile = nil
-        }
-        
-        _audioEngine.prepare()
-        
-        _filterError = true
         
         self.delegate?.speechToTextManager(didStart: self)
         
@@ -261,10 +272,10 @@ class ALTSpeechToTextManager: NSObject {
                 self?._timerDuration?.invalidate()
                 self?._timerDuration = nil
                 
-                self?._recogRequest?.endAudio()
                 self?._recogTask?.finish()
                 self?._recogTask = nil
                 
+                self?._recogRequest?.endAudio()
                 self?._audioEngine.stop()
                 self?._audioEngine.inputNode.removeTap(onBus: 0)
                 
@@ -343,8 +354,8 @@ class ALTSpeechToTextManager: NSObject {
     }
     
     internal func getFileUrl() -> URL? {
-        guard let directory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first,
-              var url = URL(string: directory) else { return nil }
+        guard var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+              else { return nil }
         
         url.appendPathComponent("record.wav")
         return url
@@ -370,8 +381,6 @@ class ALTSpeechToTextManager: NSObject {
             return
         }
         
-        print(audioFile.fileFormat.sampleRate)
-        
         var audioData = Data()
         
         do {
@@ -388,254 +397,142 @@ class ALTSpeechToTextManager: NSObject {
             return
         }
         
-        
-        
-        let parameters = [
-          [
-            "key": "customer_srl",
-            "value": "\(customerSrl)",
-            "type": "text"
-          ],
-          [
-            "key": "stt_type",
-            "value": "none",
-            "type": "text"
-          ],
-          [
-            "key": "is_mictest",
-            "value": isMicTest ? "true" : "false",
-            "type": "text"
-          ],
-          [
-            "key": "group_code",
-            "value": "\(groupCode)",
-            "type": "text"
-          ],
-          [
-            "key": "test_srl",
-            "value": "\(testSrl)",
-            "type": "text"
-          ],
-          [
-            "key": "level_srl",
-            "value": "\(levelSrl ?? -1)",
-            "type": "text"
-          ],
-          [
-            "key": "order",
-            "value": "\(order ?? -1)",
-            "type": "text"
-          ],
-          [
-            "key": "section_path",
-            "value": path ?? "",
-            "type": "text"
-          ],
-          [
-            "key": "main_lang",
-            "value": userLanguage ?? "",
-            "type": "text"
-          ],
-          [
-            "key": "problem_lang",
-            "value": testLanguage ?? "",
-            "type": "text"
-          ],
-          [
-            "key": "record_file",
-            "src": fileUrl.absoluteString,
-            "type": "file"
-          ],
-          [
-            "key": "act",
-            "value": "apiSpeechToText",
-            "type": "text"
-          ],
-          [
-            "key": "module",
-            "value": "y1test",
-            "type": "text"
-          ],
-          [
-            "key": "answer_text",
-            "value": answerText,
-            "type": "text"
-          ]] as [[String : Any]]
-
-        let boundary = "Boundary-\(UUID().uuidString)"
-        var body = Data()
-//        var error: Error? = nil
-        for param in parameters {
-          if param["disabled"] == nil {
-            let paramName = param["key"]!
-            body += "--\(boundary)\r\n".data(using: .utf8)!
-            body += "Content-Disposition:form-data; name=\"\(paramName)\"".data(using: .utf8)!
-            if param["contentType"] != nil {
-              body += "\r\nContent-Type: \(param["contentType"] as! String)".data(using: .utf8)!
-            }
-            let paramType = param["type"] as! String
-            if paramType == "text" {
-              let paramValue = param["value"] as! String
-              body += "\r\n\r\n\(paramValue)\r\n".data(using: .utf8)!
-            } else  {
-//              let fileContent = String(data: data, encoding: .utf8)!
-                body += "; filename=\"ios_\(customerSrl)_\(testSrl)_\(Date().timeIntervalSince1970).wav\"\r\n".data(using: .utf8)!
-                body += "Content-Type: \"content-type header\"\r\n\r\n".data(using: .utf8)!
-                body += audioData
-                body += "\r\n".data(using: .utf8)!
-            }
-          }
+        let inputPath = fileUrl.path
+        let outputURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("output.mp3")
+        guard let outputPath = outputURL?.path else {
+            print("Error to set input or output path")
+            return
         }
-        body += "--\(boundary)--\r\n".data(using: .utf8)!
         
-
-        var request = URLRequest(url: URL(string: "https://aileveltest.co.kr/index.php")!,timeoutInterval: Double.infinity)
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-
-        request.httpMethod = "POST"
-        request.httpBody = body
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let rawData = data, let responseData = try? JSONSerialization.jsonObject(with: rawData, options: []) as? [String:Any] else {
+        print("Input Path: \(inputPath)")
+        print("Output Path: \(outputPath)")
+        
+        let converter = ExtAudioConverter()
+        converter.inputFilePath = inputPath
+        converter.outputFilePath = outputPath
+        converter.outputFormatID = kAudioFormatMPEGLayer3
+        if converter.convert() {
+            guard let aData = try? Data(contentsOf: outputURL!) else {
                 completion?(nil)
                 return
             }
-            completion?(responseData["response"] as? [String:Any])
-        }
+            
+            let parameters = [
+              [
+                "key": "customer_srl",
+                "value": "\(customerSrl)",
+                "type": "text"
+              ],
+              [
+                "key": "stt_type",
+                "value": "none",
+                "type": "text"
+              ],
+              [
+                "key": "is_mictest",
+                "value": isMicTest ? "true" : "false",
+                "type": "text"
+              ],
+              [
+                "key": "group_code",
+                "value": "\(groupCode)",
+                "type": "text"
+              ],
+              [
+                "key": "test_srl",
+                "value": "\(testSrl)",
+                "type": "text"
+              ],
+              [
+                "key": "level_srl",
+                "value": "\(levelSrl ?? -1)",
+                "type": "text"
+              ],
+              [
+                "key": "order",
+                "value": "\(order ?? -1)",
+                "type": "text"
+              ],
+              [
+                "key": "section_path",
+                "value": path ?? "",
+                "type": "text"
+              ],
+              [
+                "key": "main_lang",
+                "value": userLanguage ?? "",
+                "type": "text"
+              ],
+              [
+                "key": "problem_lang",
+                "value": testLanguage ?? "",
+                "type": "text"
+              ],
+              [
+                "key": "record_file",
+                "src": outputPath,
+                "type": "file"
+              ],
+              [
+                "key": "act",
+                "value": "apiSpeechToText",
+                "type": "text"
+              ],
+              [
+                "key": "module",
+                "value": "y1test",
+                "type": "text"
+              ],
+              [
+                "key": "answer_text",
+                "value": answerText,
+                "type": "text"
+              ]] as [[String : Any]]
 
-        task.resume()
-        
-//        guard let fileUrlString = getFileUrl()?.absoluteString,
-//              let mp3FileUrl = getMp3Url(),
-//              let mp3UrlString = getMp3Url()?.absoluteString,
-//              let customerSrl = LevelTestManager.manager.customerSrl,
-//              let groupCode = UserDataManager.manager.groupCode,
-//              let testSrl = LevelTestManager.manager.testSrl else { return }
-//        ALTAudioConverterManager.encodeToMp3(inPcmPath: fileUrlString, outMp3Path: mp3UrlString) { (progress) -> (Void) in
-//
-//        } onComplete: { () -> (Void) in
-//            guard let audioData = try? Data(contentsOf: mp3FileUrl) else {
-//                completion?(nil)
-//                return
-//            }
-//
-//            let parameters = [
-//              [
-//                "key": "customer_srl",
-//                "value": "\(customerSrl)",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "stt_type",
-//                "value": "none",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "is_mictest",
-//                "value": isMicTest ? "true" : "false",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "group_code",
-//                "value": "\(groupCode)",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "test_srl",
-//                "value": "\(testSrl)",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "level_srl",
-//                "value": "\(levelSrl ?? -1)",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "order",
-//                "value": "\(order ?? -1)",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "section_path",
-//                "value": path ?? "",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "main_lang",
-//                "value": userLanguage ?? "",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "problem_lang",
-//                "value": testLanguage ?? "",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "record_file",
-//                "src": fileUrlString,
-//                "type": "file"
-//              ],
-//              [
-//                "key": "act",
-//                "value": "apiSpeechToText",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "module",
-//                "value": "y1test",
-//                "type": "text"
-//              ],
-//              [
-//                "key": "answer_text",
-//                "value": answerText,
-//                "type": "text"
-//              ]] as [[String : Any]]
-//
-//            let boundary = "Boundary-\(UUID().uuidString)"
-//            var body = Data()
-//    //        var error: Error? = nil
-//            for param in parameters {
-//              if param["disabled"] == nil {
-//                let paramName = param["key"]!
-//                body += "--\(boundary)\r\n".data(using: .utf8)!
-//                body += "Content-Disposition:form-data; name=\"\(paramName)\"".data(using: .utf8)!
-//                if param["contentType"] != nil {
-//                  body += "\r\nContent-Type: \(param["contentType"] as! String)".data(using: .utf8)!
-//                }
-//                let paramType = param["type"] as! String
-//                if paramType == "text" {
-//                  let paramValue = param["value"] as! String
-//                  body += "\r\n\r\n\(paramValue)\r\n".data(using: .utf8)!
-//                } else  {
-//    //              let fileContent = String(data: data, encoding: .utf8)!
-//                    body += "; filename=\"ios_\(customerSrl)_\(testSrl)_\(Date().timeIntervalSince1970).wav\"\r\n".data(using: .utf8)!
-//                    body += "Content-Type: \"content-type header\"\r\n\r\n".data(using: .utf8)!
-//                    body += audioData
-//                    body += "\r\n".data(using: .utf8)!
-//                }
-//              }
-//            }
-//            body += "--\(boundary)--\r\n".data(using: .utf8)!
-//
-//
-//            var request = URLRequest(url: URL(string: "https://aileveltest.co.kr/index.php")!,timeoutInterval: Double.infinity)
-//            request.addValue("application/json", forHTTPHeaderField: "Accept")
-//            request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-//
-//            request.httpMethod = "POST"
-//            request.httpBody = body
-//
-//            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//                guard let rawData = data, let responseData = try? JSONSerialization.jsonObject(with: rawData, options: []) as? [String:Any] else {
-//                    completion?(nil)
-//                    return
-//                }
-//                completion?(responseData?["response"] as? [String:Any])
-//            }
-//
-//            task.resume()
-//        }
+            let boundary = "Boundary-\(UUID().uuidString)"
+            var body = Data()
+    //        var error: Error? = nil
+            for param in parameters {
+              if param["disabled"] == nil {
+                let paramName = param["key"]!
+                body += "--\(boundary)\r\n".data(using: .utf8)!
+                body += "Content-Disposition:form-data; name=\"\(paramName)\"".data(using: .utf8)!
+                if param["contentType"] != nil {
+                  body += "\r\nContent-Type: \(param["contentType"] as! String)".data(using: .utf8)!
+                }
+                let paramType = param["type"] as! String
+                if paramType == "text" {
+                  let paramValue = param["value"] as! String
+                  body += "\r\n\r\n\(paramValue)\r\n".data(using: .utf8)!
+                } else  {
+    //              let fileContent = String(data: data, encoding: .utf8)!
+                    body += "; filename=\"ios_\(customerSrl)_\(testSrl)_\(Date().timeIntervalSince1970).mp3\"\r\n".data(using: .utf8)!
+                    body += "Content-Type: \"content-type header\"\r\n\r\n".data(using: .utf8)!
+                    body += aData
+                    body += "\r\n".data(using: .utf8)!
+                }
+              }
+            }
+            body += "--\(boundary)--\r\n".data(using: .utf8)!
+            
+
+            var request = URLRequest(url: URL(string: "https://aileveltest.co.kr/index.php")!,timeoutInterval: Double.infinity)
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+            request.httpMethod = "POST"
+            request.httpBody = body
+
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let rawData = data, let responseData = try? JSONSerialization.jsonObject(with: rawData, options: []) as? [String:Any] else {
+                    completion?(nil)
+                    return
+                }
+                completion?(responseData["response"] as? [String:Any])
+            }
+
+            task.resume()
+        }
     }
 }
 

@@ -26,6 +26,8 @@ class ALTBaseTestViewController: ALTBaseViewController {
     
     let testData: ALTLevelTest
     
+    private var _inProcessing = false
+    
     internal var canGoNext: Bool {
         return true
     }
@@ -65,6 +67,8 @@ class ALTBaseTestViewController: ALTBaseViewController {
         if let sview = _labelGuide.superview {
             self.view.bringSubviewToFront(sview)
         }
+        
+        _inProcessing = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -91,7 +95,7 @@ class ALTBaseTestViewController: ALTBaseViewController {
             break
         
         case _buttonNext:
-            if button == _buttonNext, _answer == nil { return }
+            if button == _buttonNext, _answer == nil, _inProcessing == false { return }
             
             guard canGoNext else { break }
             
@@ -99,6 +103,8 @@ class ALTBaseTestViewController: ALTBaseViewController {
                 self?._buttonNext.isEnabled = false
                 self?._isSkippable = false
             }
+            
+            _inProcessing = true
                 
             QIndicatorViewManager.shared.showIndicatorView {[weak self] (complete) in
                 let httpClient = QHttpClient()
@@ -108,43 +114,35 @@ class ALTBaseTestViewController: ALTBaseViewController {
                 params["test_srl"] = self?.testData.testInfo?.testSrl
                 params["set_srl"] = self?.testData.quiz?.category?.setSrl
                 params["level_srl"] = self?.testData.quiz?.levelSrl
-                params["answer"] = self?._answer ?? ""
+                params["answer"] = (self?._answer ?? "")
                 params["sequence"] = self?.testData.quiz?.sequence
                 params["order"] = (self?.step ?? 0) + 1
                 params["active_time"] = LevelTestManager.manager.activeTime
                 httpClient.parameters = QHttpClient.Parameter(dict: params)
                 
                 httpClient.sendRequest(to: RequestUrl.Test.Quiz.Answer) { [weak self] (code, errMessage, response) in
-                    let showError = {[weak self] in
-                        QIndicatorViewManager.shared.hideIndicatorView()
+                    _ = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: {[weak self] (timer) in
+                        let showError = {[weak self] in
+                            QIndicatorViewManager.shared.hideIndicatorView()
+                            
+                            self?._buttonNext.isEnabled = true
+                            
+                            let alertController = UIAlertController(title: errMessage ?? "알 수 없는 오류입니다.", message: nil, preferredStyle: .alert)
+                            alertController.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+                            self?.present(alertController, animated: true, completion: nil)
+                        }
                         
-                        self?._buttonNext.isEnabled = true
+                        self?._inProcessing = false
                         
-                        let alertController = UIAlertController(title: errMessage ?? "알 수 없는 오류입니다.", message: nil, preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
-                        self?.present(alertController, animated: true, completion: nil)
-                    }
-                    
-                    guard code == .success, let responseData = response as? [String:Any], let testSrl = (responseData["test_info"] as? [String:Any])?["test_srl"] as? Int else {
-                        showError()
-                        return
-                    }
-                    
-                    let isCompleted = responseData["complete"] as? Bool ?? false
-                    
-                    guard isCompleted == false else {
-                        if LevelTestManager.manager.examInfo?.examSetup2 == 1 {
-                            self?.dismiss(animated: true, completion: {
-                                let viewController = ALTResultWebViewController(examId: LevelTestManager.manager.examId, testSrl: testSrl)
-                                viewController.modalPresentationStyle = .overFullScreen
-                                UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: {
-                                    QIndicatorViewManager.shared.hideIndicatorView()
-                                })
-                            })
-                        } else if LevelTestManager.manager.examInfo?.examSetup2 == 2 {
-                            let alertController = UIAlertController(title: "모든 문제를 완료하셨습니다.\n결과를 확인해보시겠어요?", message: nil, preferredStyle: .alert)
-                            alertController.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: nil))
-                            alertController.addAction(UIAlertAction(title: "결과 확인", style: .default, handler: {[weak self] (action) in
+                        guard code == .success, let responseData = response as? [String:Any], let testSrl = (responseData["test_info"] as? [String:Any])?["test_srl"] as? Int else {
+                            showError()
+                            return
+                        }
+                        
+                        let isCompleted = responseData["complete"] as? Bool ?? false
+                        
+                        guard isCompleted == false else {
+                            if LevelTestManager.manager.examInfo?.examSetup2 == 1 {
                                 self?.dismiss(animated: true, completion: {
                                     let viewController = ALTResultWebViewController(examId: LevelTestManager.manager.examId, testSrl: testSrl)
                                     viewController.modalPresentationStyle = .overFullScreen
@@ -152,34 +150,46 @@ class ALTBaseTestViewController: ALTBaseViewController {
                                         QIndicatorViewManager.shared.hideIndicatorView()
                                     })
                                 })
-                            }))
-                            self?.present(alertController, animated: true, completion: nil)
-                        } else {
-                            let alertController = UIAlertController(title: "모든 문제를 완료하셨습니다.", message: nil, preferredStyle: .alert)
-                            alertController.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
-                            self?.present(alertController, animated: true, completion: nil)
-                        }
-                        
-                        return
-                    }
-                    
-                    guard let order = self?.testData.quiz?.order else {
-                        showError()
-                        return
-                    }
-                    
-                    LevelTestManager.manager.getQuizViewController(for: order, isContinue: true) { (viewController, errMessage) in
-                        guard viewController != nil else {
-                            QIndicatorViewManager.shared.hideIndicatorView()
+                            } else if LevelTestManager.manager.examInfo?.examSetup2 == 2 {
+                                let alertController = UIAlertController(title: "모든 문제를 완료하셨습니다.\n결과를 확인해보시겠어요?", message: nil, preferredStyle: .alert)
+                                alertController.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: nil))
+                                alertController.addAction(UIAlertAction(title: "결과 확인", style: .default, handler: {[weak self] (action) in
+                                    self?.dismiss(animated: true, completion: {
+                                        let viewController = ALTResultWebViewController(examId: LevelTestManager.manager.examId, testSrl: testSrl)
+                                        viewController.modalPresentationStyle = .overFullScreen
+                                        UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: {
+                                            QIndicatorViewManager.shared.hideIndicatorView()
+                                        })
+                                    })
+                                }))
+                                self?.present(alertController, animated: true, completion: nil)
+                            } else {
+                                let alertController = UIAlertController(title: "모든 문제를 완료하셨습니다.", message: nil, preferredStyle: .alert)
+                                alertController.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+                                self?.present(alertController, animated: true, completion: nil)
+                            }
                             
-                            let alertController = UIAlertController(title: errMessage ?? "알 수 없는 오류입니다.", message: nil, preferredStyle: .alert)
-                            alertController.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
-                            self?.present(alertController, animated: true, completion: nil)
                             return
                         }
                         
-                        self?.navigationController?.setViewControllers([viewController!], animated: true)
-                    }
+                        guard let order = self?.testData.quiz?.order else {
+                            showError()
+                            return
+                        }
+                        
+                        LevelTestManager.manager.getQuizViewController(for: order, isContinue: true) { (viewController, errMessage) in
+                            guard viewController != nil else {
+                                QIndicatorViewManager.shared.hideIndicatorView()
+                                
+                                let alertController = UIAlertController(title: errMessage ?? "알 수 없는 오류입니다.", message: nil, preferredStyle: .alert)
+                                alertController.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+                                self?.present(alertController, animated: true, completion: nil)
+                                return
+                            }
+                            
+                            self?.navigationController?.setViewControllers([viewController!], animated: true)
+                        }
+                    })
                 }
             }
             break
