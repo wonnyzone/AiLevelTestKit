@@ -1,5 +1,5 @@
 PODS:
-  - AiLevelTestKit (0.9.45):
+  - AiLevelTestKit (0.9.47):
     - BEMCheckBox
     - ExtAudioConverter-Wrapper
     - OCWaveView
@@ -69,7 +69,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AiLevelTestKit: 944ebcdf1761b1a7500df17f5a5edbd9a782060b
+  AiLevelTestKit: 2c85fe62b20602568b48070c0091c37f9abe3be7
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   ExtAudioConverter-Wrapper: ea055f59e8740cd1f8036c55eb7e1907c097e7f8
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a

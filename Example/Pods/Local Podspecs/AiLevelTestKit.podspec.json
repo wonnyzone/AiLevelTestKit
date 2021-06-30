@@ -1,6 +1,6 @@
 {
   "name": "AiLevelTestKit",
-  "version": "0.9.45",
+  "version": "0.9.47",
   "summary": "AiLevelTestKit iOS version.",
   "swift_versions": "5.0",
   "description": "AiLevelTestKit based on Swift5 for native iOS",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/wonnyzone/AiLevelTestKit.git",
-    "tag": "0.9.45"
+    "tag": "0.9.47"
   },
   "platforms": {
     "ios": "12.1"

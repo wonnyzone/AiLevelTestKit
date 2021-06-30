@@ -114,10 +114,10 @@ class TestListViewController: UIViewController {
     @objc private func pressedButton(_ button: UIButton) {
         switch button {
         case _buttonTest:
-            AiLevelTestKit.shared.uitest(from: self)
+//            AiLevelTestKit.shared.uitest(from: self)
             
-//            guard let examId = _textFieldExamId.text else { break }
-//            AiLevelTestKit.shared.startTestWith(id: examId, from: self)
+            guard let examId = _textFieldExamId.text else { break }
+            AiLevelTestKit.shared.startTestWith(id: examId, from: self)
             break
             
         case _buttonResult:

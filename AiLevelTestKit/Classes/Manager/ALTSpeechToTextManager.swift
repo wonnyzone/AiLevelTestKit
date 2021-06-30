@@ -516,7 +516,7 @@ class ALTSpeechToTextManager: NSObject {
             body += "--\(boundary)--\r\n".data(using: .utf8)!
             
 
-            var request = URLRequest(url: URL(string: "https://aileveltest.co.kr/index.php")!,timeoutInterval: Double.infinity)
+            var request = URLRequest(url: URL(string: RequestUrl.Base)!,timeoutInterval: Double.infinity)
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 
