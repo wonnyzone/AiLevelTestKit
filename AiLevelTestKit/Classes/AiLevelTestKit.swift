@@ -276,4 +276,12 @@ public class AiLevelTestKit {
         vc.modalPresentationStyle = .overFullScreen
         viewController.present(vc, animated: true, completion: nil)
     }
+    
+    public func uitest(from vc: UIViewController) {
+        let childViewController = ALTJuniorMicTestViewController()
+        let navController = ALTJuniorTestNavigationController(rootViewController: childViewController)
+        
+        navController.modalPresentationStyle = .fullScreen
+        vc.present(navController, animated: true, completion: nil)
+    }
 }

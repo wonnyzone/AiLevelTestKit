@@ -10,7 +10,7 @@ import Foundation
 
 internal struct RequestUrl {
 //    static let Base = "https://aileveltest.co.kr/index.php"
-    static let Base = "https://aileveltest.co.kr/"
+    static let Base = "https://aileveltest.com/"
     
     static let AWS = "https://leveltest-data.s3.ap-northeast-2.amazonaws.com"
     

@@ -1,0 +1,6 @@
+framework module ExtAudioConverter_Wrapper {
+  umbrella header "ExtAudioConverter-Wrapper-umbrella.h"
+
+  export *
+  module * { export * }
+}
