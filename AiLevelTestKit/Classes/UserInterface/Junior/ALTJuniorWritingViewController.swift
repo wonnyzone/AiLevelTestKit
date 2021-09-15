@@ -51,8 +51,6 @@ class ALTJuniorWritingViewController: ALTJuniorTestBaseViewController {
             _collectionData.append(contentsOf: value)
         }
         
-        _collectionData.shuffle()
-        
         _collectionView.reloadData()
     }
 }
@@ -136,7 +134,9 @@ extension ALTJuniorWritingViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var numberOfItems = 1
         
-        if section == 1 {
+        if section == 0 {
+            numberOfItems = 2
+        } else if section == 1 {
             numberOfItems = _answerCount
         } else if section == 3 {
             numberOfItems = _collectionData.count
@@ -188,7 +188,7 @@ extension ALTJuniorWritingViewController: UICollectionViewDelegate, UICollection
         if indexPath.section == 0 {
             var size = CGSize.zero
             size.width = UIScreen.main.bounds.size.width
-            size.height = ALTJuniorWritingHeaderCollectionViewCell.height(with: testData.quiz!) + 40.optimized
+            size.height = indexPath.row == 0 ? ALTJuniorWritingHeaderCollectionViewCell.height(with: testData.quiz!) : 80.optimizedWithHeight
             return size
         } else if indexPath.section == 1 {
             if indexPath.row < _selectedIndexes.count, let index = _selectedIndexes[indexPath.row] {
@@ -206,9 +206,12 @@ extension ALTJuniorWritingViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0, let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ALTJuniorWritingHeaderCollectionViewCell", for: indexPath) as? ALTJuniorWritingHeaderCollectionViewCell {
-            cell.quiz = testData.quiz
-            return cell
+        if indexPath.section == 0 {
+            if indexPath.row == 0, let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ALTJuniorWritingHeaderCollectionViewCell", for: indexPath) as? ALTJuniorWritingHeaderCollectionViewCell {
+                cell.quiz = testData.quiz
+                return cell
+            }
+            return collectionView.dequeueReusableCell(withReuseIdentifier: "UICollectionViewCell", for: indexPath)
         } else if indexPath.section == 1, let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ALTSeniorWritingTestAnswerCollectionViewCell", for: indexPath) as? ALTSeniorWritingTestAnswerCollectionViewCell {
             if indexPath.row < _selectedIndexes.count, let index = _selectedIndexes[indexPath.row] {
                 cell.text = _collectionData[index]

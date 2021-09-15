@@ -19,7 +19,7 @@ class ALTJuniorTestBaseViewController: ALTBaseTestViewController {
         
         guard self as? ALTJuniorSpeakingViewController == nil else { return }
         
-        _footerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 180.optimizedWithHeight)
+        _footerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 160.optimizedWithHeight)
         _footerView.clipsToBounds = true
         
         _footerView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
@@ -35,7 +35,7 @@ class ALTJuniorTestBaseViewController: ALTBaseTestViewController {
         _buttonSkip.addTarget(self, action: #selector(self.pressedButton(_:)), for: .touchUpInside)
         _footerView.addSubview(_buttonSkip)
         
-        _buttonSkip.topAnchor.constraint(equalTo: _footerView.topAnchor, constant: 20.optimizedWithHeight).isActive = true
+        _buttonSkip.topAnchor.constraint(equalTo: _footerView.topAnchor, constant: 15.optimizedWithHeight).isActive = true
         _buttonSkip.centerXAnchor.constraint(equalTo: _footerView.centerXAnchor).isActive = true
         
         _buttonNext.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +50,7 @@ class ALTJuniorTestBaseViewController: ALTBaseTestViewController {
         _buttonNext.isEnabled = _answer != nil
         _footerView.addSubview(_buttonNext)
         
-        _buttonNext.topAnchor.constraint(equalTo: _buttonSkip.bottomAnchor, constant: 20.optimizedWithHeight).isActive = true
+        _buttonNext.topAnchor.constraint(equalTo: _buttonSkip.bottomAnchor, constant: 5.optimizedWithHeight).isActive = true
         _buttonNext.centerXAnchor.constraint(equalTo: _footerView.centerXAnchor).isActive = true
         _buttonNext.widthAnchor.constraint(equalToConstant: _buttonNext.layer.cornerRadius * 2).isActive = true
         _buttonNext.heightAnchor.constraint(equalToConstant: _buttonNext.layer.cornerRadius * 2).isActive = true

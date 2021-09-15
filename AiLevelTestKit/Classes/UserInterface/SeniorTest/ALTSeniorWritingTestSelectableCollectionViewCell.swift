@@ -9,7 +9,7 @@ import UIKit
 
 class ALTSeniorWritingTestSelectableCollectionViewCell: UICollectionViewCell {
     class var sectionInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20).optimized
+        return UIEdgeInsets(top: 0, left: 20, bottom: 40, right: 20).optimized
     }
     
     class var interItemSpacing: CGFloat {

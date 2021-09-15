@@ -57,10 +57,9 @@ class ALTJuniorWordViewController: ALTJuniorTestBaseViewController {
         labelTitle.numberOfLines = 0
         tableHeaderView.addSubview(labelTitle)
         
-        labelTitle.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 5.optimizedWithHeight).isActive = true
+        labelTitle.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 15.optimizedWithHeight).isActive = true
         labelTitle.leadingAnchor.constraint(equalTo: tableHeaderView.leadingAnchor, constant: 42.optimized).isActive = true
         labelTitle.trailingAnchor.constraint(equalTo: tableHeaderView.trailingAnchor, constant: -42.optimized).isActive = true
-        labelTitle.heightAnchor.constraint(equalToConstant: 90.optimizedWithHeight).isActive = true
         
         var bottomAnchor = labelTitle.bottomAnchor
         
@@ -69,6 +68,7 @@ class ALTJuniorWordViewController: ALTJuniorTestBaseViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = ColourKit.Code.HexF0F0F0
         imageView.clipsToBounds = true
 //        imageView.pin_setImage(from: URL(string: imageUrl))
         _imageDownloader.request(imageUrl) { (image) in
@@ -78,7 +78,7 @@ class ALTJuniorWordViewController: ALTJuniorTestBaseViewController {
         }
         tableHeaderView.addSubview(imageView)
 
-        imageView.topAnchor.constraint(equalTo: labelTitle.bottomAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: labelTitle.bottomAnchor, constant: 20.optimizedWithHeight).isActive = true
         imageView.centerXAnchor.constraint(equalTo: tableHeaderView.centerXAnchor).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 175.optimizedWithHeight).isActive = true
         imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor).isActive = true

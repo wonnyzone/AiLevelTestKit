@@ -227,7 +227,7 @@ extension ALTJuniorListeningViewController: UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return _showImage ? UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16).optimizedWithHeight : .zero
+        return _showImage ? UIEdgeInsets(top: 0, left: 16, bottom: 40, right: 16).optimizedWithHeight : UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0).optimizedWithHeight
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
