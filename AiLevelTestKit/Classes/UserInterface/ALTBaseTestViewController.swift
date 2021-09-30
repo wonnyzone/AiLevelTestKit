@@ -155,6 +155,15 @@ class ALTBaseTestViewController: ALTBaseViewController {
                                 alertController.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: nil))
                                 alertController.addAction(UIAlertAction(title: "결과 확인", style: .default, handler: {[weak self] (action) in
                                     self?.dismiss(animated: true, completion: {
+                                        let httpClient = QHttpClient()
+                                        
+                                        var params = [String:Any]()
+                                        params["test_srl"] = self?.testData.testInfo?.testSrl
+                                        params["customer_srl"] = LevelTestManager.manager.customerSrl
+                                        httpClient.parameters = QHttpClient.Parameter(dict: params)
+                                        
+                                        httpClient.sendRequest(to: RequestUrl.Test.Quiz.Finalize)
+                                        
                                         let viewController = ALTResultWebViewController(examId: LevelTestManager.manager.examId, testSrl: testSrl)
                                         viewController.modalPresentationStyle = .overFullScreen
                                         UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: {

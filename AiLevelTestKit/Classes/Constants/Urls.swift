@@ -37,6 +37,7 @@ internal struct RequestUrl {
         struct Quiz {
             static let GetNext = RequestUrl.Base + "index.php?module=y1test&act=apiTestQuestion"
             static let Answer = RequestUrl.Base + "index.php?module=y1test&act=apiTestAnswer"
+            static let Finalize = RequestUrl.Base + "index.php?module=y1test&act=apiLevelTestFinish"
 //            static let Result = RequestUrl.Base + "plugin/api/init.php?email=Evan&code=allinone07834&api_type=ios"
         }
         

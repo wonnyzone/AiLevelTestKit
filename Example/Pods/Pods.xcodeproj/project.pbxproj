@@ -3971,7 +3971,7 @@
 				IBSC_MODULE = AiLevelTestKit;
 				INFOPLIST_FILE = "Target Support Files/AiLevelTestKit/ResourceBundle-AiLevelTestKit-AiLevelTestKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 0.9.53;
+				MARKETING_VERSION = 0.9.55;
 				PRODUCT_NAME = AiLevelTestKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -4294,7 +4294,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MARKETING_VERSION = 0.9.53;
+				MARKETING_VERSION = 0.9.55;
 				MODULEMAP_FILE = "Target Support Files/AiLevelTestKit/AiLevelTestKit.modulemap";
 				PRODUCT_MODULE_NAME = AiLevelTestKit;
 				PRODUCT_NAME = AiLevelTestKit;
@@ -4408,7 +4408,7 @@
 				IBSC_MODULE = AiLevelTestKit;
 				INFOPLIST_FILE = "Target Support Files/AiLevelTestKit/ResourceBundle-AiLevelTestKit-AiLevelTestKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 0.9.53;
+				MARKETING_VERSION = 0.9.55;
 				PRODUCT_NAME = AiLevelTestKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -4850,7 +4850,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MARKETING_VERSION = 0.9.53;
+				MARKETING_VERSION = 0.9.55;
 				MODULEMAP_FILE = "Target Support Files/AiLevelTestKit/AiLevelTestKit.modulemap";
 				PRODUCT_MODULE_NAME = AiLevelTestKit;
 				PRODUCT_NAME = AiLevelTestKit;
