@@ -117,6 +117,20 @@ class ALTMicTestViewController: ALTBaseViewController {
         }
     }
     
+    override init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying(note:)), name: .AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemNewErrorLogEntry, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -513,6 +527,7 @@ class ALTMicTestViewController: ALTBaseViewController {
         _player?.pause()
         
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemFailedToPlayToEndTime, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -520,11 +535,16 @@ class ALTMicTestViewController: ALTBaseViewController {
         
         guard _initiallyStarted else { return }
         
+        #if TEST_SKIP_MIC
+        _isSkippable = true
+        _buttonNext.isEnabled = true
+        #else
         _isButtonEnabled = false
         _player?.play()
         _buttonRecord.isEnabled = false
         
         _guideString = "음성을 잘 들어주세요.\n음성이 들리지 않을 경우 미디어 음량을 확인해주세요."
+        #endif
     }
     
     override func viewDidLayoutSubviews() {
@@ -626,6 +646,11 @@ class ALTMicTestViewController: ALTBaseViewController {
         
         _player?.seek(to: .zero)
         _player?.play()
+    }
+    
+    @objc private func playerGotErrorLog(note: NSNotification) {
+        print(note.object)
+        print(note.userInfo)
     }
     
     @objc private func playerDidFinishPlaying(note: NSNotification) {

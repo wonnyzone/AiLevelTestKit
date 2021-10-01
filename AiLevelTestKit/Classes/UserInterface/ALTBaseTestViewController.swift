@@ -142,40 +142,49 @@ class ALTBaseTestViewController: ALTBaseViewController {
                         let isCompleted = responseData["complete"] as? Bool ?? false
                         
                         guard isCompleted == false else {
-                            if LevelTestManager.manager.examInfo?.examSetup2 == 1 {
-                                self?.dismiss(animated: true, completion: {
-                                    let viewController = ALTResultWebViewController(examId: LevelTestManager.manager.examId, testSrl: testSrl)
-                                    viewController.modalPresentationStyle = .overFullScreen
-                                    UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: {
-                                        QIndicatorViewManager.shared.hideIndicatorView()
-                                    })
-                                })
-                            } else if LevelTestManager.manager.examInfo?.examSetup2 == 2 {
-                                let alertController = UIAlertController(title: "모든 문제를 완료하셨습니다.\n결과를 확인해보시겠어요?", message: nil, preferredStyle: .alert)
-                                alertController.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: nil))
-                                alertController.addAction(UIAlertAction(title: "결과 확인", style: .default, handler: {[weak self] (action) in
+                            let httpClient = QHttpClient()
+                            
+                            var params = [String:Any]()
+                            params["test_srl"] = self?.testData.testInfo?.testSrl
+                            params["customer_srl"] = LevelTestManager.manager.customerSrl
+                            httpClient.parameters = QHttpClient.Parameter(dict: params)
+                            
+                            httpClient.sendRequest(to: RequestUrl.Test.Quiz.Finalize) { (code, errMessage, response) in
+                                guard code == .success /*, (response as? [String:Any])?["result"] as? Int == 1*/ else {
+                                    // show alert message when it's failed
+                                    // -> it will be provided by the client (Kang)
+                                    QIndicatorViewManager.shared.hideIndicatorView()
+                                    return
+                                }
+                                
+                                if LevelTestManager.manager.examInfo?.examSetup2 == 1 {
                                     self?.dismiss(animated: true, completion: {
-                                        let httpClient = QHttpClient()
-                                        
-                                        var params = [String:Any]()
-                                        params["test_srl"] = self?.testData.testInfo?.testSrl
-                                        params["customer_srl"] = LevelTestManager.manager.customerSrl
-                                        httpClient.parameters = QHttpClient.Parameter(dict: params)
-                                        
-                                        httpClient.sendRequest(to: RequestUrl.Test.Quiz.Finalize)
-                                        
                                         let viewController = ALTResultWebViewController(examId: LevelTestManager.manager.examId, testSrl: testSrl)
                                         viewController.modalPresentationStyle = .overFullScreen
                                         UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: {
                                             QIndicatorViewManager.shared.hideIndicatorView()
                                         })
                                     })
-                                }))
-                                self?.present(alertController, animated: true, completion: nil)
-                            } else {
-                                let alertController = UIAlertController(title: "모든 문제를 완료하셨습니다.", message: nil, preferredStyle: .alert)
-                                alertController.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
-                                self?.present(alertController, animated: true, completion: nil)
+                                } else if LevelTestManager.manager.examInfo?.examSetup2 == 2 {
+                                    let alertController = UIAlertController(title: "모든 문제를 완료하셨습니다.\n결과를 확인해보시겠어요?", message: nil, preferredStyle: .alert)
+                                    alertController.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: nil))
+                                    alertController.addAction(UIAlertAction(title: "결과 확인", style: .default, handler: {[weak self] (action) in
+                                        self?.dismiss(animated: true, completion: {
+                                            let viewController = ALTResultWebViewController(examId: LevelTestManager.manager.examId, testSrl: testSrl)
+                                            viewController.modalPresentationStyle = .overFullScreen
+                                            UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: {
+                                                QIndicatorViewManager.shared.hideIndicatorView()
+                                            })
+                                        })
+                                    }))
+                                    self?.present(alertController, animated: true, completion: nil)
+                                } else {
+                                    QIndicatorViewManager.shared.hideIndicatorView()
+                                    
+                                    let alertController = UIAlertController(title: "모든 문제를 완료하셨습니다.", message: nil, preferredStyle: .alert)
+                                    alertController.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+                                    self?.present(alertController, animated: true, completion: nil)
+                                }
                             }
                             
                             return
