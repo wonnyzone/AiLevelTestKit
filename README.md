@@ -84,15 +84,19 @@ AiLevelTestKit.shared.activate(groupCode: "allinone07834", email: "evan", themeC
 
 테스트 시작하기
 ```swift
-AiLevelTestKit.shared.startTestWith(id: "exam1", from: self)
+AiLevelTestKit.shared.startTestWith(id: "exam1", from: self, modalPresentationStyle: .overFullScreen)
 // id = 시험 아이디 (String)
+// from = 테스트 ViewController를 modal 로 올릴 presentingViewController
+// modalPresentationStyle = modal style ($default = .overFullScreen)
 ```
 
 
 테스트 결과 보기 
 ```swift
-AiLevelTestKit.shared.showResult(examId: "exam1", from: self)
+AiLevelTestKit.shared.showResult(examId: "exam1", from: self, modalPresentationStyle: .overFullScreen)
 // examId = 시험 아이디 (String)
+// from = 테스트 결과 ViewController를 modal 로 올릴 presentingViewController
+// modalPresentationStyle = modal style ($default = .overFullScreen)
 ```
 
 
