@@ -196,10 +196,18 @@ class ALTJuniorTutorialViewController: ALTBaseViewController {
         self.navigationItem.leftBarButtonItems = []
         self.navigationItem.rightBarButtonItems = []
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = ColourKit.Code.HexF0F0F0
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = ColourKit.Code.HexF0F0F0
+            self.navigationController?.navigationBar.standardAppearance = appearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.shadowImage = UIImage()
+            self.navigationController?.navigationBar.barTintColor = ColourKit.Code.HexF0F0F0
+        }
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }

@@ -504,10 +504,18 @@ class ALTMicTestViewController: ALTBaseViewController {
         self.navigationItem.leftBarButtonItems = []
         self.navigationItem.rightBarButtonItems = [_barButtonItemClose]
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage.withSolid(colour: ColourKit.Code.Hex3E3A39), for: .default)
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = ColourKit.Code.Hex3E3A39
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = ColourKit.Code.Hex3E3A39
+            self.navigationController?.navigationBar.standardAppearance = appearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage.withSolid(colour: ColourKit.Code.Hex3E3A39), for: .default)
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.shadowImage = UIImage()
+            self.navigationController?.navigationBar.barTintColor = ColourKit.Code.Hex3E3A39
+        }
         
         let label = UILabel()
         label.text = self.title
