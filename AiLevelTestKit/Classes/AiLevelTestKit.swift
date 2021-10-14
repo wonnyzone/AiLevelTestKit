@@ -82,7 +82,7 @@ public class AiLevelTestKit {
 //        }
 //    }
     
-    public func startTestWith(id examId: String, from viewController: UIViewController, modalPresentationStyle: UIModalPresentationStyle = .overFullScreen) {
+    public func startTestWith(id examId: String, from viewController: UIViewController) {
 //        guard let examId = exam.identifier else {
 //            print("**** exam id 가 존재하지 않습니다.")
 //            return
@@ -118,7 +118,7 @@ public class AiLevelTestKit {
                             } else {
                                 navController = ALLTSeniorTestNavigationController(rootViewController: nextVC!)
                             }
-                            navController.modalPresentationStyle = modalPresentationStyle
+                            navController.modalPresentationStyle = .overFullScreen
                             viewController.present(navController, animated: true, completion: nil)
                         }
                     }
@@ -149,7 +149,7 @@ public class AiLevelTestKit {
                                 } else {
                                     navController = ALLTSeniorTestNavigationController(rootViewController: nextVC!)
                                 }
-                                navController.modalPresentationStyle = modalPresentationStyle
+                                navController.modalPresentationStyle = .overFullScreen
                                 viewController.present(navController, animated: true, completion: nil)
                             }
                         }
@@ -160,7 +160,7 @@ public class AiLevelTestKit {
         }
     }
     
-    private func startIntitializedTest(from viewController: UIViewController, modalPresentationStyle: UIModalPresentationStyle = .overFullScreen) {
+    private func startIntitializedTest(from viewController: UIViewController) {
         LevelTestManager.manager.delegate = viewController
         
         if LevelTestManager.manager.needAgreement, (LevelTestManager.manager.examInfo?.isPrivacyActivated ?? true) {
@@ -171,7 +171,7 @@ public class AiLevelTestKit {
             } else {
                 navController = ALLTSeniorTestNavigationController(rootViewController: childViewController)
             }
-            navController.modalPresentationStyle = modalPresentationStyle
+            navController.modalPresentationStyle = .overFullScreen
             viewController.present(navController, animated: true, completion: nil)
         } else if (LevelTestManager.manager.examInfo?.isCouponActivated ?? false) == true {
             let childViewController = ALTCouponListViewController()
@@ -181,7 +181,7 @@ public class AiLevelTestKit {
             } else {
                 navController = ALLTSeniorTestNavigationController(rootViewController: childViewController)
             }
-            navController.modalPresentationStyle = modalPresentationStyle
+            navController.modalPresentationStyle = .overFullScreen
             viewController.present(navController, animated: true, completion: nil)
         } else if (LevelTestManager.manager.examInfo?.isTutorialActivated ?? true) == true {
             
@@ -193,7 +193,7 @@ public class AiLevelTestKit {
                 let childViewController = ALTTutorialViewController()
                 navController = ALLTSeniorTestNavigationController(rootViewController: childViewController)
             }
-            navController.modalPresentationStyle = modalPresentationStyle
+            navController.modalPresentationStyle = .overFullScreen
             viewController.present(navController, animated: true, completion: nil)
         } else if (LevelTestManager.manager.examInfo?.isMicTestActivated ?? true) == true {
             var navController: ALTNavigationController!
@@ -204,7 +204,7 @@ public class AiLevelTestKit {
                 let childViewController = ALTMicTestViewController()
                 navController = ALLTSeniorTestNavigationController(rootViewController: childViewController)
             }
-            navController.modalPresentationStyle = modalPresentationStyle
+            navController.modalPresentationStyle = .overFullScreen
             viewController.present(navController, animated: true, completion: nil)
         }
     }
