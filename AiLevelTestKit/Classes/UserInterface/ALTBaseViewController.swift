@@ -80,7 +80,7 @@ class ALTBaseViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = self.view.backgroundColor
+//        self.navigationController?.navigationBar.barTintColor = self.view.backgroundColor
         
 //        UIApplication.appDelegate()?.currentViewController = self
         

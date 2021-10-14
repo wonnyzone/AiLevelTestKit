@@ -3971,7 +3971,7 @@
 				IBSC_MODULE = AiLevelTestKit;
 				INFOPLIST_FILE = "Target Support Files/AiLevelTestKit/ResourceBundle-AiLevelTestKit-AiLevelTestKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 0.9.56;
+				MARKETING_VERSION = 0.9.57;
 				PRODUCT_NAME = AiLevelTestKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -4409,7 +4409,7 @@
 				IBSC_MODULE = AiLevelTestKit;
 				INFOPLIST_FILE = "Target Support Files/AiLevelTestKit/ResourceBundle-AiLevelTestKit-AiLevelTestKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 0.9.56;
+				MARKETING_VERSION = 0.9.57;
 				PRODUCT_NAME = AiLevelTestKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

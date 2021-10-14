@@ -169,7 +169,7 @@ class ALTTutorialViewController: ALTBaseViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage.withSolid(colour: ColourKit.Code.Hex3E3A39), for: .default)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = ColourKit.Code.Hex3E3A39
+//        self.navigationController?.navigationBar.barTintColor = ColourKit.Code.Hex3E3A39
         
         let label = UILabel()
         label.text = self.title

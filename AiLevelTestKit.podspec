@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AiLevelTestKit'
-  s.version          = '0.9.56'
+  s.version          = '0.9.57'
   s.summary          = 'AiLevelTestKit iOS version.'
   s.swift_version    = '5.0'
 
