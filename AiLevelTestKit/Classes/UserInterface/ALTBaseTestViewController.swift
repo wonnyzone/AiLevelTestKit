@@ -161,7 +161,7 @@ class ALTBaseTestViewController: ALTBaseViewController {
                                     self?.dismiss(animated: true, completion: {
                                         let viewController = ALTResultWebViewController(examId: LevelTestManager.manager.examId, testSrl: testSrl)
                                         viewController.modalPresentationStyle = .overFullScreen
-                                        UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: {
+                                        AiLevelTestKit.shared.presentingViewController?.present(viewController, animated: true, completion: {
                                             QIndicatorViewManager.shared.hideIndicatorView()
                                         })
                                     })
@@ -172,7 +172,7 @@ class ALTBaseTestViewController: ALTBaseViewController {
                                         self?.dismiss(animated: true, completion: {
                                             let viewController = ALTResultWebViewController(examId: LevelTestManager.manager.examId, testSrl: testSrl)
                                             viewController.modalPresentationStyle = .overFullScreen
-                                            UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: {
+                                            AiLevelTestKit.shared.presentingViewController?.present(viewController, animated: true, completion: {
                                                 QIndicatorViewManager.shared.hideIndicatorView()
                                             })
                                         })

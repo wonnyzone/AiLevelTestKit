@@ -34,6 +34,11 @@ public class AiLevelTestKit {
         }
     }
     
+    public var presentingViewController: UIViewController? {
+        return _presentingViewController
+    }
+    private var _presentingViewController: UIViewController?
+    
     public func initialize() {
         AVAudioSession.sharedInstance().requestRecordPermission { (succeed) in }
     }
@@ -87,6 +92,8 @@ public class AiLevelTestKit {
 //            print("**** exam id 가 존재하지 않습니다.")
 //            return
 //        }
+        
+        _presentingViewController = viewController
         
         ALTSpeechToTextManager.manager.deinitialize()
         
@@ -266,14 +273,16 @@ public class AiLevelTestKit {
 //        viewController.present(navController, animated: true, completion: nil)
 //    }
     
-    public func showResult(examId: String?, from viewController: UIViewController, modalPresentationStyle: UIModalPresentationStyle = .overFullScreen) {
+    public func showResult(examId: String?, from viewController: UIViewController) {
+        _presentingViewController = viewController
+        
         var id = examId
         if (examId ?? "").count == 0 {
             id = nil
         }
         
         let vc = ALTResultWebViewController(examId: id, testSrl: nil)
-        vc.modalPresentationStyle = modalPresentationStyle
+        vc.modalPresentationStyle = .overFullScreen
         viewController.present(vc, animated: true, completion: nil)
     }
     

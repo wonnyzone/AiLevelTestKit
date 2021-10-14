@@ -21,7 +21,7 @@ iOS 12.1 or above
 3. Optimized for ARM64 Architecture.
 </details>
 
-## Framework Version 0.9.60
+## Framework Version 0.9.62
 
 ## Example
 
@@ -92,10 +92,9 @@ AiLevelTestKit.shared.startTestWith(id: "exam1", from: self)
 
 테스트 결과 보기 
 ```swift
-AiLevelTestKit.shared.showResult(examId: "exam1", from: self, modalPresentationStyle: .overFullScreen)
+AiLevelTestKit.shared.showResult(examId: "exam1", from: self)
 // examId = 시험 아이디 (String)
 // from = 테스트 결과 ViewController를 modal 로 올릴 presentingViewController
-// modalPresentationStyle = modal style ($default = .overFullScreen)
 ```
 
 
