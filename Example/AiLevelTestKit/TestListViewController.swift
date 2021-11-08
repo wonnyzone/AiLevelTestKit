@@ -122,7 +122,7 @@ class TestListViewController: UIViewController {
             
         case _buttonResult:
             guard let examId = _textFieldResultExamId.text else { break }
-            AiLevelTestKit.shared.showResult(examId: examId, from: self, modalPresentationStyle: .pageSheet)
+            AiLevelTestKit.shared.showResult(examId: examId, from: self)
             break
             
         default:

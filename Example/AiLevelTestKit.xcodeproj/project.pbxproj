@@ -847,7 +847,7 @@
 				DEVELOPMENT_TEAM = E59YUPDAN4;
 				INFOPLIST_FILE = AiLevelTestKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.36;
+				MARKETING_VERSION = 1.0.38;
 				MODULE_NAME = ExampleApp;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.allinoneedu.dev.AiLevelInternalTest;
@@ -866,7 +866,7 @@
 				DEVELOPMENT_TEAM = E59YUPDAN4;
 				INFOPLIST_FILE = AiLevelTestKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.36;
+				MARKETING_VERSION = 1.0.38;
 				MODULE_NAME = ExampleApp;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.allinoneedu.dev.AiLevelInternalTest;
