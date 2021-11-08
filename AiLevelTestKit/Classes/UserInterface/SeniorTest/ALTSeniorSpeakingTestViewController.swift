@@ -91,7 +91,11 @@ class ALTSeniorSpeakingTestViewController: ALLTSeniorTestBaseViewController {
         let lang = LevelTestManager.manager.examInfo?.userLanguage ?? ""
         let quizOrder = testData.quiz?.quizOrder ?? 0
         
-        let assetUrl = RequestUrl.AWS +  "/voice/leveltest/\(examSrl)/level\(level)-\(folder)/\(lang)/\(quizOrder).mp3"
+        var assetUrl = RequestUrl.AWS +  "/voice/leveltest/\(examSrl)/level\(level)-\(folder)/\(lang)/\(quizOrder).mp3"
+        if level == 10 && folder == 50 {
+            assetUrl += "/Pronounce1"
+        }
+        assetUrl += ".mp3"
         
         let item = AVPlayerItem(url: URL(string: assetUrl)!)
         _player = AVPlayer(playerItem: item)
