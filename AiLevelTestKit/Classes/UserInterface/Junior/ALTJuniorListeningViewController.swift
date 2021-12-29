@@ -227,7 +227,7 @@ extension ALTJuniorListeningViewController: UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return _showImage ? UIEdgeInsets(top: 0, left: 16, bottom: 40, right: 16).optimizedWithHeight : UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0).optimizedWithHeight
+        return _showImage ? UIEdgeInsets(top: 0, left: 16, bottom: 12, right: 16).optimizedWithHeight : UIEdgeInsets(top: 20, left: 0, bottom: 56, right: 0).optimizedWithHeight
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -258,6 +258,7 @@ extension ALTJuniorListeningViewController: UICollectionViewDelegate, UICollecti
             cell.numbering = indexPath.row + 1
             cell.imageUrl = RequestUrl.AWS + "/image/leveltest/\(testData.testInfo?.examSrl ?? 0)/Listen2/\(_collectionData[indexPath.row].answer).png"
             cell.isSelected = indexPath.row == _selectedIndex
+            cell.reloadData()
             return cell
         }
         
@@ -267,7 +268,7 @@ extension ALTJuniorListeningViewController: UICollectionViewDelegate, UICollecti
 
 class ALTJuniorListeningHeaderReusableView: UICollectionReusableView {
     class var itemSize: CGSize {
-        return CGSize(width: UIScreen.main.bounds.size.width, height: UIDevice.current.userInterfaceIdiom == .pad ? 222.optimizedWithHeight : 236.optimizedWithHeight)
+        return CGSize(width: UIScreen.main.bounds.size.width, height: UIDevice.current.userInterfaceIdiom == .pad ? 180.optimizedWithHeight : 196.optimizedWithHeight)
     }
     
     var question: String? {
@@ -317,7 +318,7 @@ class ALTJuniorListeningHeaderReusableView: UICollectionReusableView {
         _buttonPlay.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0).optimized
         self.addSubview(_buttonPlay)
         
-        _buttonPlay.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: UIDevice.current.userInterfaceIdiom == .pad ? -47.optimizedWithHeight : -50.optimizedWithHeight).isActive = true
+        _buttonPlay.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: UIDevice.current.userInterfaceIdiom == .pad ? -12.optimizedWithHeight : -15.optimizedWithHeight).isActive = true
         _buttonPlay.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 48.optimized).isActive = UIDevice.current.userInterfaceIdiom != .pad
         _buttonPlay.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -48.optimized).isActive = UIDevice.current.userInterfaceIdiom != .pad
         _buttonPlay.widthAnchor.constraint(equalToConstant: 280.optimized).isActive = UIDevice.current.userInterfaceIdiom == .pad
@@ -489,18 +490,12 @@ class ALTJuniorListeningImageCollectionViewCell: UICollectionViewCell {
     
     var imageUrl: String? {
         didSet {
-//            _imageViewContent.pin_setImage(from: URL(string: imageUrl ?? ""))
-            _imageDownloader.request(imageUrl ?? "") {[weak self] (image) in
-                DispatchQueue.main.async { [weak self] in
-                    self?._imageViewContent.image = image
-                }
-            }
-        }
-    }
-    
-    override var isSelected: Bool {
-        didSet {
-            _imageViewCheck.isHidden = !isSelected
+            _imageViewContent.pin_setImage(from: URL(string: imageUrl ?? ""))
+//            _imageDownloader.request(imageUrl ?? "") {[weak self] (image) in
+//                DispatchQueue.main.async { [weak self] in
+//                    self?._imageViewContent.image = image
+//                }
+//            }
         }
     }
     
@@ -508,6 +503,7 @@ class ALTJuniorListeningImageCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         let containerView = UIView()
+        containerView.isUserInteractionEnabled = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.clipsToBounds = false
         self.contentView.addSubview(containerView)
@@ -542,7 +538,6 @@ class ALTJuniorListeningImageCollectionViewCell: UICollectionViewCell {
         _imageViewCheck.translatesAutoresizingMaskIntoConstraints = false
         _imageViewCheck.image = UIImage(named: "img_check", in:Bundle(for: type(of: self)), compatibleWith:nil)
         _imageViewCheck.contentMode = .scaleAspectFit
-        _imageViewCheck.isHidden = true
         self.contentView.addSubview(_imageViewCheck)
         
         _imageViewCheck.widthAnchor.constraint(equalToConstant: 30.optimizedWithHeight).isActive = true
@@ -554,16 +549,26 @@ class ALTJuniorListeningImageCollectionViewCell: UICollectionViewCell {
         _imageViewContent.contentMode = .scaleAspectFit
         containerView.addSubview(_imageViewContent)
         
-        _imageViewContent.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16.optimizedWithHeight).isActive = true
-        _imageViewContent.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16.optimizedWithHeight).isActive = true
-        _imageViewContent.topAnchor.constraint(equalTo: backView.bottomAnchor, constant: 4.optimizedWithHeight).isActive = true
-        _imageViewContent.heightAnchor.constraint(equalTo: _imageViewContent.widthAnchor).isActive = true
-        _imageViewContent.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        _imageViewContent.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20.optimizedWithHeight).isActive = true
+        _imageViewContent.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20.optimizedWithHeight).isActive = true
+        _imageViewContent.topAnchor.constraint(equalTo: backView.bottomAnchor, constant: 10.optimized).isActive = true
+        _imageViewContent.heightAnchor.constraint(equalTo: _imageViewContent.widthAnchor, constant: -20.optimized).isActive = true
+        _imageViewContent.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10.optimized).isActive = true
         
         self.contentView.layoutIfNeeded()
     }
     
     required init?(coder: NSCoder) {
         fatalError()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        _imageViewContent.image = nil
+    }
+    
+    func reloadData() {
+        _imageViewCheck.isHidden = !self.isSelected
     }
 }

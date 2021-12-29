@@ -328,7 +328,7 @@ class ALTJuniorMicTestViewController: ALTBaseViewController {
         _buttonNext.setBackgroundImage(UIImage.withSolid(colour: ColourKit.Code.HexCCCCCC), for: .disabled)
         _buttonNext.setTitleColor(ColourKit.Code.HexFFFFFF, for: .normal)
         _buttonNext.setTitleColor(.white, for: .disabled)
-        _buttonRecord.titleLabel?.font = UIFont.systemFont(ofSize: 24.optimizedWithHeight, weight: .regular)
+        _buttonNext.titleLabel?.font = UIFont.systemFont(ofSize: 24.optimizedWithHeight, weight: .regular)
         _buttonNext.addTarget(self, action: #selector(self.pressedButton(_:)), for: .touchUpInside)
         _buttonNext.isEnabled = false
         containerView.addSubview(_buttonNext)
@@ -355,6 +355,7 @@ class ALTJuniorMicTestViewController: ALTBaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying(note:)), name: .AVPlayerItemDidPlayToEndTime, object: nil)
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        (self.navigationController as? ALTJuniorTestNavigationController)?.isComponentHidden = true
         
         self.navigationItem.leftBarButtonItems = []
         self.navigationItem.rightBarButtonItems = []
@@ -526,6 +527,9 @@ extension ALTJuniorMicTestViewController: ALTSpeechToTextManagerDelegate {
         guard text != nil else {
             _remainingRecord = remainingRecord             // 텍스트 변경
             _isRecordable = true
+            
+            _buttonNext.isEnabled = true
+            _buttonNext.superview?.isHidden = false
             return
         }
         

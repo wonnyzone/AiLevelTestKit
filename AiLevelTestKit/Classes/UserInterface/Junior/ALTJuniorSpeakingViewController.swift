@@ -265,7 +265,7 @@ class ALTJuniorSpeakingViewController: ALTJuniorTestBaseViewController {
         _buttonRecordSingle.addTarget(self, action: #selector(self.pressedButton(_:)), for: .touchUpInside)
         self.view.addSubview(_buttonRecordSingle)
 
-        _buttonRecordSingle.topAnchor.constraint(equalTo: _buttonSkip.bottomAnchor, constant: 30.optimizedWithHeight).isActive = true
+        _buttonRecordSingle.topAnchor.constraint(equalTo: _buttonSkip.bottomAnchor, constant: 10.optimizedWithHeight).isActive = true
         _buttonRecordSingle.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         _buttonRecordSingle.widthAnchor.constraint(equalToConstant: 80.optimizedWithHeight).isActive = true
         _buttonRecordSingle.heightAnchor.constraint(equalToConstant: 80.optimizedWithHeight).isActive = true

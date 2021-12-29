@@ -63,7 +63,9 @@ class ALTJuniorWordViewController: ALTJuniorTestBaseViewController {
         
         var bottomAnchor = labelTitle.bottomAnchor
         
-        let imageUrl = RequestUrl.AWS + "/image/leveltest/\(testData.testInfo?.examSrl ?? 0)/Word2/level\(testData.quiz?.level ?? 0)-\(testData.quiz?.folder ?? 0)/\(testData.quiz?.order ?? 0).png"
+//    {question_list.question.level}-{question_list.question.folder}/{question_list.question.problem_order}.png
+        
+        let imageUrl = RequestUrl.AWS + "/image/leveltest/\(testData.testInfo?.examSrl ?? 0)/Word2/level\(testData.quiz?.level ?? 0)-\(testData.quiz?.folder ?? 0)/\(testData.quiz?.quizOrder ?? 0).png"
         
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false

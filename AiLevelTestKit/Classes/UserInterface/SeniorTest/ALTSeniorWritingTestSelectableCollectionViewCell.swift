@@ -43,13 +43,6 @@ class ALTSeniorWritingTestSelectableCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    override var isSelected: Bool {
-        didSet {
-            _backView.backgroundColor = isSelected ? ColourKit.Code.Hex000000 : ColourKit.Code.HexFFFFFF
-            _labelTitle.textColor = isSelected ? ColourKit.Code.HexFFFFFF : ColourKit.Code.Hex222222
-        }
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -78,5 +71,10 @@ class ALTSeniorWritingTestSelectableCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError()
+    }
+    
+    func reloadData() {
+        _backView.backgroundColor = isSelected ? ColourKit.Code.Hex000000 : ColourKit.Code.HexFFFFFF
+        _labelTitle.textColor = isSelected ? ColourKit.Code.HexFFFFFF : ColourKit.Code.Hex222222
     }
 }

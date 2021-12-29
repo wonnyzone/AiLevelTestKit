@@ -223,6 +223,7 @@ extension ALTJuniorWritingViewController: UICollectionViewDelegate, UICollection
             let title =  _collectionData[indexPath.row]
             cell.title = title
             cell.isSelected = _selectedIndexes.firstIndex(of: indexPath.row) != nil
+            cell.reloadData()
             return cell
         }
         

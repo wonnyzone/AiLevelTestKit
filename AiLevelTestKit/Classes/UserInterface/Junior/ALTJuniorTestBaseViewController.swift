@@ -19,7 +19,7 @@ class ALTJuniorTestBaseViewController: ALTBaseTestViewController {
         
         guard self as? ALTJuniorSpeakingViewController == nil else { return }
         
-        _footerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 160.optimizedWithHeight)
+        _footerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 130.optimizedWithHeight)
         _footerView.clipsToBounds = true
         
         _footerView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
@@ -35,11 +35,11 @@ class ALTJuniorTestBaseViewController: ALTBaseTestViewController {
         _buttonSkip.addTarget(self, action: #selector(self.pressedButton(_:)), for: .touchUpInside)
         _footerView.addSubview(_buttonSkip)
         
-        _buttonSkip.topAnchor.constraint(equalTo: _footerView.topAnchor, constant: 15.optimizedWithHeight).isActive = true
+        _buttonSkip.topAnchor.constraint(equalTo: _footerView.topAnchor).isActive = true
         _buttonSkip.centerXAnchor.constraint(equalTo: _footerView.centerXAnchor).isActive = true
         
         _buttonNext.translatesAutoresizingMaskIntoConstraints = false
-        _buttonNext.layer.cornerRadius = 40.optimizedWithHeight
+        _buttonNext.layer.cornerRadius = 36.optimizedWithHeight
         _buttonNext.clipsToBounds = true
         _buttonNext.setBackgroundImage(UIImage.withSolid(colour: ColourKit.Code.Hex222222), for: .normal)
         _buttonNext.setBackgroundImage(UIImage.withSolid(colour: ColourKit.Code.HexCCCCCC), for: .disabled)

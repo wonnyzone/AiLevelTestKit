@@ -49,6 +49,8 @@ class ALTBaseTestViewController: ALTBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("viewController: \(String(describing: self))")
+        
         QIndicatorViewManager.shared.hideIndicatorView()
         
         (self.navigationController as? ALLTSeniorTestNavigationController)?.isComponentHidden = false
