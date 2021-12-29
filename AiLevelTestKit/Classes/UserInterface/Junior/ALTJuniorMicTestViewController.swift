@@ -527,9 +527,6 @@ extension ALTJuniorMicTestViewController: ALTSpeechToTextManagerDelegate {
         guard text != nil else {
             _remainingRecord = remainingRecord             // 텍스트 변경
             _isRecordable = true
-            
-            _buttonNext.isEnabled = true
-            _buttonNext.superview?.isHidden = false
             return
         }
         
